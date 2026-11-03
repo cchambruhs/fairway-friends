@@ -96,7 +96,7 @@ function findColumn(headers, key) {
  *
  * @param {string} text
  * @param {{ fallbackRoundId?: string, sourceUrl?: string }} opts
- * @returns same shape as parseScorecard()
+ * @returns Array of rounds, same shape as parseScorecard()
  */
 export function parseUdiscCsv(text, opts = {}) {
   const rows = parseCsv(text);
@@ -146,57 +146,50 @@ export function parseUdiscCsv(text, opts = {}) {
 
   const byRound = new Map();
 
-  for (const r of dataRows) {
-    const at = (i) => (i === -1 || i >= r.length ? "" : String(r[i]).trim());
+  if (isLongFormat) {
+    for (const r of dataRows) {
+      const at = (i) => (i === -1 || i >= r.length ? "" : String(r[i]).trim());
 
-    const roundKey = at(col.round) || opts.fallbackRoundId || "csv-import";
+      const roundKey = at(col.round) || opts.fallbackRoundId || "csv-import";
 
-    if (!byRound.has(roundKey)) {
-      byRound.set(roundKey, {
-        sourceRoundId: roundKey,
-        sourceUrl: opts.sourceUrl ?? "",
-        sourceCourseUrl: undefined,
-        courseName: at(col.course) || undefined,
-        layout: at(col.layout) || undefined,
-        playedAt: normaliseDate(at(col.date)),
-        location: at(col.location) || undefined,
-        holes: [],
-        playersById: new Map(),
-      });
-    }
+      if (!byRound.has(roundKey)) {
+        byRound.set(roundKey, {
+          sourceRoundId: roundKey,
+          sourceUrl: opts.sourceUrl ?? "",
+          sourceCourseUrl: undefined,
+          courseName: at(col.course) || undefined,
+          layout: at(col.layout) || undefined,
+          playedAt: normaliseDate(at(col.date)),
+          location: at(col.location) || undefined,
+          holes: [],
+          playersById: new Map(),
+        });
+      }
 
-    const round = byRound.get(roundKey);
+      const round = byRound.get(roundKey);
+      const rawName = at(col.player);
+      const rawUser = at(col.username);
 
-    const rawName = at(col.player);
-    const rawUser = at(col.username);
+      // Key on the username. A display name is never an identity.
+      const handle = toHandle(rawUser);
+      if (!handle) {
+        throw new ParseError(
+          `CSV row has no UDisc username (player "${rawName}")`,
+          "That CSV is missing UDisc usernames, so players can't be matched safely."
+        );
+      }
 
-    // Key on the username. A display name is never an identity.
-    const handle = rawUser
-      ? rawUser.startsWith("@")
-        ? rawUser.toLowerCase()
-        : `@${rawUser.toLowerCase()}`
-      : null;
+      if (!round.playersById.has(handle)) {
+        round.playersById.set(handle, {
+          position: round.playersById.size + 1,
+          displayName: rawName || handle,
+          udiscUsername: handle,
+          strokes: [],
+        });
+      }
 
-    if (!handle) {
-      throw new ParseError(
-        `CSV row has no UDisc username (player "${rawName}")`,
-        "That CSV is missing UDisc usernames, so players can't be matched safely."
-      );
-    }
+      const player = round.playersById.get(handle);
 
-    if (!round.playersById.has(handle)) {
-      round.playersById.set(handle, {
-        position: round.playersById.size + 1,
-        displayName: rawName || handle,
-        udiscUsername: handle,
-        strokes: [],
-        _par: [],
-      });
-    }
-
-    const player = round.playersById.get(handle);
-
-    if (isLongFormat) {
       const holeNo = Number(at(col.hole));
       const strokes = Number(at(col.strokes));
       if (!Number.isInteger(holeNo) || holeNo < 1) continue;
@@ -204,9 +197,9 @@ export function parseUdiscCsv(text, opts = {}) {
 
       player.strokes[holeNo - 1] = strokes;
 
-      const par = Number(at(col.par));
-      const distance = Number(at(col.distance));
       if (!round.holes[holeNo - 1]) {
+        const par = Number(at(col.par));
+        const distance = Number(at(col.distance));
         round.holes[holeNo - 1] = {
           number: holeNo,
           distance: Number.isFinite(distance) ? distance : null,
@@ -214,10 +207,8 @@ export function parseUdiscCsv(text, opts = {}) {
         };
       }
     }
-  }
-
-  // Wide format: holes are individual columns named "1".."27".
-  if (!isLongFormat && byRound.size) {
+  } else {
+    // Wide format: holes are individual columns named "1".."27".
     const holeCols = [];
     headers.forEach((h, i) => {
       const n = Number(String(h).trim());
@@ -233,27 +224,40 @@ export function parseUdiscCsv(text, opts = {}) {
 
     holeCols.sort((a, b) => a.n - b.n);
 
-    for (const round of byRound.values()) {
-      round.holes = holeCols.map((hc) => ({ number: hc.n, distance: null, par: null }));
-    }
-
-    for (let i = headerIndex + 1; i < rows.length; i += 1) {
-      const r = rows[i];
-      const at = (j) => (j === -1 || j >= r.length ? "" : String(r[j]).trim());
+    for (const r of dataRows) {
+      const at = (i) => (i === -1 || i >= r.length ? "" : String(r[i]).trim());
       const roundKey = at(col.round) || opts.fallbackRoundId || "csv-import";
+
+      if (!byRound.has(roundKey)) {
+        byRound.set(roundKey, {
+          sourceRoundId: roundKey,
+          sourceUrl: opts.sourceUrl ?? "",
+          sourceCourseUrl: undefined,
+          courseName: at(col.course) || undefined,
+          layout: at(col.layout) || undefined,
+          playedAt: normaliseDate(at(col.date)),
+          location: at(col.location) || undefined,
+          holes: holeCols.map((hc) => ({ number: hc.n, distance: null, par: null })),
+          playersById: new Map(),
+        });
+      }
+
       const round = byRound.get(roundKey);
-      if (!round) continue;
+      const rawName = at(col.player);
+      const handle = toHandle(at(col.username));
+      if (!handle) continue;
 
-      const rawUser = at(col.username);
-      if (!rawUser) continue;
-      const handle = rawUser.startsWith("@") ? rawUser.toLowerCase() : `@${rawUser.toLowerCase()}`;
-      const player = round.playersById.get(handle);
-      if (!player) continue;
-
-      player.strokes = holeCols.map((hc) => {
-        const v = Number(at(hc.i));
-        return Number.isInteger(v) && v > 0 ? v : null;
-      });
+      if (!round.playersById.has(handle)) {
+        round.playersById.set(handle, {
+          position: round.playersById.size + 1,
+          displayName: rawName || handle,
+          udiscUsername: handle,
+          strokes: holeCols.map((hc) => {
+            const v = Number(at(hc.i));
+            return Number.isInteger(v) && v > 0 ? v : null;
+          }),
+        });
+      }
     }
   }
 
@@ -261,10 +265,11 @@ export function parseUdiscCsv(text, opts = {}) {
   const rounds = [];
   for (const round of byRound.values()) {
     const holes = round.holes.filter(Boolean);
+    const parSum = holes.reduce((a, h) => a + (h.par ?? 0), 0);
+
     const players = Array.from(round.playersById.values()).map((p) => {
       const strokes = p.strokes.filter((s) => Number.isInteger(s));
       const summed = strokes.reduce((a, b) => a + b, 0);
-      const parSum = holes.reduce((a, h) => a + (h.par ?? 0), 0);
       return {
         position: p.position,
         displayName: p.displayName,
@@ -293,6 +298,12 @@ export function parseUdiscCsv(text, opts = {}) {
   }
 
   return rounds;
+}
+
+function toHandle(raw) {
+  const v = String(raw ?? "").trim();
+  if (!v) return null;
+  return v.startsWith("@") ? v.toLowerCase() : `@${v.toLowerCase()}`;
 }
 
 /** "2026-10-20" or "10/20/2026" -> ISO string. undefined when unparseable. */
