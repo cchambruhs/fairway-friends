@@ -197,12 +197,12 @@ test("tiebreak chain: wins, then seconds, then average placement", () => {
   // Equal points; a has more wins -> a ranks first.
   const byWins = buildStandings([
     { playerId: "a", position: 1, points: 25, strokes: 45, finalized: true },
-    { playerId: "a", position: 4, points: 13, strokes: 55, finalized: true },
+    { playerId: "a", position: 5, points: 11, strokes: 55, finalized: true },
     { playerId: "b", position: 2, points: 20, strokes: 46, finalized: true },
     { playerId: "b", position: 3, points: 16, strokes: 48, finalized: true },
   ]).official;
-  assert.equal(byWins[0].points, 38);
-  assert.equal(byWins[1].points, 38);
+  assert.equal(byWins[0].points, 36);
+  assert.equal(byWins[1].points, 36);
   assert.equal(byWins[0].playerId, "a"); // 1 win vs 0
   assert.equal(byWins[0].wins, 1);
 
@@ -210,8 +210,9 @@ test("tiebreak chain: wins, then seconds, then average placement", () => {
   const bySeconds = buildStandings([
     { playerId: "a", position: 2, points: 20, strokes: 46, finalized: true },
     { playerId: "a", position: 5, points: 11, strokes: 57, finalized: true },
-    { playerId: "b", position: 1, points: 25, strokes: 45, finalized: true },
-    { playerId: "b", position: 8, points: 6, strokes: 60, finalized: true },
+    { playerId: "b", position: 3, points: 16, strokes: 48, finalized: true },
+    { playerId: "b", position: 6, points: 10, strokes: 56, finalized: true },
+    { playerId: "b", position: 11, points: 5, strokes: 60, finalized: true },
   ]).official;
   assert.equal(bySeconds[0].playerId, "a");
   assert.equal(bySeconds[0].seconds, 1);
@@ -253,3 +254,4 @@ test("a missed round adds nothing rather than penalising", () => {
 test("standings reject a non-array", () => {
   assert.throws(() => buildStandings(null), TypeError);
 });
+

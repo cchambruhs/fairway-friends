@@ -1,0 +1,3 @@
+import {linkPlayer} from '../../../lib/store';
+import {authorize,failure,readBody} from '../../../lib/api';
+export async function POST(request:Request){const denied=await authorize(request);if(denied)return denied;try{const body=await readBody(request,5000);const number=String(body.pdgaNumber||'').trim().replace(/^#/,'');if(number&&!/^[1-9]\d{0,8}$/.test(number))throw new Error('Enter a valid PDGA member number.');if(typeof body.username!=='string'||body.username.length>100||typeof body.fullName!=='string'||body.fullName.length>150)throw new Error('Check the player details.');return Response.json(await linkPlayer(body.username,number||null,body.fullName.trim()));}catch(e){return failure(e);}}

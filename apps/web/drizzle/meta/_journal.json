@@ -1,0 +1,56 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1793133519387,
+      "tag": "0000_flippant_talisman",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1793140494017,
+      "tag": "0001_long_black_cat",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1793140790940,
+      "tag": "0002_neat_roulette",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1793185381347,
+      "tag": "0003_parched_phantom_reporter",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1793187404551,
+      "tag": "0004_equal_venom",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1793188120915,
+      "tag": "0005_wild_marauders",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1793189839274,
+      "tag": "0006_yummy_dark_beast",
+      "breakpoints": true
+    },
+    {"idx":7,"version":"6","when":1793977200000,"tag":"0007_clubhouses","breakpoints":true}
+  ]
+}

@@ -48,3 +48,4 @@ The v2.0 PRD's section 14 lists these as unresolved, and this scaffold does not 
 - Processor fees, refunds and chargebacks, and payment-provider restrictions.
 
 `docs/OPEN-ISSUES.md` records that these are open. Resolving them is a product and legal decision, not an engineering one.
+

@@ -55,3 +55,4 @@ The acceptance test, run end to end and reported honestly:
 3. Confirm with a real database readback, not with a success message.
 
 **A claim of success without a saved scorecard behind it is not success.**
+

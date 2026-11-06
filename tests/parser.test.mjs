@@ -32,18 +32,18 @@ const REFERENCE_URL = `https://udisc.com/scorecards/scorecard_${REFERENCE_ID}`;
 
 const HOLES = [
   [1, 213, 3], [2, 275, 3], [3, 180, 3], [4, 265, 4], [5, 205, 3],
-  [6, 240, 3], [7, 310, 4], [8, 165, 3], [9, 230, 3], [10, 255, 3],
-  [11, 190, 3], [12, 285, 4], [13, 210, 3], [14, 175, 3], [15, 260, 4],
+  [6, 240, 3], [7, 310, 3], [8, 165, 3], [9, 230, 3], [10, 255, 3],
+  [11, 190, 3], [12, 285, 3], [13, 210, 3], [14, 175, 3], [15, 260, 3],
   [16, 195, 3], [17, 225, 3], [18, 220, 3],
 ];
 
-// Totals per the PRD: 45 / 46 / 50 / 51 / 53 on a par-55 layout.
+// Synthetic per-hole scores (not a capture of real play). Totals per the PRD: 45 / 46 / 50 / 51 / 53 on a par-55 layout.
 const PLAYERS = [
-  { pos: 1, name: "Devin Devin", handle: "@devin47", strokes: [2,3,2,3,2,2,3,2,2,3,2,3,2,2,3,2,2,3], total: 45, toPar: -10 },
-  { pos: 2, name: "Dad", handle: "@cchambruhs", strokes: [3,3,2,3,2,3,3,2,3,2,3,3,2,3,3,2,3,2], total: 46, toPar: -9 },
-  { pos: 3, name: "Mdub1807", handle: "@mdub1807", strokes: [3,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3], total: 50, toPar: -5 },
-  { pos: 4, name: "Will", handle: "@rashad032", strokes: [3,3,3,3,3,3,4,3,3,3,3,3,3,3,4,3,3,3], total: 51, toPar: -4 },
-  { pos: 5, name: "TG", handle: "@mk3492", strokes: [3,3,3,3,3,3,4,3,3,3,3,4,3,3,4,3,3,3], total: 53, toPar: -2 },
+  { pos: 1, name: "Devin Devin", handle: "@devin47", strokes: [2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3], total: 45, toPar: -10 },
+  { pos: 2, name: "Dad", handle: "@cchambruhs", strokes: [2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3], total: 46, toPar: -9 },
+  { pos: 3, name: "Mdub1807", handle: "@mdub1807", strokes: [2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3], total: 50, toPar: -5 },
+  { pos: 4, name: "Will", handle: "@rashad032", strokes: [2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3], total: 51, toPar: -4 },
+  { pos: 5, name: "TG", handle: "@mk3492", strokes: [2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3], total: 53, toPar: -2 },
 ];
 
 function holeCell([number, distance, par]) {
@@ -121,7 +121,7 @@ test("accepts www and a trailing slash", () => {
 test("rejects a lookalike host (SSRF guard)", () => {
   assert.throws(
     () => normaliseScorecardUrl(`https://udisc.com.attacker.example/scorecards/scorecard_${REFERENCE_ID}`),
-    /UDisc scorecard link/
+    { name: "InvalidScorecardLinkError" }
   );
 });
 
@@ -297,3 +297,4 @@ test("assertRoundIsComplete rejects a strokes/total mismatch", () => {
   round.players[0].totalStrokes = 999;
   assert.throws(() => assertRoundIsComplete(round));
 });
+

@@ -22,3 +22,11 @@ Thumbs.db
 coverage/
 .turbo/
 .vercel/
+
+
+.env*
+.dev.vars*
+.wrangler/
+.sites-runtime/
+.vinext/
+*.tsbuildinfo

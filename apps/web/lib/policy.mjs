@@ -1,0 +1,2 @@
+export function isOwner(user,ownerEmail){return !!(user?.userId&&user?.email&&ownerEmail&&user.email.trim().toLowerCase()===ownerEmail.trim().toLowerCase());}
+export function checkPublicBody(body){if(!body||typeof body!=='object'||Array.isArray(body)||typeof body.url!=='string'||body.url.length>500||Object.keys(body).some(k=>k!=='url'&&k!=='refresh')||body.refresh)throw new Error('Public imports accept a shared UDisc card link only. CSV and refresh require the owner.');return body;}

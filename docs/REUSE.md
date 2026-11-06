@@ -43,3 +43,4 @@ The durable win from other projects is not source, it is **shape knowledge**:
 This repository is currently `UNLICENSED` (all rights reserved) and private. No third-party source is vendored, so no upstream licence obligations attach. If that changes — if code is ever copied in — the licence and attribution line belongs in this file at the moment of copying, not later.
 
 Before making the repository public, re-check every dependency's licence. It is cheap now and expensive after a release.
+

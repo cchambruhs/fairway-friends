@@ -94,3 +94,4 @@ DROP TRIGGER IF EXISTS scorecard_players_stroke_count_guard ON scorecard_players
 CREATE TRIGGER scorecard_players_stroke_count_guard
   BEFORE INSERT OR UPDATE ON scorecard_players
   FOR EACH ROW EXECUTE FUNCTION assert_strokes_match_holes();
+

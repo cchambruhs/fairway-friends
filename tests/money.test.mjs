@@ -131,9 +131,9 @@ test("proportional prizes sum to the pool after rounding", () => {
     ],
   });
   assert.equal(out.reduce((a, b) => a + b.cents, 0), 5730);
-  // 60% -> 343.8 -> 344; 25% -> 143.3 -> 143; 15% -> 85.95 -> 86 = 573
+  // Rounded cents: 3438 + 1433 + 860 = 5731; subtract residual cent from first.
   // residual cent lands on the highest position.
-  assert.equal(out[0].cents, 344);
+  assert.deepEqual(out.map(p => p.cents), [3437, 1433, 860]);
 });
 
 test("prize distribution rejects an unknown method and empty positions", () => {
@@ -167,3 +167,4 @@ test("money movement is hard-disabled pending legal and provider sign-off", () =
     MoneyMovementDisabledError
   );
 });
+

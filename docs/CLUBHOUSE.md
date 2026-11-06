@@ -36,3 +36,4 @@ A real Messenger integration requires a Meta app, app review, and platform appro
 ## Ordering
 
 After the fetch is verified, the acceptance test passes with a real database readback, and the historical CSV is imported and deduplicated. Clubhouse features on top of an unproven import would multiply the debugging surface.
+

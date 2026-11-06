@@ -262,15 +262,13 @@ export function parseLayout(html) {
  * item can never land in the location column.
  */
 export function parseLocation(html) {
-  const m =
-    /([A-Z][A-Za-z.\-']+(?:\s+[A-Z][A-Za-z.\-']+)*),\s*([A-Z][A-Za-z.\-']+(?:\s+[A-Z][A-Za-z.\-']+)*)/.exec(
-      textOf(html)
-    );
-  if (!m) return undefined;
-  const city = m[1].trim();
-  const region = m[2].trim();
-  if (/UDisc|Sign|Log|Scorecard/i.test(city)) return undefined;
-  return `${city}, ${region}`;
+  // Preserve element boundaries so neighboring date/table text cannot become location.
+  const candidates = String(html).split(/<\/?(?:div|p|span|td|th|h[1-6]|br)\b[^>]*>/i);
+  for (const candidate of candidates) {
+    const m = /^([A-Z][A-Za-z.\-']+(?:\s+[A-Z][A-Za-z.\-']+)*),\s*([A-Z][A-Za-z.\-']+(?:\s+[A-Z][A-Za-z.\-']+)*)$/.exec(textOf(candidate));
+    if (m && !/UDisc|Sign|Log|Scorecard/i.test(m[1])) return `${m[1]}, ${m[2]}`;
+  }
+  return undefined;
 }
 
 /**
@@ -374,9 +372,14 @@ export function parseScorecard(html, url) {
     // Ignore the weather row. Explicit, because it sits inside the same table.
     if (looksLikeWeatherRow(cells)) continue;
 
-    // A player row carries a @handle. Rows without one are skipped, never guessed.
+    // A scoring row without a handle must fail rather than silently lose a player.
     const handleIndex = cells.findIndex((c) => /@[A-Za-z0-9_.-]{1,64}/.test(c));
-    if (handleIndex === -1) continue;
+    if (handleIndex === -1) {
+      if (/^\d+$/.test(cells[0]) && cells.length >= holeCount + 2) {
+        throw new ParseError("Scoring row has no UDisc handle", "Couldn’t read a player's UDisc username on that card.");
+      }
+      continue;
+    }
 
     // Position: leading integer cell before the name.
     let position = players.length + 1;
@@ -498,3 +501,4 @@ export async function fetchScorecardPage(url, { timeoutMs = 15000, fetchImpl = f
     clearTimeout(timer);
   }
 }
+
