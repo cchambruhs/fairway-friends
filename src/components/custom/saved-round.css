@@ -1,0 +1,525 @@
+/* @polsia:user-owned — live scorecard and saved round history styling. */
+.ff-saved-round-start,
+.ff-saved-round-history,
+.ff-saved-round-editor,
+.ff-saved-round-live,
+.ff-saved-round-hole-card,
+.ff-saved-round-error {
+  min-width: 0;
+}
+
+.ff-saved-round-start,
+.ff-saved-round-history,
+.ff-saved-round-live,
+.ff-saved-round-hole-card,
+.ff-saved-round-error {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+  color: var(--card-foreground);
+  box-shadow: var(--shadow-sm);
+}
+
+.ff-saved-round-start > header,
+.ff-saved-round-history-heading,
+.ff-saved-round-editor-heading,
+.ff-saved-round-live-heading,
+.ff-saved-round-editor-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.ff-saved-round-start h2,
+.ff-saved-round-history h2,
+.ff-saved-round-editor h1,
+.ff-saved-round-live h2,
+.ff-saved-round-hole-card h2,
+.ff-saved-round-error h1 {
+  margin: 0;
+  color: var(--foreground);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.ff-saved-round-start header > div > p:last-child,
+.ff-saved-round-editor-heading > div > p:last-child,
+.ff-saved-round-live-heading > p,
+.ff-saved-round-hole-card header > p:last-child {
+  margin: 0.4rem 0 0;
+  color: var(--muted-foreground);
+  line-height: 1.55;
+}
+
+.ff-saved-round-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.ff-saved-round-form > label,
+.ff-saved-round-form-grid > label {
+  display: grid;
+  gap: 0.5rem;
+  min-width: 0;
+  color: var(--foreground);
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
+.ff-saved-round-form label > span {
+  color: var(--muted-foreground);
+  font-weight: 400;
+}
+
+.ff-saved-round-form input:not([type="checkbox"]),
+.ff-saved-round-form select,
+.ff-saved-round-hole-heading select,
+.ff-saved-round-hole-scores input {
+  width: 100%;
+  min-width: 0;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--input);
+  border-radius: 0.7rem;
+  background: var(--background);
+  color: var(--foreground);
+  font: inherit;
+}
+
+.ff-saved-round-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.ff-saved-round-custom-layout {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  background: var(--background);
+}
+
+.ff-saved-round-layout-preview {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, var(--border));
+  border-radius: 0.8rem;
+  background: color-mix(in srgb, var(--primary) 6%, var(--card));
+}
+
+.ff-saved-round-layout-preview span,
+.ff-saved-round-players > p,
+.ff-saved-round-players > span {
+  color: var(--muted-foreground);
+  font-size: 0.84rem;
+}
+
+.ff-saved-round-pars,
+.ff-saved-round-players {
+  min-width: 0;
+  margin: 0;
+  padding: 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+}
+
+.ff-saved-round-pars legend,
+.ff-saved-round-players legend {
+  padding-inline: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.ff-saved-round-pars > div {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.ff-saved-round-pars label {
+  display: grid;
+  gap: 0.3rem;
+  min-width: 0;
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+}
+
+.ff-saved-round-pars input {
+  text-align: center;
+}
+
+.ff-saved-round-players > p {
+  margin: 0 0 0.75rem;
+}
+
+.ff-saved-round-players > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.ff-saved-round-players label {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.7rem;
+  background: var(--background);
+  font-size: 0.88rem;
+}
+
+.ff-saved-round-players input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--primary);
+}
+
+.ff-saved-round-history-heading a,
+.ff-saved-round-open,
+.ff-saved-round-editor-footer a {
+  color: var(--primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-underline-offset: 0.2em;
+}
+
+.ff-saved-round-history-list {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ff-saved-round-history-list > li {
+  display: grid;
+  grid-template-columns: minmax(10rem, 1.1fr) minmax(10rem, 1fr) minmax(12rem, auto) auto;
+  align-items: center;
+  gap: 0.9rem;
+  min-width: 0;
+  padding: 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  background: var(--background);
+}
+
+.ff-saved-round-history-main,
+.ff-saved-round-history-players {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.ff-saved-round-history-main p,
+.ff-saved-round-history-main h3 {
+  margin: 0;
+}
+
+.ff-saved-round-history-main p,
+.ff-saved-round-history-main > span,
+.ff-saved-round-history-players,
+.ff-saved-round-history-empty {
+  color: var(--muted-foreground);
+  font-size: 0.82rem;
+}
+
+.ff-saved-round-history-main h3 {
+  color: var(--foreground);
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.ff-saved-round-history-players span {
+  overflow-wrap: anywhere;
+}
+
+.ff-saved-round-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--foreground);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.ff-saved-round-badge.is-progress {
+  border-color: color-mix(in srgb, var(--primary) 34%, var(--border));
+  background: color-mix(in srgb, var(--primary) 8%, var(--card));
+}
+
+.ff-saved-round-badge.is-finalized {
+  border-color: color-mix(in srgb, var(--primary) 55%, var(--border));
+  background: color-mix(in srgb, var(--primary) 13%, var(--card));
+}
+
+.ff-saved-round-editor {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 74rem);
+  margin-inline: auto;
+}
+
+.ff-saved-round-editor-heading {
+  align-items: center;
+  padding: 0.5rem 0 0.3rem;
+}
+
+.ff-saved-round-editor-heading h1 {
+  margin-top: 0.2rem;
+  font-size: clamp(1.8rem, 5vw, 2.75rem);
+  line-height: 1.1;
+}
+
+.ff-saved-round-notice,
+.ff-saved-round-save-state {
+  margin: 0;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 25%, var(--border));
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--primary) 6%, var(--card));
+  color: var(--muted-foreground);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.ff-saved-round-live-heading {
+  align-items: flex-end;
+}
+
+.ff-saved-round-live-heading > p {
+  text-align: right;
+  font-size: 0.82rem;
+}
+
+.ff-saved-round-live ol {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ff-saved-round-live li {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr) auto auto auto;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--background);
+}
+
+.ff-saved-round-position {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.65rem;
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  font-size: 0.8rem;
+  font-weight: 750;
+}
+
+.ff-saved-round-live li > span:not(.ff-saved-round-position) {
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.ff-saved-round-live li > b {
+  color: var(--foreground);
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.ff-saved-round-hole-heading {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.ff-saved-round-hole-heading select {
+  min-height: 2.5rem;
+}
+
+.ff-saved-round-hole-card > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 0.7rem;
+}
+
+.ff-saved-round-hole-card > header > p {
+  text-align: right;
+  font-size: 0.8rem;
+}
+
+.ff-saved-round-hole-scores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.7rem;
+}
+
+.ff-saved-round-hole-scores label {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 4rem;
+  align-items: center;
+  gap: 0.25rem 0.6rem;
+  min-width: 0;
+  padding: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  background: var(--background);
+  font-weight: 650;
+}
+
+.ff-saved-round-hole-scores label > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.ff-saved-round-hole-scores input {
+  grid-row: span 2;
+  min-height: 3.1rem;
+  padding: 0.45rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.ff-saved-round-hole-scores small {
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+}
+
+.ff-saved-round-save-state {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.ff-saved-round-editor-footer {
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0.25rem 0;
+}
+
+.ff-saved-round-editor-footer > span {
+  color: var(--muted-foreground);
+  font-size: 0.82rem;
+}
+
+.ff-saved-round-error {
+  width: min(100%, 40rem);
+  margin-inline: auto;
+}
+
+.ff-saved-round-error > a {
+  width: fit-content;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.ff-saved-round-history-empty,
+.ff-saved-round-load-error > p {
+  margin: 0;
+}
+
+.ff-saved-round-load-error {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+@media (max-width: 700px) {
+  .ff-saved-round-form-grid,
+  .ff-saved-round-players > div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ff-saved-round-pars > div {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ff-saved-round-history-list > li {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .ff-saved-round-history-main,
+  .ff-saved-round-history-players {
+    grid-column: 1 / -1;
+  }
+
+  .ff-saved-round-history-list .ff-saved-round-open {
+    justify-self: end;
+    text-align: right;
+  }
+
+  .ff-saved-round-live-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ff-saved-round-live-heading > p {
+    margin-top: 0;
+    text-align: left;
+  }
+
+  .ff-saved-round-live li {
+    grid-template-columns: 2rem minmax(0, 1fr) auto;
+    gap: 0.45rem 0.65rem;
+  }
+
+  .ff-saved-round-live li > span:nth-of-type(2) {
+    grid-column: 2;
+  }
+
+  .ff-saved-round-live li > b {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .ff-saved-round-live li > span:last-child {
+    grid-column: 3;
+  }
+
+  .ff-saved-round-hole-heading {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .ff-saved-round-hole-heading label {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .ff-saved-round-hole-heading button {
+    width: 100%;
+    white-space: normal;
+  }
+
+  .ff-saved-round-editor-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

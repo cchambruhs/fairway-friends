@@ -1,0 +1,43 @@
+// @polsia:user-owned — resumable live rounds with separate casual and league verification.
+
+model SavedRound {
+  id                 String                  @id @default(cuid())
+  createdByUserId    String
+  courseName         String?
+  layoutName         String?
+  courseLayoutId     String?
+  courseLayout       CourseLayout?           @relation(fields: [courseLayoutId], references: [id], onDelete: SetNull)
+  leagueId           String?
+  league             League?                 @relation(fields: [leagueId], references: [id], onDelete: SetNull)
+  playedOn           DateTime                @db.Date
+  holePars           Json
+  status             String                  @default("IN_PROGRESS")
+  verificationStatus String                  @default("NOT_FINALIZED")
+  finalizedAt        DateTime?
+  verifiedAt         DateTime?
+  verifiedByUserId   String?
+  revision           Int                     @default(0)
+  participants       SavedRoundParticipant[]
+  createdAt          DateTime                @default(now())
+  updatedAt          DateTime                @updatedAt
+
+  @@index([createdByUserId, status, updatedAt])
+  @@index([leagueId, status, playedOn])
+  @@index([playedOn])
+  @@map("saved_round")
+}
+
+model SavedRoundParticipant {
+  id          String     @id @default(cuid())
+  roundId     String
+  userId      String
+  displayName String
+  sourceOrder Int
+  holeScores  Json
+  round       SavedRound @relation(fields: [roundId], references: [id], onDelete: Cascade)
+
+  @@unique([roundId, userId])
+  @@unique([roundId, sourceOrder])
+  @@index([userId, roundId])
+  @@map("saved_round_participant")
+}

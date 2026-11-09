@@ -1,0 +1,1152 @@
+/* @polsia:user-owned — Fairway Friends member workspace and player profile. */
+
+.ff-workspace {
+  min-height: 100dvh;
+  background:
+    radial-gradient(
+      ellipse at 78% 0%,
+      color-mix(in srgb, var(--primary) 8%, transparent),
+      transparent 34rem
+    ), var(--background);
+}
+
+.ff-workspace-header {
+  position: sticky;
+  z-index: 30;
+  top: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 78%, transparent);
+  background: color-mix(in srgb, var(--background) 93%, transparent);
+  backdrop-filter: blur(16px);
+}
+
+.ff-workspace-header-inner {
+  display: grid;
+  min-height: 4.5rem;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.ff-workspace-brand {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.ff-workspace-brand > span:last-child {
+  letter-spacing: -0.045em;
+}
+
+.ff-workspace-brand > span:last-child span {
+  font-weight: 450;
+}
+
+.ff-workspace-mark {
+  display: grid;
+  width: 2.35rem;
+  height: 2.35rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, var(--border));
+  border-radius: 50%;
+  color: var(--primary);
+}
+
+.ff-dashboard-nav {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.2rem;
+}
+
+.ff-dashboard-nav-link {
+  display: inline-flex;
+  min-height: 2.65rem;
+  min-width: 0;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: calc(var(--radius) + 0.15rem);
+  padding: 0.55rem 0.75rem;
+  color: var(--muted-foreground);
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    border-color 150ms ease;
+  white-space: nowrap;
+}
+
+.ff-dashboard-nav-link:hover,
+.ff-dashboard-nav-link.is-active {
+  border-color: color-mix(in srgb, var(--primary) 17%, var(--border));
+  background: color-mix(in srgb, var(--primary) 9%, var(--card));
+  color: var(--foreground);
+}
+
+.ff-dashboard-nav-link:focus-visible,
+.ff-workspace-menu-toggle:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.ff-dashboard-nav-link svg {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+  color: var(--primary);
+}
+
+.ff-workspace-menu-toggle {
+  display: none;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 0.15rem);
+  padding-inline: 0.75rem;
+  background: var(--card);
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.ff-workspace-menu-toggle svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.ff-workspace-body {
+  display: block;
+  min-width: 0;
+  padding-top: clamp(1.25rem, 3vw, 2.5rem);
+  padding-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.ff-workspace-content,
+.ff-overview,
+.ff-overview-sections {
+  width: 100%;
+  min-width: 0;
+}
+
+.ff-player-identity-notice {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  gap: 0.6rem;
+  margin-block: 0 1rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border));
+  border-radius: calc(var(--radius) + 0.1rem);
+  padding: 0.75rem 0.9rem;
+  background: color-mix(in srgb, var(--primary) 5%, var(--card));
+  color: var(--foreground);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.ff-player-identity-notice p {
+  margin: 0;
+}
+
+.ff-profile-loading {
+  display: grid;
+  min-height: 16rem;
+  place-items: center;
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+}
+
+.ff-player-profile {
+  display: grid;
+  width: 100%;
+  max-width: 880px;
+  gap: 1.25rem;
+  margin: 0 auto;
+}
+
+.ff-player-profile-heading {
+  max-width: 42rem;
+  padding: clamp(0.15rem, 1vw, 0.8rem) 0 0.25rem;
+}
+
+.ff-player-profile-kicker,
+.ff-profile-kicker,
+.ff-profile-section-kicker {
+  margin: 0;
+  color: var(--primary);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+}
+
+.ff-player-profile-heading h1,
+.ff-overview-welcome h1 {
+  margin: 0.45rem 0 0.5rem;
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 650;
+  letter-spacing: -0.065em;
+  line-height: 1.05;
+}
+
+.ff-player-profile-heading > p:last-child,
+.ff-overview-welcome > p:not(.ff-profile-kicker) {
+  max-width: 39rem;
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.ff-profile-source-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border: 1px solid color-mix(in srgb, #d8b66c 26%, var(--border));
+  border-radius: calc(var(--radius) + 0.15rem);
+  padding: 0.9rem 1rem;
+  background: color-mix(in srgb, #d8b66c 7%, var(--card));
+  color: var(--muted-foreground);
+  font-size: 0.83rem;
+  line-height: 1.55;
+}
+
+.ff-profile-source-note svg {
+  flex: 0 0 auto;
+  margin-top: 0.08rem;
+  color: #a27d35;
+}
+
+.dark .ff-profile-source-note svg {
+  color: #d8b66c;
+}
+
+.ff-profile-source-note p {
+  margin: 0;
+}
+
+.ff-player-ratings {
+  display: grid;
+  gap: 1rem;
+}
+
+.ff-player-ratings-heading h2 {
+  margin: 0.3rem 0 0.25rem;
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 650;
+  letter-spacing: -0.045em;
+}
+
+.ff-player-ratings-heading > p:last-child {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.ff-player-ratings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.ff-player-rating-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid color-mix(in srgb, var(--border) 88%, transparent);
+  border-radius: calc(var(--radius) + 0.3rem);
+  padding: clamp(1rem, 2.5vw, 1.35rem);
+  background: color-mix(in srgb, var(--card) 97%, var(--background));
+  box-shadow: var(--shadow-sm);
+}
+
+.ff-player-rating-topline {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.8rem;
+}
+
+.ff-player-rating-icon {
+  display: grid;
+  width: 2.35rem;
+  height: 2.35rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--primary) 24%, var(--border));
+  border-radius: 0.8rem;
+  background: color-mix(in srgb, var(--primary) 8%, var(--background));
+  color: var(--primary);
+}
+
+.ff-player-rating-icon-gold {
+  border-color: color-mix(in srgb, #d8b66c 32%, var(--border));
+  background: color-mix(in srgb, #d8b66c 11%, var(--background));
+  color: #805c16;
+}
+
+.dark .ff-player-rating-icon-gold {
+  color: #d8b66c;
+}
+
+.ff-player-rating-topline p {
+  margin: 0;
+}
+
+.ff-player-rating-card h3 {
+  margin: 0;
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+}
+
+.ff-player-rating-value {
+  margin: 0.85rem 0 0.35rem;
+  color: var(--foreground);
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.ff-player-rating-description {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.ff-player-rating-source {
+  display: grid;
+  width: 100%;
+  gap: 0.2rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+  font-size: 0.73rem;
+  line-height: 1.45;
+}
+
+.ff-player-profile .ff-player-rating-source span {
+  color: var(--muted-foreground);
+}
+
+.ff-player-rating-source strong {
+  color: var(--foreground);
+  font-weight: 650;
+}
+
+.ff-player-rating-link {
+  display: inline-flex;
+  min-height: 2.65rem;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.45rem;
+  color: var(--primary);
+  font-size: 0.82rem;
+  font-weight: 650;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.ff-player-rating-link:focus-visible {
+  border-radius: 0.2rem;
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+.ff-profile-form {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.ff-profile-section {
+  min-width: 0;
+  border: 1px solid color-mix(in srgb, var(--border) 88%, transparent);
+  border-radius: calc(var(--radius) + 0.35rem);
+  padding: clamp(1rem, 2.7vw, 1.65rem);
+  background: color-mix(in srgb, var(--card) 96%, var(--background));
+  box-shadow: var(--shadow-sm);
+}
+
+.ff-profile-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.4rem;
+}
+
+.ff-profile-section-icon {
+  display: grid;
+  width: 2.55rem;
+  height: 2.55rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--primary) 24%, var(--border));
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--primary) 8%, var(--background));
+  color: var(--primary);
+}
+
+.ff-profile-section-icon-gold {
+  border-color: color-mix(in srgb, #d8b66c 32%, var(--border));
+  background: color-mix(in srgb, #d8b66c 11%, var(--background));
+  color: #9a7429;
+}
+
+.dark .ff-profile-section-icon-gold {
+  color: #d8b66c;
+}
+
+.ff-profile-section-heading h2 {
+  margin: 0.1rem 0 0;
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 650;
+  letter-spacing: -0.04em;
+}
+
+.ff-profile-section-heading > div > p:last-child:not(.ff-profile-section-kicker) {
+  margin: 0.2rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.82rem;
+}
+
+.ff-profile-photo-row {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1.15rem;
+  margin: 0 0 1.5rem;
+  padding: 0 0 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.ff-player-photo {
+  display: grid;
+  width: 6rem;
+  height: 6rem;
+  overflow: hidden;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border));
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--primary) 9%, var(--background));
+  color: var(--primary);
+}
+
+.ff-player-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ff-profile-photo-control {
+  display: grid;
+  min-width: 0;
+  gap: 0.5rem;
+}
+
+.ff-profile-photo-control > div:first-child {
+  min-width: 0;
+  gap: 0.4rem;
+}
+
+.ff-profile-photo-control > div:first-child > label:first-child {
+  color: var(--foreground);
+  font-size: 0.83rem;
+  font-weight: 650;
+}
+
+.ff-profile-photo-control > div:first-child > label:last-of-type {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 2.85rem;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.65rem;
+  border-style: solid;
+  border-color: var(--border);
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+}
+
+.ff-profile-photo-control > div:first-child > label:last-of-type > span:first-child {
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  box-shadow: none;
+}
+
+.ff-profile-photo-control > div:first-child > label:last-of-type > span:nth-child(2) {
+  min-width: 0;
+  flex: 1 1 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ff-profile-photo-control > div:first-child > label:last-of-type > span:nth-child(3) {
+  display: none;
+}
+
+.ff-profile-remove-photo {
+  justify-self: start;
+  color: var(--muted-foreground);
+}
+
+.ff-profile-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.ff-profile-field {
+  display: grid;
+  min-width: 0;
+  align-content: start;
+  gap: 0.45rem;
+}
+
+.ff-profile-field-wide {
+  grid-column: 1 / -1;
+}
+
+.ff-profile-field label {
+  color: var(--foreground);
+  font-size: 0.83rem;
+  font-weight: 620;
+}
+
+.ff-profile-field label :where(span) {
+  color: var(--muted-foreground);
+  font-weight: 450;
+}
+
+.ff-profile-field input,
+.ff-profile-field textarea {
+  min-height: 2.8rem;
+  border-color: color-mix(in srgb, var(--border) 90%, transparent);
+  border-radius: 0.65rem;
+  background: var(--background);
+  box-shadow: none;
+}
+
+.ff-profile-field textarea {
+  min-height: 7rem;
+  padding-top: 0.7rem;
+  line-height: 1.55;
+}
+
+.ff-profile-field input:focus-visible,
+.ff-profile-field textarea:focus-visible {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 18%, transparent);
+}
+
+.ff-profile-field input[aria-invalid="true"] {
+  border-color: var(--destructive);
+}
+
+.ff-profile-field-footnote {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+}
+
+.ff-profile-field-error {
+  margin: 0;
+  color: var(--destructive);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+.ff-profile-discs-heading {
+  align-items: flex-start;
+}
+
+.ff-profile-count {
+  margin-left: auto;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.25rem 0.55rem;
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.ff-disc-empty-state {
+  display: flex;
+  min-height: 5rem;
+  align-items: center;
+  gap: 0.7rem;
+  border: 1px dashed var(--border);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  color: var(--muted-foreground);
+}
+
+.ff-disc-empty-state svg {
+  flex: 0 0 auto;
+  color: var(--primary);
+}
+
+.ff-disc-empty-state p {
+  margin: 0;
+  font-size: 0.83rem;
+}
+
+.ff-disc-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ff-disc-item {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr) 2.6rem;
+  align-items: start;
+  gap: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  padding: 0.85rem;
+  background: color-mix(in srgb, var(--background) 70%, var(--card));
+}
+
+.ff-disc-rank {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--primary) 24%, var(--border));
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--primary) 8%, var(--background));
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+}
+
+.ff-disc-fields {
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.ff-disc-fields legend {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.ff-disc-fields .ff-profile-fields {
+  gap: 0.75rem;
+}
+
+.ff-disc-actions {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.ff-disc-actions button {
+  width: 2.35rem;
+  height: 2.35rem;
+}
+
+.ff-profile-add-disc {
+  margin-top: 0.9rem;
+  border-color: color-mix(in srgb, var(--primary) 35%, var(--border));
+  color: var(--primary);
+}
+
+.ff-profile-save-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+  border-radius: calc(var(--radius) + 0.2rem);
+  padding: 0.75rem 0.9rem 0.75rem 1rem;
+  background: color-mix(in srgb, var(--background) 94%, transparent);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(14px);
+}
+
+.ff-profile-save-row p {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.78rem;
+}
+
+.ff-profile-save-button {
+  flex: 0 0 auto;
+  min-height: 2.75rem;
+  padding-inline: 1.1rem;
+  font-weight: 700;
+}
+
+.ff-overview {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.ff-overview-welcome {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, var(--border));
+  border-radius: calc(var(--radius) + 0.55rem);
+  padding: clamp(1.25rem, 3.5vw, 2.4rem);
+  background:
+    radial-gradient(
+      ellipse at 90% 20%,
+      color-mix(in srgb, var(--primary) 13%, transparent),
+      transparent 30rem
+    ), color-mix(in srgb, var(--card) 95%, var(--background));
+  box-shadow: var(--shadow-sm);
+}
+
+.ff-overview-welcome h1 {
+  max-width: 48rem;
+  font-size: clamp(2rem, 4.8vw, 3.35rem);
+}
+
+.ff-overview-action {
+  min-height: 2.8rem;
+  margin-top: 1.25rem;
+  font-weight: 700;
+}
+
+.ff-overview-action svg:last-child {
+  margin-left: 0.25rem;
+}
+
+.ff-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.ff-overview-grid > div {
+  border-color: color-mix(in srgb, var(--border) 86%, transparent);
+  border-radius: calc(var(--radius) + 0.3rem);
+  background: color-mix(in srgb, var(--card) 97%, var(--background));
+  box-shadow: var(--shadow-sm);
+}
+
+.ff-overview-sections {
+  display: grid;
+  min-width: 0;
+  gap: 1.1rem;
+}
+
+.ff-overview-section,
+.ff-profile-import-history-link {
+  min-width: 0;
+  border: 1px solid color-mix(in srgb, var(--primary) 18%, var(--border));
+  border-radius: calc(var(--radius) + 0.4rem);
+  padding: clamp(1rem, 2.6vw, 1.4rem);
+  background: color-mix(in srgb, var(--card) 97%, var(--background));
+  box-shadow: var(--shadow-xs);
+}
+
+.ff-overview-section-heading,
+.ff-profile-import-history-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.ff-overview-section-heading h2,
+.ff-profile-import-history-link h2 {
+  margin: 0.12rem 0 0;
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+  letter-spacing: -0.035em;
+}
+
+.ff-overview-section-heading > a {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  color: var(--primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-underline-offset: 0.18em;
+}
+
+.ff-overview-state {
+  margin: 0.9rem 0 0;
+  border: 1px dashed var(--border);
+  border-radius: calc(var(--radius) + 0.15rem);
+  padding: 0.9rem;
+  color: var(--muted-foreground);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.ff-overview-error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-style: solid;
+  border-color: color-mix(in srgb, var(--destructive) 40%, var(--border));
+}
+
+.ff-recent-round-list,
+.ff-my-clubhouses {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ff-recent-round-list li,
+.ff-my-clubhouses li {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 0.1rem);
+  background: color-mix(in srgb, var(--background) 66%, var(--card));
+}
+
+.ff-recent-round {
+  display: flex;
+  min-width: 0;
+  min-height: 4.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.7rem 0.85rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.ff-recent-round-main,
+.ff-recent-round-score {
+  display: grid;
+  min-width: 0;
+  gap: 0.18rem;
+}
+
+.ff-recent-round-main strong {
+  overflow-wrap: anywhere;
+  font-size: 0.92rem;
+}
+
+.ff-recent-round-main > span:not(.ff-dnf-badge) {
+  color: var(--muted-foreground);
+  font-size: 0.74rem;
+}
+
+.ff-recent-round-score span {
+  color: var(--muted-foreground);
+  font-size: 0.74rem;
+}
+
+.ff-recent-round-score {
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+.ff-recent-round-score strong {
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.ff-my-clubhouses li a {
+  display: flex;
+  min-height: 2.9rem;
+  align-items: center;
+  padding: 0.55rem 0.8rem;
+  color: inherit;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.ff-quick-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin: 0.85rem 0 0;
+}
+
+.ff-quick-stats > div {
+  min-width: 0;
+  border: 1px solid color-mix(in srgb, var(--primary) 18%, var(--border));
+  border-radius: calc(var(--radius) + 0.1rem);
+  padding: 0.8rem;
+  background: color-mix(in srgb, var(--primary) 5%, var(--background));
+}
+
+.ff-quick-stats dt {
+  color: var(--muted-foreground);
+  font-size: 0.74rem;
+}
+
+.ff-quick-stats dd {
+  margin: 0.35rem 0 0;
+  font-size: clamp(1.15rem, 4vw, 1.55rem);
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+}
+
+.ff-mobile-dashboard-tabs {
+  display: none;
+}
+
+.ff-profile-import-history-link {
+  margin-bottom: 1rem;
+}
+
+.ff-profile-import-history-link p:not(.ff-player-profile-kicker) {
+  margin: 0.35rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.84rem;
+}
+
+@media (max-width: 767px) {
+  .ff-workspace-header-inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.75rem;
+    padding-block: 0.6rem;
+  }
+
+  .ff-dashboard-nav {
+    display: none;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    grid-template-columns: minmax(0, 1fr);
+    justify-content: stretch;
+    border-top: 1px solid var(--border);
+    padding-top: 0.55rem;
+  }
+
+  .ff-dashboard-nav[data-open="true"] {
+    display: grid;
+  }
+
+  .ff-dashboard-nav-link {
+    min-height: 2.75rem;
+    padding-inline: 0.8rem;
+  }
+
+  .ff-workspace-menu-toggle {
+    display: inline-flex;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .ff-workspace-body {
+    padding-top: 1rem;
+  }
+
+  .ff-profile-form {
+    padding-bottom: 5rem;
+  }
+
+  .ff-profile-section {
+    padding: 1rem;
+  }
+
+  .ff-disc-item {
+    grid-template-columns: 2.2rem minmax(0, 1fr);
+    gap: 0.65rem;
+  }
+
+  .ff-disc-rank {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .ff-disc-actions {
+    grid-column: 2;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid var(--border);
+    padding-top: 0.55rem;
+  }
+
+  .ff-disc-actions button {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .ff-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ff-workspace-body {
+    padding-bottom: calc(5.1rem + env(safe-area-inset-bottom));
+  }
+
+  .ff-mobile-dashboard-tabs {
+    position: fixed;
+    z-index: 40;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    padding: 0.25rem 0.35rem calc(0.25rem + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--border);
+    background: color-mix(in srgb, var(--background) 96%, transparent);
+    box-shadow: 0 -0.5rem 1.4rem rgb(0 0 0 / 0.14);
+    backdrop-filter: blur(16px);
+  }
+
+  .ff-mobile-dashboard-tab {
+    display: flex;
+    min-width: 0;
+    min-height: 3.25rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    border-radius: 0.6rem;
+    color: var(--muted-foreground);
+    font-size: 0.66rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .ff-mobile-dashboard-tab svg {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+
+  .ff-mobile-dashboard-tab.is-active {
+    color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 10%, var(--background));
+  }
+
+  .ff-workspace-content :is(button, input, select),
+  .ff-workspace-content .ff-cardcast-alternatives a,
+  .ff-workspace-content .ff-cardcast-advanced > summary,
+  .ff-workspace-content .ff-scorecard-actions a,
+  .ff-workspace-content .ff-scorecard-actions button,
+  .ff-workspace-content .ff-scorecard-assignment > details > summary,
+  .ff-workspace-content .ff-saved-round-open {
+    min-height: 2.75rem;
+  }
+
+  .ff-workspace-content input,
+  .ff-workspace-content select {
+    font-size: 16px;
+  }
+
+  .ff-workspace-content .ff-cardcast-alternatives a,
+  .ff-workspace-content .ff-scorecard-actions a,
+  .ff-workspace-content .ff-scorecard-actions button,
+  .ff-workspace-content .ff-saved-round-open {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .ff-overview-section-heading,
+  .ff-profile-import-history-link {
+    align-items: flex-start;
+  }
+
+  .ff-quick-stats {
+    gap: 0.45rem;
+  }
+
+  .ff-quick-stats > div {
+    padding: 0.65rem 0.55rem;
+  }
+
+  .ff-player-ratings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 430px) {
+  .ff-recent-round {
+    align-items: flex-start;
+    padding-inline: 0.65rem;
+  }
+
+  .ff-recent-round-main strong {
+    font-size: 0.84rem;
+  }
+
+  .ff-quick-stats dt {
+    min-height: 2.1em;
+    font-size: 0.68rem;
+  }
+  .ff-profile-photo-row {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .ff-player-photo {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .ff-profile-fields,
+  .ff-disc-fields .ff-profile-fields {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .ff-profile-field-wide {
+    grid-column: auto;
+  }
+
+  .ff-profile-save-row {
+    margin-inline: -0.15rem;
+    padding: 0.6rem;
+  }
+
+  .ff-profile-save-row p {
+    max-width: 13rem;
+    font-size: 0.72rem;
+  }
+
+  .ff-profile-save-button {
+    min-height: 2.65rem;
+    padding-inline: 0.8rem;
+    font-size: 0.82rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ff-dashboard-nav-link,
+  .ff-workspace-menu-toggle {
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ff-workspace *,
+  .ff-workspace *::before,
+  .ff-workspace *::after {
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+  }
+}

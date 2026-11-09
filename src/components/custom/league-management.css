@@ -1,0 +1,457 @@
+/* @polsia:user-owned — responsive League list, detail, and management surfaces. */
+.ff-league-workspace,
+.ff-league-detail {
+  display: grid;
+  width: 100%;
+  gap: 1.25rem;
+  min-width: 0;
+  padding-block: 1.2rem 3rem;
+}
+
+.ff-league-intro,
+.ff-league-section,
+.ff-league-card,
+.ff-league-discovery-card,
+.ff-league-create-card,
+.ff-league-activation-card {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--card-foreground);
+  box-shadow: var(--shadow-sm);
+}
+
+.ff-league-intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  background: linear-gradient(
+    120deg,
+    var(--card) 38%,
+    color-mix(in srgb, var(--primary) 8%, var(--card))
+  );
+}
+
+.ff-league-eyebrow {
+  margin: 0 0 0.4rem;
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.ff-league-intro h1,
+.ff-league-hero-copy h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.65rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+}
+
+.ff-league-intro p:last-child,
+.ff-league-hero-copy > p:last-child {
+  max-width: 42rem;
+  margin: 0.55rem 0 0;
+  color: var(--muted-foreground);
+  line-height: 1.55;
+}
+
+.ff-league-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.ff-league-section > * {
+  min-width: 0;
+}
+
+.ff-league-section .flex.flex-wrap.items-center.gap-4 > .grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.ff-league-section .flex.flex-wrap.items-center.gap-4 > .grid > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.ff-league-section-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ff-league-section-heading h2,
+.ff-league-create-card h2,
+.ff-league-activation-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.ff-league-section-heading p,
+.ff-league-create-card > p,
+.ff-league-activation-card p {
+  margin: 0.3rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.ff-league-create-grid,
+.ff-league-card-grid,
+.ff-league-activation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.ff-league-create-card,
+.ff-league-card,
+.ff-league-discovery-card,
+.ff-league-activation-card {
+  display: grid;
+  align-content: start;
+  gap: 0.85rem;
+  padding: 1.1rem;
+}
+
+.ff-league-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.ff-league-field {
+  display: grid;
+  min-width: 0;
+  gap: 0.38rem;
+  color: var(--foreground);
+  font-size: 0.83rem;
+  font-weight: 600;
+}
+
+.ff-league-field > input,
+.ff-league-field > select,
+.ff-league-field > textarea,
+.ff-league-select {
+  width: 100%;
+  min-height: 2.65rem;
+  min-width: 0;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--input);
+  border-radius: var(--radius);
+  background: var(--background);
+  color: var(--foreground);
+  font: inherit;
+}
+
+.ff-league-field > textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.ff-league-field small,
+.ff-league-hint {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.ff-league-error {
+  color: var(--destructive);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.ff-league-actions,
+.ff-league-invite-actions,
+.ff-league-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.ff-league-card-top,
+.ff-league-hero,
+.ff-league-roster-row,
+.ff-league-invitation-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  min-width: 0;
+}
+
+.ff-league-card-title,
+.ff-league-member-name {
+  min-width: 0;
+  color: var(--foreground);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.ff-league-card-title {
+  font-size: 1.03rem;
+}
+
+.ff-league-card-title:hover,
+.ff-league-member-name:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.ff-league-pill {
+  flex: 0 0 auto;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--primary) 10%, var(--card));
+  color: var(--primary);
+  font-size: 0.69rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ff-league-meta,
+.ff-league-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.ff-league-meta > div,
+.ff-league-detail-grid > div {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+  padding: 0.75rem;
+  border-radius: calc(var(--radius) * 0.75);
+  background: var(--muted);
+}
+
+.ff-league-meta span,
+.ff-league-detail-grid span {
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+}
+
+.ff-league-meta strong,
+.ff-league-detail-grid strong {
+  overflow-wrap: anywhere;
+  font-size: 0.86rem;
+  font-weight: 650;
+}
+
+.ff-league-progress {
+  width: 100%;
+  height: 0.4rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--muted);
+}
+
+.ff-league-progress > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--primary);
+}
+
+.ff-league-hero {
+  align-items: flex-start;
+  padding: clamp(1rem, 3vw, 1.75rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(
+    120deg,
+    var(--card) 40%,
+    color-mix(in srgb, var(--primary) 8%, var(--card))
+  );
+}
+
+.ff-league-hero-copy {
+  min-width: 0;
+}
+
+.ff-league-logo {
+  display: grid;
+  flex: 0 0 auto;
+  width: 4.25rem;
+  height: 4.25rem;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--muted);
+  color: var(--primary);
+}
+
+.ff-league-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ff-league-logo-large {
+  width: clamp(4.5rem, 12vw, 7rem);
+  height: clamp(4.5rem, 12vw, 7rem);
+}
+
+.ff-league-course-list,
+.ff-league-member-list,
+.ff-league-invitation-list {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ff-league-course-list li,
+.ff-league-roster-row,
+.ff-league-invitation-row {
+  min-width: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--background) 65%, var(--card));
+}
+
+.ff-league-course-list strong,
+.ff-league-course-list span,
+.ff-league-roster-row > div,
+.ff-league-invitation-row > div {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.ff-league-course-list span,
+.ff-league-roster-row small,
+.ff-league-invitation-row small {
+  margin-top: 0.2rem;
+  color: var(--muted-foreground);
+  font-size: 0.76rem;
+}
+
+.ff-league-roster-row small {
+  display: block;
+}
+
+.ff-league-inline-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(8rem, 0.8fr) auto;
+  align-items: end;
+  gap: 0.6rem;
+}
+
+.ff-league-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  -webkit-overflow-scrolling: touch;
+}
+
+.ff-league-table {
+  width: 100%;
+  min-width: 37rem;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.84rem;
+}
+
+.ff-league-table th,
+.ff-league-table td {
+  padding: 0.7rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.ff-league-table thead {
+  background: var(--muted);
+  color: var(--muted-foreground);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ff-league-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.ff-league-offer-price {
+  color: var(--primary);
+  font-size: 1.55rem;
+  font-weight: 750;
+  letter-spacing: -0.04em;
+}
+
+.ff-league-empty {
+  padding: 1.25rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+.ff-league-notice {
+  padding: 0.8rem 0.95rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 28%, var(--border));
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--primary) 7%, var(--card));
+  color: var(--foreground);
+  font-size: 0.86rem;
+}
+
+@media (max-width: 720px) {
+  .ff-league-create-grid,
+  .ff-league-card-grid,
+  .ff-league-activation-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ff-league-detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .ff-league-intro,
+  .ff-league-hero,
+  .ff-league-card-top,
+  .ff-league-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ff-league-form-grid,
+  .ff-league-meta,
+  .ff-league-detail-grid,
+  .ff-league-inline-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ff-league-inline-form > button,
+  .ff-league-actions > button,
+  .ff-league-card-actions > button {
+    width: 100%;
+  }
+
+  .ff-league-roster-row,
+  .ff-league-invitation-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

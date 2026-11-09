@@ -1,15 +1,16 @@
-## Problem and resulting behavior
+## What changed and why
 
-Describe the concrete problem and how this change fixes it. Identify whether it affects apps/web or the standalone modules.
+Describe the problem and how this change fixes it. Link the PRD section or plan phase.
 
 ## Validation
 
-- [ ] Standalone tests: npm test
-- [ ] Web tests: npm run test:web
-- [ ] Production build: npm run build
+- [ ] `npm run lint`
+- [ ] `npm run typecheck`
+- [ ] `npm test`
+- [ ] `npm run build`
 
-Explain any checks not run, observed failures, and relevant manual verification.
+Explain any checks not run, failures seen, and manual checks done.
 
-## Deployment or data changes
+## Data and deployment
 
-Describe required configuration, migrations, compatibility risks and rollback steps, if applicable. Do not include secrets or claim deployment without verification.
+Schema changes, data migrations, config/env changes, rollback steps. Do not include secrets or claim a deployment you have not verified.

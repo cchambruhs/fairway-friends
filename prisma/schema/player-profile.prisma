@@ -1,0 +1,32 @@
+// @polsia:user-owned — private player profiles and ranked disc preferences.
+model PlayerProfile {
+  id              String         @id @default(cuid())
+  userId          String         @unique
+  displayName     String
+  hometown        String?
+  homeCourse      String?
+  bio             String?
+  pdgaNumber      String?
+  photoKey        String?
+  photoUrl        String?
+  favoriteDiscs   FavoriteDisc[]
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  @@map("player_profile")
+}
+
+model FavoriteDisc {
+  id           String        @id @default(cuid())
+  profileId    String
+  manufacturer String
+  mold         String
+  plastic      String
+  weightGrams  Int
+  rank         Int
+  profile      PlayerProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@unique([profileId, rank])
+  @@index([profileId])
+  @@map("favorite_disc")
+}

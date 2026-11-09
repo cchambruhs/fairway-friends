@@ -1,0 +1,828 @@
+{
+  "$schema": "https://polsia.app/schema/installed.v1.json",
+  "_doc": "Machine-owned trust anchor (per D21). Installed modules + versions + install-hashes + ejected files + slot assignments + day-1 validator floor. Users must NOT edit this file; the framework can no longer trust the state if they do. Hand-editable per-module overrides live in .polsia/overrides.json. Path -> tier mapping lives in .polsia/ownership.json (generated from installed manifests).",
+  "template": {
+    "id": "polsia-next-v2",
+    "name": "polsia/template-next",
+    "version": "0.3.0",
+    "framework": "next",
+    "framework_version": "16.2.6",
+    "installed_at": "PLACEHOLDER_TIMESTAMP",
+    "install_hash": "PLACEHOLDER_HASH"
+  },
+  "modules": [
+    {
+      "name": "email",
+      "version": "0.5.2",
+      "target": "next",
+      "install_hash": "sha256:0e688d0de595a41c5936ee97cfe85cae41be55575cf8404e54dcc31d887364c0",
+      "installed_at": "2026-10-28T13:35:04.928Z",
+      "source": "Polsia-Inc/modules/modules/email",
+      "ref_sha": "743c808face277da0bd3a3b0638d25b2eadb6062",
+      "ownership_appends": [
+        {
+          "path": "src/lib/email/send.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/lib/email/submissions.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/lib/email/templates.ts",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/lib/email/send.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/lib/email/submissions.ts",
+          "tier": "framework_owned"
+        }
+      ],
+      "files": {
+        "src/lib/email/send.ts": {
+          "path": "src/lib/email/send.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:b7e5e7caf0287efeada19be45940f9adbdc09cd0406a84bc663145f29de743ed",
+          "pinned": false,
+          "alias": null
+        },
+        "src/lib/email/submissions.ts": {
+          "path": "src/lib/email/submissions.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:f562c532cb6227c648de9ec08cedbfe3ac2bf1fa6dce43193e7e30a4498cb0b7",
+          "pinned": false,
+          "alias": null
+        },
+        "src/lib/email/templates.ts": {
+          "path": "src/lib/email/templates.ts",
+          "tier": "user_owned",
+          "integrity": "sha256:b7bebdbe91e2ad406bd76a7d8c78af224dfd156939fa2af40f3a2898ccdcdb98",
+          "pinned": false,
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "better-auth",
+      "version": "0.11.1",
+      "target": "next",
+      "install_hash": "sha256:3cefd0449a033f6d0ce66ce6f55aa2682755c742e914461667b8772bae36901f",
+      "installed_at": "2026-11-04T17:56:48.321Z",
+      "source": "Polsia-Inc/modules/modules/better-auth",
+      "ref_sha": "d3df5bf00e3461e93b67cdb676b4c3cc13fdf525",
+      "ownership_appends": [
+        {
+          "path": "prisma/schema/auth.prisma",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "prisma/migrations/**",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/app/api/auth/**",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/lib/auth.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/lib/auth-client.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/lib/require-admin.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/lib/require-auth.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/components/polsia/google-sign-in-button.tsx",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "tests/e2e/better-auth-session.spec.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/components/custom/email-verification.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/lib/auth-config.ts",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/app/api/example-secure/route.ts",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/components/custom/auth-nav.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/components/custom/sign-in-form.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/components/custom/sign-up-form.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/app/(auth)/login/page.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/app/(auth)/signup/page.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/app/(auth)/profile/page.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "prisma/schema/auth.prisma",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "prisma/migrations/20260603000000_init_better_auth/migration.sql",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "prisma/migrations/20260612000000_add_better_auth_admin/migration.sql",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/app/api/auth/[...all]/route.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/lib/auth.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/lib/require-admin.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/lib/require-auth.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/lib/auth-client.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/components/polsia/google-sign-in-button.tsx",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "tests/e2e/better-auth-session.spec.ts",
+          "tier": "framework_owned"
+        }
+      ],
+      "files": {
+        "src/components/custom/email-verification.tsx": {
+          "path": "src/components/custom/email-verification.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:c9ee388a2304b259978f3643e27da86280081875a8f03b47da836ce8c0eacafb",
+          "pinned": false,
+          "alias": null
+        },
+        "prisma/schema/auth.prisma": {
+          "path": "prisma/schema/auth.prisma",
+          "tier": "framework_owned",
+          "integrity": "sha256:675f7e6c743fd3f72a80ac0bf9d54065e98c1a11a3d621f6f72365c27927d85c",
+          "pinned": false,
+          "alias": null
+        },
+        "prisma/migrations/20260603000000_init_better_auth/migration.sql": {
+          "path": "prisma/migrations/20260603000000_init_better_auth/migration.sql",
+          "tier": "framework_owned",
+          "integrity": "sha256:ceb14e140245ba1b04ed435729ae4d5897e7af28aced7886bfa1455ef2fc3abf",
+          "pinned": false,
+          "alias": null
+        },
+        "prisma/migrations/20260612000000_add_better_auth_admin/migration.sql": {
+          "path": "prisma/migrations/20260612000000_add_better_auth_admin/migration.sql",
+          "tier": "framework_owned",
+          "integrity": "sha256:685b138b22c6e4db1b3c496a13269ba50bb9b4e08ad5c8864b522a733828bdc6",
+          "pinned": false,
+          "alias": null
+        },
+        "src/app/api/auth/[...all]/route.ts": {
+          "path": "src/app/api/auth/[...all]/route.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:91880ced36e4a7af66ae3d82994a240569c03e9bb235fc31ea5397b974a78dda",
+          "pinned": false,
+          "alias": null
+        },
+        "src/app/api/example-secure/route.ts": {
+          "path": "src/app/api/example-secure/route.ts",
+          "tier": "user_owned",
+          "integrity": "sha256:1e2cece54b54e816e363463d21a1806003843409b92e23a6875b7982e72f70a0",
+          "pinned": false,
+          "alias": null
+        },
+        "src/lib/auth.ts": {
+          "path": "src/lib/auth.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:aebcfccf63badd505df760436fd02f63b40b955e3ece5f92fac0210838f8708f",
+          "pinned": false,
+          "alias": null
+        },
+        "src/lib/auth-config.ts": {
+          "path": "src/lib/auth-config.ts",
+          "tier": "user_owned",
+          "integrity": "sha256:4e1d24380bf1d12afd51130cfd08089ab4196e27ed3d04210ac1efc67f4e1108",
+          "pinned": false,
+          "alias": null
+        },
+        "src/lib/require-admin.ts": {
+          "path": "src/lib/require-admin.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:8af325cf41fa00d4f8c0e76b70e82d99c55fd20c4057cf20f15019bc1c851f64",
+          "pinned": false,
+          "alias": null
+        },
+        "src/lib/require-auth.ts": {
+          "path": "src/lib/require-auth.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:bd688e34b02b5eaeac283640463216fdb07cedcc3856a2e508fef2f9cff52981",
+          "pinned": false,
+          "alias": null
+        },
+        "src/lib/auth-client.ts": {
+          "path": "src/lib/auth-client.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:07d75873703f119f3e7126bd3aa8fa1eda36323bba7c8c3294e2a2301d97f2f2",
+          "pinned": false,
+          "alias": null
+        },
+        "src/components/custom/sign-in-form.tsx": {
+          "path": "src/components/custom/sign-in-form.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:c1be8f0213b8acf6c69c41a69e933507d4e683f82326081e4023ff24aeab66df",
+          "pinned": false,
+          "alias": null
+        },
+        "src/components/custom/sign-up-form.tsx": {
+          "path": "src/components/custom/sign-up-form.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:1fa529ccbb9fc4342fe93ecadf94a013d760230610c5cde470134b7482cbf0f3",
+          "pinned": false,
+          "alias": null
+        },
+        "src/components/custom/auth-nav.tsx": {
+          "path": "src/components/custom/auth-nav.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:bc71bb81113c0ef0061d1ff468bb0bb195aabf8107aafae88be01c6600e5d2cc",
+          "pinned": false,
+          "alias": null
+        },
+        "src/app/(auth)/login/page.tsx": {
+          "path": "src/app/(auth)/login/page.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:9fd3769d974f6f32bedc31600ddd3a07834ff496d92dccb6a71f809e704c5060",
+          "pinned": false,
+          "alias": null
+        },
+        "src/app/(auth)/signup/page.tsx": {
+          "path": "src/app/(auth)/signup/page.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:54a414565f3a5b0fdd51503cfd3600b9192705c937d8699e84aeba8aa79566e6",
+          "pinned": false,
+          "alias": null
+        },
+        "src/app/(auth)/profile/page.tsx": {
+          "path": "src/app/(auth)/profile/page.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:19bf4841f1ca938f115f3ee6da055af5a280f8a3adce69642bba9ed8ff53170d",
+          "pinned": false,
+          "alias": null
+        },
+        "tests/e2e/better-auth-session.spec.ts": {
+          "path": "tests/e2e/better-auth-session.spec.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:a98e6a45f7b4073570b72cf7999c1d45921ccf3a8b5de7a14543c71054b3a19a",
+          "pinned": false,
+          "alias": null
+        },
+        "src/components/polsia/google-sign-in-button.tsx": {
+          "path": "src/components/polsia/google-sign-in-button.tsx",
+          "tier": "framework_owned",
+          "integrity": "sha256:e0b180093c0de1e9f62ed8097a7578e66ff3656d544d41a75991044931be16f0",
+          "pinned": false,
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "dashboard-shell",
+      "version": "0.3.0",
+      "target": "next",
+      "install_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_at": "2026-10-28T16:49:19.106Z",
+      "source": "Polsia-Inc/modules/modules/dashboard-shell",
+      "ref_sha": "743c808face277da0bd3a3b0638d25b2eadb6062",
+      "ownership_appends": [
+        {
+          "path": "src/app/(dashboard)/dashboard/layout.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/app/(dashboard)/dashboard/page.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/app/(dashboard)/admin/layout.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/app/(dashboard)/admin/page.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/components/custom/dashboard/dashboard-shell.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/components/custom/dashboard/dashboard-nav.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/components/custom/dashboard/dashboard-card.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/components/custom/dashboard/admin-shell.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/components/custom/dashboard/admin-nav.tsx",
+          "tier": "user_owned"
+        }
+      ],
+      "files": {
+        "src/components/custom/dashboard/admin-shell.tsx": {
+          "path": "src/components/custom/dashboard/admin-shell.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:c3a5dabeeb05bb03fb478f52fe95852978c631a43643e33d1fb4bf84c8a7ad96",
+          "pinned": false,
+          "alias": null
+        },
+        "src/components/custom/dashboard/admin-nav.tsx": {
+          "path": "src/components/custom/dashboard/admin-nav.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:a3953f3450e4b3aac61c4bbbf1b10335a7388cedb826b59fe775cfd2216b75fd",
+          "pinned": false,
+          "alias": null
+        },
+        "src/app/(dashboard)/admin/layout.tsx": {
+          "path": "src/app/(dashboard)/admin/layout.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:dda9869476a5a8756333aac50e3e7b44fb085abc3bcd27e1bcebbee648110a7a",
+          "pinned": false,
+          "alias": null
+        },
+        "src/app/(dashboard)/dashboard/layout.tsx": {
+          "path": "src/app/(dashboard)/dashboard/layout.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:33ea06c9ff400aef72dcfef719f6ffc2438ddaa4a51d419131bbe3e5f4e18116",
+          "pinned": false,
+          "alias": null
+        },
+        "src/app/(dashboard)/dashboard/page.tsx": {
+          "path": "src/app/(dashboard)/dashboard/page.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:585c76b2e42e881a1a36db07939e5a712985382e331bbac97cf3234b69063c7d",
+          "pinned": false,
+          "alias": null
+        },
+        "src/components/custom/dashboard/dashboard-shell.tsx": {
+          "path": "src/components/custom/dashboard/dashboard-shell.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:97419307012d80cccf60feae5e0ae098644e766ae989ed4679a758ea43398cb1",
+          "pinned": false,
+          "alias": null
+        },
+        "src/components/custom/dashboard/dashboard-nav.tsx": {
+          "path": "src/components/custom/dashboard/dashboard-nav.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:e232a0f91dc3832d44981ecccc150d0fb08d45e4567e04dd1e8d18b25b49f2e9",
+          "pinned": false,
+          "alias": null
+        },
+        "src/components/custom/dashboard/dashboard-card.tsx": {
+          "path": "src/components/custom/dashboard/dashboard-card.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:64e39ea753f0d293123a352102230ccd9462503196a429c2da01128948c75e0b",
+          "pinned": false,
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "file-upload",
+      "version": "0.2.0",
+      "target": "next",
+      "install_hash": "sha256:0807e3b58d6fd7553e18479a4085b4213ae95664e73b85f0660a5fa0089c5cbc",
+      "installed_at": "2026-11-04T17:56:56.143Z",
+      "source": "Polsia-Inc/modules/modules/file-upload",
+      "ref_sha": "d3df5bf00e3461e93b67cdb676b4c3cc13fdf525",
+      "ownership_appends": [
+        {
+          "path": "src/modules/file-upload/**",
+          "tier": "framework_owned",
+          "additions": "installer-only"
+        },
+        {
+          "path": "src/app/api/upload/route.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/app/api/upload/confirm/route.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/app/api/files/[...key]/route.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/lib/contracts/file-upload.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/components/custom/file-upload-field.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/lib/file-upload/policy.server.ts",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/lib/file-upload/download-policy.server.ts",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/app/api/upload/route.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/app/api/upload/confirm/route.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/app/api/files/[...key]/route.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/modules/file-upload/proxy.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/modules/file-upload/server.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/modules/file-upload/client.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/lib/contracts/file-upload.ts",
+          "tier": "framework_owned"
+        }
+      ],
+      "files": {
+        "src/app/api/upload/route.ts": {
+          "path": "src/app/api/upload/route.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:93549f54df2d1495753d6b75a8a1912441da1652981d2ae35a8fb3d6123d7379",
+          "pinned": false,
+          "alias": null
+        },
+        "src/app/api/upload/confirm/route.ts": {
+          "path": "src/app/api/upload/confirm/route.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:abb03d331fddc041c059e626897b264f9f1a7f2dff5310248540866ec5dbfd65",
+          "pinned": false,
+          "alias": null
+        },
+        "src/modules/file-upload/proxy.ts": {
+          "path": "src/modules/file-upload/proxy.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:ebf45d8aa7a35a6c206d99f09e36b615316a9704968a34fc4d8d4f986adca27c",
+          "pinned": false,
+          "alias": null
+        },
+        "src/modules/file-upload/client.ts": {
+          "path": "src/modules/file-upload/client.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:fcb94e20daf9ee214d1c4aeddb7f702b07a5fdf18d23c537a8907e088e68343d",
+          "pinned": false,
+          "alias": null
+        },
+        "src/lib/contracts/file-upload.ts": {
+          "path": "src/lib/contracts/file-upload.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:97b4d3253631bf2da42102adcb6f3ea641fab52ec926605bd3e5802980888962",
+          "pinned": false,
+          "alias": null
+        },
+        "src/components/custom/file-upload-field.tsx": {
+          "path": "src/components/custom/file-upload-field.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:1be714dde03fd5268a3b08f1c2cbff8f78b06eaf7a7b1962a608efe0b5ff6077",
+          "pinned": false,
+          "alias": null
+        },
+        "src/lib/file-upload/policy.server.ts": {
+          "path": "src/lib/file-upload/policy.server.ts",
+          "tier": "user_owned",
+          "integrity": "sha256:c1eb4e7d5283992d96b24b71e982e24f84f047656d2fb6645ba5dd39853921bb",
+          "pinned": false,
+          "alias": null
+        },
+        "src/app/api/files/[...key]/route.ts": {
+          "path": "src/app/api/files/[...key]/route.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:781ed40c97d01839ebe83042264ef1dbfb8ab2dbcbe09582db0f01858d775e4f",
+          "pinned": false,
+          "alias": null
+        },
+        "src/modules/file-upload/server.ts": {
+          "path": "src/modules/file-upload/server.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:f54733d1ac9f75cb867a8d03a9566ab16606c4ed15c5616ef764c8132cdcb7f0",
+          "pinned": false,
+          "alias": null
+        },
+        "src/lib/file-upload/download-policy.server.ts": {
+          "path": "src/lib/file-upload/download-policy.server.ts",
+          "tier": "user_owned",
+          "integrity": "sha256:b1923598e32fc6dc20b0beee6bd1e6eff6d3b1a498b39e3596ca245bb800645c",
+          "pinned": false,
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "csv-import",
+      "version": "0.3.1",
+      "target": "next",
+      "install_hash": "sha256:52285ec1214088a4790fc4af5f7c6a1720e649d8612b223a810e837b751a91d8",
+      "installed_at": "2026-11-04T17:57:13.731Z",
+      "source": "Polsia-Inc/modules/modules/csv-import",
+      "ref_sha": "d3df5bf00e3461e93b67cdb676b4c3cc13fdf525",
+      "ownership_appends": [
+        {
+          "path": "src/modules/csv-import/**",
+          "tier": "framework_owned",
+          "additions": "installer-only"
+        },
+        {
+          "path": "src/components/custom/csv-importer.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/lib/csv-import/targets.server.ts",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/app/api/csv-import/route.ts",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/modules/csv-import/contracts.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/modules/csv-import/parser.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/modules/csv-import/validation.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/modules/csv-import/server.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/modules/csv-import/use-csv-import.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/modules/csv-import/updates.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/modules/csv-import/reimport.ts",
+          "tier": "framework_owned"
+        }
+      ],
+      "files": {
+        "src/modules/csv-import/contracts.ts": {
+          "path": "src/modules/csv-import/contracts.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:c1a936b1741f7d844a8adc55621543c4151adb727de39f69ff35de90060afdf2",
+          "pinned": false,
+          "alias": null
+        },
+        "src/modules/csv-import/parser.ts": {
+          "path": "src/modules/csv-import/parser.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:2744e8cadfc1b98e82a99da6568a15ca217190c2eb86cd3ab7619f55bd8740f3",
+          "pinned": false,
+          "alias": null
+        },
+        "src/modules/csv-import/validation.ts": {
+          "path": "src/modules/csv-import/validation.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:10737d1bdb8aee5f22540541e810314d275f74d28072367498eeac28cb0a76a1",
+          "pinned": false,
+          "alias": null
+        },
+        "src/modules/csv-import/server.ts": {
+          "path": "src/modules/csv-import/server.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:218253f549cad4965914f078cc53553d4e310bfa7e6404006bca7433a961cad6",
+          "pinned": false,
+          "alias": null
+        },
+        "src/modules/csv-import/use-csv-import.ts": {
+          "path": "src/modules/csv-import/use-csv-import.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:9106f43269da10cbac453427af0458a2f9a77ab21738640bcdbc0add0819d811",
+          "pinned": false,
+          "alias": null
+        },
+        "src/components/custom/csv-importer.tsx": {
+          "path": "src/components/custom/csv-importer.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:c51e5d32ce7f94193bc33c97a785d7bc94249e2e33a149947db7eec568ac59f7",
+          "pinned": false,
+          "alias": null
+        },
+        "src/lib/csv-import/targets.server.ts": {
+          "path": "src/lib/csv-import/targets.server.ts",
+          "tier": "user_owned",
+          "integrity": "sha256:4f8e4f6c4241cf0261b16e3da737e4d6e332f03148556f0db640bfc7b9f00d08",
+          "pinned": false,
+          "alias": null
+        },
+        "src/app/api/csv-import/route.ts": {
+          "path": "src/app/api/csv-import/route.ts",
+          "tier": "user_owned",
+          "integrity": "sha256:1da2c0c218ff4dfbe9bf3584e844da6b0d5dafce73868ca04160140b3b5daeab",
+          "pinned": false,
+          "alias": null
+        },
+        "src/modules/csv-import/updates.ts": {
+          "path": "src/modules/csv-import/updates.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:6da6338b52e269497e9a7332a90e6de8e677a756a7ba7d9be54920a5c26aa9e2",
+          "pinned": false,
+          "alias": null
+        },
+        "src/modules/csv-import/reimport.ts": {
+          "path": "src/modules/csv-import/reimport.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:beded68d852820f912a914472356ad4a5c52dc4ed14eb076261a839573ec573e",
+          "pinned": false,
+          "alias": null
+        }
+      }
+    },
+    {
+      "name": "stripe-billing",
+      "version": "0.8.0",
+      "target": "next",
+      "install_hash": "sha256:4df3949f82d17eb1669566355c55f746f0f1a8fcd988ddde54a5f4c53f3a735b",
+      "installed_at": "2026-11-06T19:59:31.049Z",
+      "source": "Polsia-Inc/modules/modules/stripe-billing",
+      "ref_sha": "733adffd4e583d13bff3e0cb4c9248a82c697029",
+      "ownership_appends": [
+        {
+          "path": "src/lib/stripe-billing/schema.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/lib/stripe-billing/client.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/app/api/stripe-billing/verify/route.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/components/custom/stripe-checkout-button.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/components/custom/stripe-pricing-card.tsx",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/app/api/stripe-billing/checkout/route.ts",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/lib/stripe-billing/fulfillment.ts",
+          "tier": "user_owned"
+        },
+        {
+          "path": "src/lib/stripe-billing/schema.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/lib/stripe-billing/client.ts",
+          "tier": "framework_owned"
+        },
+        {
+          "path": "src/app/api/stripe-billing/verify/route.ts",
+          "tier": "framework_owned"
+        }
+      ],
+      "files": {
+        "src/lib/stripe-billing/schema.ts": {
+          "path": "src/lib/stripe-billing/schema.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:4e46e1af4d4229c27d04fa428ca0ef5decaada653680bbeb9fe7e72cf18db671",
+          "pinned": false,
+          "alias": null
+        },
+        "src/lib/stripe-billing/client.ts": {
+          "path": "src/lib/stripe-billing/client.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:93b47f8c091f116a8f97044339f843811a74dc7fdc5a5ff52e65311251b0d278",
+          "pinned": false,
+          "alias": null
+        },
+        "src/app/api/stripe-billing/verify/route.ts": {
+          "path": "src/app/api/stripe-billing/verify/route.ts",
+          "tier": "framework_owned",
+          "integrity": "sha256:d734743b76f6a71f61df1ad2a3779d8d1117fe5ed85cfca9a4ff1a21b9f6a239",
+          "pinned": false,
+          "alias": null
+        },
+        "src/components/custom/stripe-checkout-button.tsx": {
+          "path": "src/components/custom/stripe-checkout-button.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:91649e57e50600d28d658f3cc1be47a7caf86d61eadb3a4bc2e6116f1bd2172a",
+          "pinned": false,
+          "alias": null
+        },
+        "src/components/custom/stripe-pricing-card.tsx": {
+          "path": "src/components/custom/stripe-pricing-card.tsx",
+          "tier": "user_owned",
+          "integrity": "sha256:1eedcd22f8f3cbd11b0c44cfbe7a6a8b78b25c9119b256cb7fb83dc12c129697",
+          "pinned": false,
+          "alias": null
+        },
+        "src/app/api/stripe-billing/checkout/route.ts": {
+          "path": "src/app/api/stripe-billing/checkout/route.ts",
+          "tier": "user_owned",
+          "integrity": "sha256:af5a8c456660edf15383d56cc4c1e79b71f4ac6db4a2a96f69c0de884ecc6f60",
+          "pinned": false,
+          "alias": null
+        },
+        "src/lib/stripe-billing/fulfillment.ts": {
+          "path": "src/lib/stripe-billing/fulfillment.ts",
+          "tier": "user_owned",
+          "integrity": "sha256:89b6fd3fda3de3109d22acd93d62a11e3c73f9a14a929e903835783309f61687",
+          "pinned": false,
+          "alias": null
+        }
+      }
+    }
+  ],
+  "install_hashes": {
+    "email": "sha256:0e688d0de595a41c5936ee97cfe85cae41be55575cf8404e54dcc31d887364c0",
+    "better-auth": "sha256:3cefd0449a033f6d0ce66ce6f55aa2682755c742e914461667b8772bae36901f",
+    "dashboard-shell": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "file-upload": "sha256:0807e3b58d6fd7553e18479a4085b4213ae95664e73b85f0660a5fa0089c5cbc",
+    "csv-import": "sha256:52285ec1214088a4790fc4af5f7c6a1720e649d8612b223a810e837b751a91d8",
+    "stripe-billing": "sha256:4df3949f82d17eb1669566355c55f746f0f1a8fcd988ddde54a5f4c53f3a735b"
+  },
+  "ejected_files": [],
+  "slot_assignments": {},
+  "day_1_floor": [
+    "no-secrets-in-client-bundle",
+    "server-only-import-on-secret-modules",
+    "agent-has-no-prod-db-credentials",
+    "db-ssl-required",
+    "parameterized-queries-only",
+    "security-headers-present",
+    "lockfile-committed-and-pinned",
+    "lifecycle-scripts-disabled",
+    "next-version-not-affected-by-cve-2025-29927"
+  ],
+  "_note_day_1_floor": "Templates are scaffolds with the shadcn/UI baseline shipped IN the template (components.json + cn() + a committed base primitive set + a next-themes ThemeProvider + a token-driven theme), plus the framework-native default DB client (Prisma for template-next). This floor is the scaffold-applicable validator set plus the data checks the baked-in DB client makes runnable on day 1. Other module-specific validators ship in module manifests and are added when those modules install. Validator names must exist in Polsia-Inc/modules/validators/README.md."
+}

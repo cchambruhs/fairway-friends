@@ -1,0 +1,138 @@
+// @polsia:user-owned — exact UDisc identities, Clubhouse memberships, and scorecard attribution.
+
+enum ClubhouseRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+enum ClubhouseRequestStatus {
+  PENDING
+  APPROVED
+  DENIED
+}
+
+enum PlayerClaimStatus {
+  PENDING
+  APPROVED
+  DENIED
+}
+
+model UDiscIdentity {
+  id                 String          @id @default(cuid())
+  normalizedUsername String          @unique
+  ownerUserId        String?         @unique
+  pendingClaimUserId String?         @unique
+  udiscPlayerId      String?
+  playerEntries      ImportedScorecardPlayer[]
+  claims             PlayerClaim[]
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @updatedAt
+
+  @@map("udisc_identity")
+}
+
+model PlayerClaim {
+  id               String           @id @default(cuid())
+  identityId       String
+  claimantUserId   String
+  status           PlayerClaimStatus @default(PENDING)
+  reviewedByUserId String?
+  reviewNote       String?
+  requestedAt      DateTime         @default(now())
+  reviewedAt       DateTime?
+  identity         UDiscIdentity    @relation(fields: [identityId], references: [id], onDelete: Cascade)
+
+  @@index([identityId, status])
+  @@index([claimantUserId, status])
+  @@map("player_claim")
+}
+
+model PlayerRegistrationChoice {
+  id                 String   @id @default(cuid())
+  email              String   @unique
+  normalizedUsername String   @unique
+  username           String
+  mode               String
+  expiresAt          DateTime
+  createdAt          DateTime @default(now())
+
+  @@index([expiresAt])
+  @@map("player_registration_choice")
+}
+
+model Clubhouse {
+  id          String                  @id @default(cuid())
+  name        String
+  description String?
+  isPublic    Boolean                 @default(true)
+  joinCode    String                  @unique
+  inviteToken String                  @unique
+  createdByUserId String
+  memberships ClubhouseMembership[]
+  requests    ClubhouseJoinRequest[]
+  scorecards  ImportedScorecard[]
+  importedScorecardLinks ImportedScorecardClubhouse[]
+  selections  UserClubhouseSelection[]
+  createdAt   DateTime                @default(now())
+  updatedAt   DateTime                @updatedAt
+
+  @@index([isPublic, name])
+  @@index([createdByUserId])
+  @@map("clubhouse")
+}
+
+model ClubhouseMembership {
+  id          String        @id @default(cuid())
+  clubhouseId String
+  userId      String
+  role        ClubhouseRole @default(MEMBER)
+  joinedAt    DateTime      @default(now())
+  clubhouse   Clubhouse     @relation(fields: [clubhouseId], references: [id], onDelete: Cascade)
+
+  @@unique([clubhouseId, userId])
+  @@index([userId])
+  @@map("clubhouse_membership")
+}
+
+model ClubhouseJoinRequest {
+  id               String                 @id @default(cuid())
+  clubhouseId      String
+  userId           String
+  status           ClubhouseRequestStatus @default(PENDING)
+  requestedAt      DateTime               @default(now())
+  reviewedAt       DateTime?
+  reviewedByUserId String?
+  clubhouse        Clubhouse              @relation(fields: [clubhouseId], references: [id], onDelete: Cascade)
+
+  @@unique([clubhouseId, userId])
+  @@index([clubhouseId, status, requestedAt])
+  @@map("clubhouse_join_request")
+}
+
+model UserClubhouseSelection {
+  id          String    @id @default(cuid())
+  userId      String    @unique
+  clubhouseId String
+  clubhouse   Clubhouse @relation(fields: [clubhouseId], references: [id], onDelete: Cascade)
+  updatedAt   DateTime  @updatedAt
+
+  @@index([clubhouseId])
+  @@map("user_clubhouse_selection")
+}
+
+model ScorecardAssignmentAudit {
+  id           String           @id @default(cuid())
+  scorecardId  String
+  actorUserId  String
+  oldClubhouseId String?
+  newClubhouseId String?
+  oldLeagueId    String?
+  newLeagueId    String?
+  createdAt    DateTime         @default(now())
+  scorecard    ImportedScorecard @relation(fields: [scorecardId], references: [id], onDelete: Cascade)
+
+  @@index([scorecardId, createdAt])
+  @@index([actorUserId, createdAt])
+  @@map("scorecard_assignment_audit")
+}

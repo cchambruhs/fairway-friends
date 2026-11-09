@@ -1,0 +1,43 @@
+// @polsia:user-owned — player-entered past rounds, kept private and unverified.
+model HistoricalRound {
+  id                  String   @id @default(cuid())
+  userId              String
+  playedOn            DateTime? @db.Date
+  courseName          String?
+  layoutName          String?
+  score               Int?
+  totalPar            Int?
+  holeCount           Int?
+  holePars            Json?
+  holeParEntries      Json?
+  roundMetadata       Json?
+  players             Json?
+  sourceUrl           String?
+  sourceId            String?
+  sourceFileKey       String?
+  sourceFileUrl       String?
+  duplicateKey        String
+  entryMethod         String
+  isHistorical        Boolean  @default(true)
+  isVerified          Boolean  @default(false)
+  createdAt           DateTime @default(now())
+
+  @@unique([userId, duplicateKey])
+  @@index([userId, playedOn])
+  @@index([userId, sourceId])
+  @@map("historical_round")
+}
+
+// Separate durable reservation keeps source-ID retries idempotent without
+// adding a uniqueness constraint to the existing historical_round table.
+model HistoricalRoundSource {
+  id        String   @id @default(cuid())
+  userId    String
+  sourceId  String
+  roundId   String
+  createdAt DateTime @default(now())
+
+  @@unique([userId, sourceId])
+  @@index([roundId])
+  @@map("historical_round_source")
+}

@@ -1,0 +1,599 @@
+/* @polsia:user-owned — course directory, layout detail, and staff management surfaces. */
+.ff-course-page {
+  display: grid;
+  width: 100%;
+  max-width: 940px;
+  gap: 1.5rem;
+  margin-inline: auto;
+}
+
+.ff-course-page-heading {
+  display: grid;
+  max-width: 46rem;
+  gap: 0.65rem;
+}
+
+.ff-course-page-heading h1,
+.ff-course-detail-heading h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 5vw, 2.65rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.06;
+}
+
+.ff-course-page-heading > p:last-child,
+.ff-course-admin-intro,
+.ff-course-directory-actions > p,
+.ff-course-empty > p:last-of-type,
+.ff-course-layout-card-heading p,
+.ff-course-detail-heading .ff-course-location,
+.ff-course-admin-card-heading > div > p:last-child {
+  margin: 0;
+  color: var(--muted-foreground);
+  line-height: 1.65;
+}
+
+.ff-course-eyebrow {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+}
+
+.ff-course-directory,
+.ff-course-detail,
+.ff-course-admin {
+  display: grid;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.ff-course-search {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+  box-shadow: var(--shadow-xs);
+}
+
+.ff-course-search-input,
+.ff-course-field {
+  display: grid;
+  min-width: 0;
+  gap: 0.45rem;
+}
+
+.ff-course-search-input > label,
+.ff-course-field > label {
+  color: var(--foreground);
+  font-size: 0.83rem;
+  font-weight: 600;
+}
+
+.ff-course-search-control {
+  position: relative;
+}
+
+.ff-course-search-control > svg {
+  position: absolute;
+  top: 50%;
+  left: 0.8rem;
+  width: 1rem;
+  height: 1rem;
+  color: var(--muted-foreground);
+  transform: translateY(-50%);
+}
+
+.ff-course-search-control input {
+  padding-left: 2.4rem;
+}
+
+.ff-course-directory-actions,
+.ff-course-section-heading,
+.ff-course-detail-heading,
+.ff-course-layout-card-heading,
+.ff-course-admin-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ff-course-directory-actions > p {
+  max-width: 39rem;
+  font-size: 0.85rem;
+}
+
+.ff-course-list,
+.ff-course-layout-list,
+.ff-course-admin-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ff-course-result {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  background: var(--card);
+  color: var(--foreground);
+  text-decoration: none;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    transform 150ms ease;
+}
+
+.ff-course-result:hover {
+  border-color: var(--brand-500);
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+
+.ff-course-result:focus-visible,
+.ff-course-back:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+.ff-course-result-copy {
+  display: grid;
+  min-width: 0;
+  gap: 0.3rem;
+}
+
+.ff-course-result-name {
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.ff-course-result-location,
+.ff-course-result-meta {
+  color: var(--muted-foreground);
+  font-size: 0.83rem;
+  line-height: 1.45;
+}
+
+.ff-course-result-meta {
+  flex: 0 0 auto;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--background);
+  text-align: center;
+}
+
+.ff-course-panel,
+.ff-course-empty,
+.ff-course-layout-card,
+.ff-course-admin-card,
+.ff-course-round-bridge {
+  min-width: 0;
+  padding: 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+  box-shadow: var(--shadow-xs);
+}
+
+.ff-course-panel h2,
+.ff-course-panel h3,
+.ff-course-empty h2,
+.ff-course-empty h3,
+.ff-course-section-heading h2,
+.ff-course-layout-card h3,
+.ff-course-admin-card h2,
+.ff-course-admin-layouts h3,
+.ff-course-admin-layout h4,
+.ff-course-round-bridge h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.ff-course-create-panel,
+.ff-course-empty {
+  border-top: 3px solid var(--brand-500);
+}
+
+.ff-course-panel-heading {
+  margin-bottom: 1rem;
+}
+
+.ff-course-panel-heading h2 {
+  margin-top: 0.4rem;
+}
+
+.ff-course-form {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.ff-course-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.ff-course-field input[aria-invalid="true"] {
+  border-color: var(--destructive);
+}
+
+.ff-course-field-error {
+  margin: 0;
+  color: var(--destructive);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.ff-course-help,
+.ff-course-form-note {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.ff-course-form-note {
+  padding-left: 0.75rem;
+  border-left: 2px solid #b99a54;
+}
+
+.ff-course-checkbox {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--foreground);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ff-course-checkbox input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--brand-600);
+}
+
+.ff-course-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ff-course-empty {
+  display: grid;
+  justify-items: start;
+  gap: 0.65rem;
+}
+
+.ff-course-empty h2 {
+  font-size: 1.15rem;
+}
+
+.ff-course-empty > .ff-course-eyebrow {
+  margin-bottom: 0.1rem;
+}
+
+.ff-course-empty > button {
+  margin-top: 0.3rem;
+}
+
+.ff-course-empty-compact {
+  padding: 1rem;
+  background: var(--background);
+  box-shadow: none;
+}
+
+.ff-course-state {
+  display: block;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  background: var(--card);
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}
+
+.ff-course-state-error {
+  display: grid;
+  justify-items: start;
+  gap: 0.75rem;
+  color: var(--destructive);
+}
+
+.ff-course-back {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--muted-foreground);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ff-course-back:hover {
+  color: var(--foreground);
+}
+
+.ff-course-back svg,
+.ff-course-location svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.ff-course-detail-heading {
+  align-items: end;
+  padding: 1.25rem 0 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.ff-course-detail-heading h1 {
+  margin-top: 0.4rem;
+}
+
+.ff-course-detail-heading .ff-course-location {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.65rem;
+}
+
+.ff-course-section-heading {
+  align-items: end;
+  margin-bottom: 0.8rem;
+}
+
+.ff-course-section-heading h2 {
+  margin-top: 0.35rem;
+  font-size: 1.3rem;
+}
+
+.ff-course-layout-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.ff-course-layout-card-heading {
+  align-items: start;
+}
+
+.ff-course-layout-card-heading p {
+  margin-top: 0.25rem;
+  font-size: 0.82rem;
+}
+
+.ff-course-hole-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(6.7rem, 1fr));
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ff-course-hole-list li {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 0.65rem;
+  background: var(--background);
+  color: var(--foreground);
+  font-size: 0.78rem;
+}
+
+.ff-course-hole-list li span:first-child {
+  color: var(--muted-foreground);
+  font-variant-numeric: tabular-nums;
+}
+
+.ff-course-admin-intro {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.86rem;
+}
+
+.ff-course-admin-card {
+  display: grid;
+  gap: 1.2rem;
+  border-left: 3px solid var(--brand-500);
+}
+
+.ff-course-admin-card.is-archived {
+  border-left-color: #b99a54;
+}
+
+.ff-course-archive-button {
+  border-color: var(--destructive);
+  background: var(--background);
+  color: var(--destructive);
+}
+
+.ff-course-admin-card-heading {
+  align-items: start;
+}
+
+.ff-course-admin-card-heading h2 {
+  margin-top: 0.35rem;
+  font-size: 1.2rem;
+  overflow-wrap: anywhere;
+}
+
+.ff-course-admin-card-heading > div > p:last-child {
+  margin-top: 0.3rem;
+}
+
+.ff-course-admin-layouts {
+  display: grid;
+  gap: 0.8rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.ff-course-admin-layout {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--background);
+}
+
+.ff-course-admin-layout h4 {
+  font-size: 0.95rem;
+}
+
+.ff-course-admin-layout > div > p {
+  margin: 0.25rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.ff-course-length-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+  gap: 0.55rem;
+}
+
+.ff-course-length-grid label {
+  display: grid;
+  min-width: 0;
+  gap: 0.3rem;
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 650;
+}
+
+.ff-course-length-grid input {
+  width: 100%;
+  min-width: 0;
+  min-height: 2.4rem;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--input);
+  border-radius: 0.5rem;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.ff-rounds-page {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.ff-course-round-bridge {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  border-left: 3px solid #b99a54;
+}
+
+.ff-course-round-icon {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  background: var(--accent);
+  color: var(--primary);
+}
+
+.ff-course-round-icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.ff-course-round-bridge h2 {
+  margin-top: 0.35rem;
+}
+
+.ff-course-round-bridge p:last-child {
+  margin: 0.35rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 640px) {
+  .ff-course-search,
+  .ff-course-form-grid,
+  .ff-course-round-bridge {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ff-course-search > button,
+  .ff-course-directory-actions > button,
+  .ff-course-round-bridge > a,
+  .ff-course-round-bridge > button {
+    width: 100%;
+  }
+
+  .ff-course-directory-actions,
+  .ff-course-section-heading,
+  .ff-course-detail-heading,
+  .ff-course-layout-card-heading,
+  .ff-course-admin-card-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ff-course-result {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 1rem;
+  }
+
+  .ff-course-result-meta {
+    max-width: 100%;
+  }
+
+  .ff-course-form-actions > button,
+  .ff-course-detail-heading > button,
+  .ff-course-layout-card-heading > button,
+  .ff-course-admin-card-heading > button,
+  .ff-course-section-heading > button {
+    width: 100%;
+  }
+
+  .ff-course-hole-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ff-course-result {
+    transition: none;
+  }
+}

@@ -1,0 +1,714 @@
+/* @polsia:user-owned — light, responsive Fairway Friends homepage. */
+
+.fairway-page {
+  min-height: 100vh;
+  overflow-x: clip;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  --muted-foreground: #5d6a60;
+}
+
+.dark .fairway-page {
+  --muted-foreground: #a0ada1;
+}
+
+.fairway-page *,
+.fairway-page *::before,
+.fairway-page *::after {
+  box-sizing: border-box;
+}
+
+.ff-shell {
+  width: min(100% - 48px, 1160px);
+  margin-inline: auto;
+}
+
+.ff-skip-link {
+  position: absolute;
+  z-index: 100;
+  top: 8px;
+  left: 8px;
+  padding: 10px 14px;
+  transform: translateY(-150%);
+  border-radius: var(--radius);
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.ff-skip-link:focus {
+  transform: translateY(0);
+}
+
+.ff-header {
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+}
+
+.ff-header-inner {
+  display: grid;
+  width: min(100% - 48px, 1240px);
+  min-height: 76px;
+  margin-inline: auto;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(16px, 3vw, 38px);
+}
+
+.ff-brand {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 9px;
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.ff-brand-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--card);
+  color: var(--primary);
+}
+
+.ff-brand-name {
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  white-space: nowrap;
+}
+
+.ff-brand-name span {
+  font-weight: 450;
+}
+
+.ff-brand-name i {
+  color: var(--primary);
+  font-style: normal;
+}
+
+.ff-nav,
+.ff-header-actions,
+.ff-header-account {
+  display: flex;
+  align-items: center;
+}
+
+.ff-nav {
+  justify-content: center;
+  gap: clamp(18px, 2.5vw, 34px);
+}
+
+.ff-mobile-nav {
+  display: none;
+}
+
+.ff-nav a,
+.ff-footer-links a {
+  color: var(--muted-foreground);
+  font-size: 0.88rem;
+  font-weight: 550;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.ff-nav a:hover,
+.ff-footer-links a:hover,
+.ff-sign-in-prompt a:hover {
+  color: var(--primary);
+}
+
+.ff-header-actions {
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.ff-header-account > nav {
+  gap: 4px;
+}
+
+.ff-header-account a,
+.ff-header-account button {
+  min-height: 38px;
+  border-radius: calc(var(--radius) * 1.2);
+  font-size: 0.84rem;
+}
+
+.ff-header-account a[href="/signup"] {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.ff-header-account a[href="/signup"]:hover {
+  background: color-mix(in srgb, var(--primary) 88%, var(--foreground));
+  color: var(--primary-foreground);
+}
+
+.ff-header-clubhouse {
+  min-height: 38px;
+  gap: 7px;
+  border-radius: calc(var(--radius) * 1.2);
+  padding-inline: 13px;
+  font-size: 0.84rem;
+}
+
+.ff-theme-toggle {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 1.2);
+  color: var(--foreground);
+}
+
+.ff-hero {
+  padding-block: clamp(52px, 7.5vw, 98px) clamp(68px, 8vw, 104px);
+}
+
+.ff-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  align-items: center;
+  gap: clamp(36px, 7vw, 92px);
+}
+
+.ff-hero-copy {
+  max-width: 510px;
+}
+
+.ff-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 20px;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+}
+
+.ff-eyebrow-mark {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--card);
+}
+
+.ff-hero h1 {
+  max-width: 590px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3.25rem, 6.3vw, 5.45rem);
+  font-weight: 680;
+  letter-spacing: -0.075em;
+  line-height: 0.99;
+}
+
+.ff-hero h1 span {
+  color: var(--primary);
+}
+
+.ff-hero-description {
+  max-width: 440px;
+  margin: 24px 0 0;
+  color: var(--muted-foreground);
+  font-size: clamp(1rem, 1.3vw, 1.12rem);
+  line-height: 1.72;
+}
+
+.ff-hero-actions,
+.ff-start-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.ff-hero-actions {
+  margin-top: 28px;
+}
+
+.fairway-page .ff-button-primary,
+.fairway-page .ff-button-secondary {
+  min-height: 48px;
+  border-radius: calc(var(--radius) * 1.5);
+  padding-inline: 17px;
+  font-size: 0.9rem;
+  font-weight: 650;
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.fairway-page .ff-button-primary {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: 0 5px 14px var(--elevation-1);
+}
+
+.fairway-page .ff-button-primary:hover {
+  transform: translateY(-1px);
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 88%, var(--foreground));
+  color: var(--primary-foreground);
+  box-shadow: 0 8px 20px var(--elevation-2);
+}
+
+.fairway-page .ff-button-secondary {
+  border-color: var(--border);
+  background: var(--card);
+  color: var(--foreground);
+}
+
+.fairway-page .ff-button-secondary:hover {
+  transform: translateY(-1px);
+  border-color: var(--primary);
+  background: var(--card);
+  color: var(--primary);
+}
+
+.ff-sign-in-prompt {
+  margin: 16px 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.88rem;
+}
+
+.ff-sign-in-prompt a {
+  color: var(--foreground);
+  font-weight: 650;
+  text-underline-offset: 3px;
+  transition: color 160ms ease;
+}
+
+.ff-hero-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.16 / 1;
+  margin: 0;
+  overflow: clip;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 2.5);
+  background: var(--muted);
+  box-shadow: 0 20px 56px var(--elevation-2);
+}
+
+.ff-hero-photo {
+  object-fit: cover;
+  object-position: 52% 50%;
+}
+
+.ff-profile-section {
+  padding-block: clamp(60px, 8vw, 104px);
+  border-top: 1px solid var(--border);
+  background: var(--card);
+}
+
+.ff-profile-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 0.56fr);
+  align-items: end;
+  gap: clamp(28px, 7vw, 88px);
+}
+
+.ff-profile-title-group {
+  max-width: 650px;
+}
+
+.ff-eyebrow-muted {
+  margin-bottom: 14px;
+}
+
+.ff-profile-heading h2,
+.ff-start-section h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 4.6vw, 3.8rem);
+  font-weight: 650;
+  letter-spacing: -0.065em;
+  line-height: 1.04;
+}
+
+.ff-profile-intro {
+  max-width: 405px;
+  margin: 0 0 4px;
+  color: var(--muted-foreground);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.ff-profile-grid {
+  display: grid;
+  margin-top: clamp(32px, 5vw, 56px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ff-profile-card {
+  min-height: 184px;
+  padding: clamp(20px, 2.6vw, 29px);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 1.5);
+  background: var(--background);
+}
+
+.ff-profile-icon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 1.2);
+  background: var(--card);
+  color: var(--primary);
+}
+
+.ff-profile-card h3 {
+  margin: 22px 0 7px;
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+
+.ff-profile-card p {
+  max-width: 270px;
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.ff-start-section {
+  padding-block: clamp(48px, 6.5vw, 76px);
+  background: var(--secondary);
+}
+
+.ff-start-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.ff-start-inner .ff-eyebrow {
+  margin-bottom: 9px;
+}
+
+.ff-start-section h2 {
+  font-size: clamp(2.1rem, 4vw, 3.15rem);
+}
+
+.ff-start-section p:not(.ff-eyebrow) {
+  margin: 10px 0 0;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+
+.ff-footer {
+  border-top: 1px solid var(--border);
+  background: var(--background);
+}
+
+.ff-footer-inner {
+  display: grid;
+  min-height: 92px;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 24px;
+}
+
+.ff-brand-footer .ff-brand-mark {
+  width: 31px;
+  height: 31px;
+}
+
+.ff-footer-tagline,
+.ff-footer-copyright {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+}
+
+.ff-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+}
+
+.ff-footer-links a {
+  font-size: 0.82rem;
+}
+
+@media (max-width: 1000px) {
+  .ff-nav {
+    display: none;
+  }
+
+  .ff-header-inner {
+    grid-template-columns: auto 1fr;
+  }
+
+  .ff-header-actions {
+    grid-column: 2;
+  }
+
+  .ff-footer-inner {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .ff-footer-tagline {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .ff-header-clubhouse {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .ff-shell {
+    width: min(100% - 32px, 560px);
+  }
+
+  .ff-header-inner {
+    width: calc(100% - 32px);
+    min-height: 64px;
+    gap: 8px;
+  }
+
+  .ff-mobile-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    padding-block: 6px 9px;
+    border-top: 1px solid var(--border);
+  }
+
+  .ff-mobile-nav > a:not(.ff-mobile-clubhouse) {
+    flex: 0 0 auto;
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .ff-mobile-clubhouse {
+    min-height: 33px;
+    flex: 1 0 100%;
+    justify-content: center;
+    gap: 4px;
+    border-radius: calc(var(--radius) * 1.1);
+    padding-inline: 9px;
+    font-size: 0.74rem;
+  }
+
+  .ff-brand {
+    gap: 7px;
+  }
+
+  .ff-brand-mark {
+    width: 31px;
+    height: 31px;
+  }
+
+  .ff-brand-name {
+    font-size: 0.94rem;
+  }
+
+  .ff-header-actions {
+    gap: 6px;
+  }
+
+  .ff-header-account a,
+  .ff-header-account button {
+    min-height: 36px;
+    padding-inline: 9px;
+    font-size: 0.82rem;
+  }
+
+  .ff-theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .ff-hero {
+    padding-block: 42px 60px;
+  }
+
+  .ff-hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .ff-eyebrow {
+    margin-bottom: 16px;
+    font-size: 0.74rem;
+  }
+
+  .ff-hero h1 {
+    max-width: 560px;
+    font-size: clamp(2.55rem, 10vw, 3.65rem);
+    letter-spacing: -0.073em;
+    line-height: 1.01;
+  }
+
+  .ff-hero-description {
+    max-width: 480px;
+    margin-top: 17px;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .ff-hero-actions {
+    display: grid;
+    margin-top: 23px;
+    gap: 9px;
+  }
+
+  .fairway-page .ff-button-primary,
+  .fairway-page .ff-button-secondary {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .ff-sign-in-prompt {
+    margin-top: 14px;
+    font-size: 0.85rem;
+  }
+
+  .ff-hero-image {
+    aspect-ratio: 1.22 / 1;
+    border-radius: calc(var(--radius) * 1.8);
+  }
+
+  .ff-profile-section {
+    padding-block: 58px;
+  }
+
+  .ff-profile-heading {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .ff-profile-heading h2 {
+    font-size: clamp(2.1rem, 8vw, 3rem);
+  }
+
+  .ff-profile-intro {
+    max-width: 500px;
+    font-size: 0.96rem;
+  }
+
+  .ff-profile-grid {
+    margin-top: 26px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .ff-profile-card {
+    display: grid;
+    min-height: 0;
+    padding: 17px;
+    grid-template-columns: 40px minmax(0, 1fr);
+    column-gap: 13px;
+    align-items: center;
+  }
+
+  .ff-profile-icon {
+    grid-row: span 2;
+  }
+
+  .ff-profile-card h3 {
+    margin: 0 0 3px;
+    font-size: 1rem;
+  }
+
+  .ff-profile-card p {
+    max-width: 100%;
+    font-size: 0.88rem;
+  }
+
+  .ff-start-section {
+    padding-block: 42px;
+  }
+
+  .ff-start-inner {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 23px;
+  }
+
+  .ff-start-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ff-footer-inner {
+    min-height: 0;
+    padding-block: 24px;
+    grid-template-columns: 1fr auto;
+    gap: 18px 12px;
+  }
+
+  .ff-footer-links {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    gap: 16px;
+  }
+
+  .ff-footer-copyright {
+    grid-row: 3;
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 360px) {
+  .ff-shell,
+  .ff-header-inner {
+    width: calc(100% - 28px);
+  }
+
+  .ff-brand-name {
+    font-size: 0.88rem;
+  }
+
+  .ff-header-account a,
+  .ff-header-account button {
+    padding-inline: 7px;
+  }
+
+  .ff-hero h1 {
+    font-size: 2.45rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ff-nav a,
+  .ff-footer-links a,
+  .ff-sign-in-prompt a,
+  .fairway-page .ff-button-primary,
+  .fairway-page .ff-button-secondary {
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
+  }
+}

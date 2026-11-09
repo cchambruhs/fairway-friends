@@ -1,0 +1,52 @@
+// @polsia:user-owned — community-submitted course directory and playable layouts.
+model Course {
+  id                String         @id @default(cuid())
+  name              String
+  location          String
+  createdByUserId   String
+  updatedByUserId   String?
+  archivedAt        DateTime?
+  archivedByUserId  String?
+  layouts           CourseLayout[]
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+
+  @@index([name])
+  @@index([location])
+  @@index([createdByUserId])
+  @@index([archivedAt])
+  @@map("course")
+}
+
+model CourseLayout {
+  id                String       @id @default(cuid())
+  courseId          String
+  name              String
+  createdByUserId   String
+  updatedByUserId   String?
+  course            Course       @relation(fields: [courseId], references: [id], onDelete: Restrict)
+  holes             CourseHole[]
+  scorecards        ImportedScorecard[]
+  savedRounds       SavedRound[]
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+
+  @@index([courseId])
+  @@index([createdByUserId])
+  @@map("course_layout")
+}
+
+model CourseHole {
+  id                     String       @id @default(cuid())
+  layoutId               String
+  number                 Int
+  par                    Int
+  lengthFeet             Int?
+  lengthVerifiedAt       DateTime?
+  lengthVerifiedByUserId String?
+  layout                 CourseLayout @relation(fields: [layoutId], references: [id], onDelete: Restrict)
+
+  @@unique([layoutId, number])
+  @@index([layoutId])
+  @@map("course_hole")
+}
