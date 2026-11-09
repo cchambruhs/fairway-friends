@@ -1,0 +1,70 @@
+{
+  "scorecardId": "N78XJtdFmZ",
+  "sourceUrl": "https://udisc.com/scorecards/N78XJtdFmZ",
+  "courseName": "Red Tail Ridge",
+  "courseUrl": "https://udisc.com/courses/red-tail-ridge-9PTX",
+  "layoutName": "Blue",
+  "playedOn": "2026-03-22",
+  "location": "Fort Branch, Indiana",
+  "holeCount": 18,
+  "pars": [3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 4, 4, 3, 3, 3, 3, 3, 3],
+  "totalPar": 57,
+  "players": [
+    {
+      "username": "cchambruhs",
+      "displayName": "Dad",
+      "position": "T1",
+      "toPar": 2,
+      "totalScore": 59,
+      "holeScores": [3, 3, 3, 3, 3, 2, 4, 3, 4, 3, 5, 4, 4, 3, 3, 3, 3, 3]
+    },
+    {
+      "username": "mdub1807",
+      "displayName": "Mdub1807",
+      "position": "T1",
+      "toPar": 2,
+      "totalScore": 59,
+      "holeScores": [2, 3, 3, 3, 3, 3, 3, 4, 4, 3, 5, 3, 4, 4, 3, 3, 3, 3]
+    },
+    {
+      "username": "connorc3",
+      "displayName": "Connor",
+      "position": "3",
+      "toPar": 3,
+      "totalScore": 60,
+      "holeScores": [4, 4, 4, 3, 4, 3, 3, 3, 3, 3, 4, 5, 3, 2, 2, 3, 4, 3]
+    },
+    {
+      "username": "zwayne93",
+      "displayName": "Z-Dub",
+      "position": "4",
+      "toPar": 5,
+      "totalScore": 62,
+      "holeScores": [3, 3, 3, 2, 3, 3, 3, 3, 5, 3, 4, 4, 4, 5, 3, 3, 4, 4]
+    },
+    {
+      "username": "mk3492",
+      "displayName": "TG",
+      "position": "5",
+      "toPar": 8,
+      "totalScore": 65,
+      "holeScores": [4, 4, 3, 2, 4, 3, 4, 3, 4, 3, 6, 4, 3, 4, 3, 3, 4, 4]
+    },
+    {
+      "username": "rashad032",
+      "displayName": "Will",
+      "position": "6",
+      "toPar": 12,
+      "totalScore": 69,
+      "holeScores": [3, 5, 4, 3, 2, 3, 4, 4, 5, 3, 5, 5, 3, 4, 4, 5, 3, 4]
+    },
+    {
+      "username": "udiscba",
+      "displayName": "Byron",
+      "position": "7",
+      "toPar": 13,
+      "totalScore": 70,
+      "holeScores": [4, 4, 3, 3, 3, 3, 4, 3, 6, 4, 4, 5, 4, 3, 3, 5, 5, 4]
+    }
+  ]
+}

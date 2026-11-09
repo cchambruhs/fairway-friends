@@ -1,0 +1,158 @@
+// @polsia:user-owned — free, friends-only fantasy leagues (PRD v4 P3; owner decision 2026-11-09).
+//
+// Design notes:
+// - No money. There are no fee, wallet, prize or payout fields here on purpose; payments stay
+//   disabled platform-wide. Do not add any without a separate approved spec.
+// - Fantasy points come only from finalized imported/saved rounds already in the database.
+//   A FantasyScore row records which scorecard produced which points under which rule version,
+//   so standings can always be rebuilt and audited.
+// - External references (users, UDisc identities, scorecards) are plain ids, matching the
+//   convention in the other user-owned schema files (no edits to framework-owned auth.prisma).
+// - Scoring rules are locked when the league leaves DRAFTING (scoringLockedAt), mirroring the
+//   PRD rule that league scoring locks when a season starts.
+
+enum FantasyLeagueStatus {
+  DRAFTING
+  ACTIVE
+  COMPLETE
+  ARCHIVED
+}
+
+enum FantasyFormat {
+  /// Each team drafts a roster once and every rostered player scores every period.
+  SEASON_DRAFT
+  /// Each team drafts a roster and picks a smaller starting lineup each period.
+  WEEKLY_LINEUP
+}
+
+model FantasyLeague {
+  id               String              @id @default(cuid())
+  name             String
+  /// Optional home Clubhouse: limits who can join to that Clubhouse's members.
+  clubhouseId      String?
+  createdByUserId  String
+  status           FantasyLeagueStatus @default(DRAFTING)
+  format           FantasyFormat       @default(SEASON_DRAFT)
+  seasonStart      DateTime            @db.Date
+  seasonEnd        DateTime            @db.Date
+  /// Time zone used to cut periods and lock lineups, e.g. "America/Chicago".
+  timeZone         String              @default("America/Chicago")
+  rosterSize       Int                 @default(4)
+  /// Starters per period; only used by WEEKLY_LINEUP.
+  lineupSize       Int?
+  maxTeams         Int                 @default(12)
+  /// Versioned scoring rule, e.g. {"version":1,"perRound":"leaguePlacePoints"}.
+  scoringRule      Json
+  scoringLockedAt  DateTime?
+  inviteCode       String              @unique
+  teams            FantasyTeam[]
+  periods          FantasyPeriod[]
+  draftPicks       FantasyDraftPick[]
+  createdAt        DateTime            @default(now())
+  updatedAt        DateTime            @updatedAt
+
+  @@index([clubhouseId])
+  @@index([createdByUserId])
+  @@map("fantasy_league")
+}
+
+model FantasyTeam {
+  id              String              @id @default(cuid())
+  fantasyLeagueId String
+  fantasyLeague   FantasyLeague       @relation(fields: [fantasyLeagueId], references: [id], onDelete: Cascade)
+  ownerUserId     String
+  name            String
+  /// Draft order position, assigned when the draft starts.
+  draftSlot       Int?
+  roster          FantasyRosterSlot[]
+  lineups         FantasyLineupSlot[]
+  scores          FantasyScore[]
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+
+  @@unique([fantasyLeagueId, ownerUserId])
+  @@unique([fantasyLeagueId, name])
+  @@map("fantasy_team")
+}
+
+/// A real disc golfer (by verified UDisc identity) on a fantasy team.
+model FantasyRosterSlot {
+  id              String      @id @default(cuid())
+  fantasyLeagueId String
+  teamId          String
+  team            FantasyTeam @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  identityId      String
+  acquiredAt      DateTime    @default(now())
+
+  /// A golfer can be on only one team per fantasy league.
+  @@unique([fantasyLeagueId, identityId])
+  @@index([teamId])
+  @@map("fantasy_roster_slot")
+}
+
+/// Audit trail of the draft; one row per pick, never edited after it is made.
+model FantasyDraftPick {
+  id              String        @id @default(cuid())
+  fantasyLeagueId String
+  fantasyLeague   FantasyLeague @relation(fields: [fantasyLeagueId], references: [id], onDelete: Cascade)
+  pickNumber      Int
+  teamId          String
+  identityId      String
+  pickedByUserId  String
+  pickedAt        DateTime      @default(now())
+
+  @@unique([fantasyLeagueId, pickNumber])
+  @@unique([fantasyLeagueId, identityId])
+  @@map("fantasy_draft_pick")
+}
+
+/// A scoring window (usually a week). Lineups lock at startsAt.
+model FantasyPeriod {
+  id              String              @id @default(cuid())
+  fantasyLeagueId String
+  fantasyLeague   FantasyLeague       @relation(fields: [fantasyLeagueId], references: [id], onDelete: Cascade)
+  number          Int
+  startsAt        DateTime
+  endsAt          DateTime
+  finalizedAt     DateTime?
+  lineups         FantasyLineupSlot[]
+  scores          FantasyScore[]
+
+  @@unique([fantasyLeagueId, number])
+  @@index([fantasyLeagueId, startsAt])
+  @@map("fantasy_period")
+}
+
+model FantasyLineupSlot {
+  id         String        @id @default(cuid())
+  periodId   String
+  period     FantasyPeriod @relation(fields: [periodId], references: [id], onDelete: Cascade)
+  teamId     String
+  team       FantasyTeam   @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  identityId String
+  setAt      DateTime      @default(now())
+
+  @@unique([periodId, teamId, identityId])
+  @@map("fantasy_lineup_slot")
+}
+
+/// Points one golfer earned for one team from one finalized scorecard in one period.
+model FantasyScore {
+  id           String        @id @default(cuid())
+  periodId     String
+  period       FantasyPeriod @relation(fields: [periodId], references: [id], onDelete: Cascade)
+  teamId       String
+  team         FantasyTeam   @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  identityId   String
+  /// ImportedScorecard.id or SavedRound.id, per sourceKind.
+  sourceKind   String
+  sourceId     String
+  points       Decimal       @db.Decimal(8, 2)
+  ruleVersion  Int
+  computedAt   DateTime      @default(now())
+
+  /// Re-running scoring is repeat-safe: one row per golfer per source card per team per period.
+  @@unique([periodId, teamId, identityId, sourceKind, sourceId])
+  @@index([teamId])
+  @@map("fantasy_score")
+}

@@ -1,7 +1,0 @@
-import {readData} from '../../../lib/store';
-import {canManage} from '../../../lib/api';
-import {getChatGPTUser} from '../../chatgpt-auth';
-import {readPlayerGear} from '../../../lib/gear.mjs';
-import {env} from 'cloudflare:workers';
-export const dynamic='force-dynamic';
-export async function GET(){try{const [data,owner,user]=await Promise.all([readData(),canManage(),getChatGPTUser()]);if(!env.DB)throw new Error('Database unavailable');const gear=await readPlayerGear(env.DB,user?.userId||null);const photos=(await env.DB.prepare('SELECT username,updated_at FROM player_photos').all()).results;data.players=data.players.map(p=>({...p,photoUpdatedAt:photos.find(q=>q.username===p.username)?.updated_at||null}));return Response.json({...data,canManagePlayers:owner,viewer:{signedIn:!!user,claimedUsername:gear.claimedUsername},gear:gear.bags,players:owner?data.players:data.players.map(p=>({username:p.username,name:p.name,isGuest:p.isGuest||p.username.startsWith('guest:'),photoUpdatedAt:p.photoUpdatedAt,fullName:p.pdgaNumber?p.fullName:undefined,pdgaNumber:p.pdgaNumber,verified:p.verified,rating:p.rating,ratingDate:p.ratingDate,careerEvents:p.careerEvents,careerWins:p.careerWins,statsChecked:p.statsChecked}))},{headers:{'Cache-Control':'private, no-store'}});}catch(error){return Response.json({error:import.meta.env.DEV&&error instanceof Error?error.message:'Could not load saved rounds. Please reload.'},{status:500});}}

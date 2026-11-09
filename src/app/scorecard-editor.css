@@ -1,0 +1,301 @@
+.ff-scorecard-editor {
+  display: grid;
+  width: min(100%, 76rem);
+  gap: 1rem;
+  margin-inline: auto;
+  padding: clamp(1rem, 4vw, 2.5rem);
+}
+
+.ff-scorecard-editor-header,
+.ff-scorecard-editor-panel-heading,
+.ff-scorecard-player-edit-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ff-scorecard-editor-header h1,
+.ff-scorecard-editor-panel-heading h2,
+.ff-scorecard-player-edit-heading h3 {
+  margin: 0.35rem 0;
+  color: var(--foreground);
+  font-weight: 750;
+  letter-spacing: -0.04em;
+}
+
+.ff-scorecard-editor-header h1 {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+}
+.ff-scorecard-editor-panel-heading h2 {
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+}
+.ff-scorecard-player-edit-heading h3 {
+  font-size: 1.15rem;
+}
+
+.ff-scorecard-editor-header > div > p:last-child,
+.ff-scorecard-editor-panel-heading > span,
+.ff-scorecard-editor-hint,
+.ff-scorecard-editor-notice {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.ff-scorecard-editor-panel,
+.ff-scorecard-editor > div[role="alert"] {
+  display: grid;
+  min-width: 0;
+  gap: 1rem;
+  padding: clamp(1rem, 3vw, 1.6rem);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+  color: var(--card-foreground);
+  box-shadow: var(--shadow-sm);
+}
+
+.ff-scorecard-editor-notice {
+  padding: 0.85rem 1rem;
+  border: 1px solid color-mix(in srgb, #d8b66c 34%, var(--border));
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, #d8b66c 9%, var(--card));
+  color: var(--foreground);
+}
+
+.ff-scorecard-destination-grid,
+.ff-scorecard-edit-form > fieldset,
+.ff-scorecard-player-edit-list,
+.ff-scorecard-edit-history {
+  display: grid;
+  min-width: 0;
+  gap: 1rem;
+}
+
+.ff-scorecard-destination-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ff-scorecard-destination-field,
+.ff-scorecard-layout-select,
+.ff-scorecard-form-grid > label {
+  display: grid;
+  min-width: 0;
+  align-content: start;
+  gap: 0.38rem;
+  color: var(--foreground);
+  font-size: 0.79rem;
+  font-weight: 650;
+}
+
+.ff-scorecard-destination-field input,
+.ff-scorecard-destination-field select,
+.ff-scorecard-layout-select select,
+.ff-scorecard-form-grid input {
+  width: 100%;
+  min-width: 0;
+  min-height: 2.65rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--input);
+  border-radius: 0.55rem;
+  background: var(--background);
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.87rem;
+}
+
+.ff-scorecard-destination-field input:focus-visible,
+.ff-scorecard-destination-field select:focus-visible,
+.ff-scorecard-layout-select select:focus-visible,
+.ff-scorecard-form-grid input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.ff-scorecard-destination-grid > button {
+  justify-self: start;
+}
+
+.ff-scorecard-editor-hint {
+  grid-column: 1 / -1;
+}
+
+.ff-scorecard-editor-hint a {
+  color: var(--primary);
+  font-weight: 700;
+  text-underline-offset: 0.2em;
+}
+
+.ff-scorecard-edit-form > fieldset {
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.ff-scorecard-form-grid {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.ff-scorecard-form-grid > .ff-scorecard-full-field {
+  grid-column: 1 / -1;
+}
+
+.ff-scorecard-form-grid small {
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.ff-scorecard-player-edit-list {
+  margin-top: 1.3rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--border);
+}
+
+.ff-scorecard-player-edit-heading {
+  align-items: center;
+}
+
+.ff-scorecard-player-edit {
+  display: grid;
+  min-width: 0;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  background: color-mix(in srgb, var(--muted) 45%, var(--card));
+}
+
+.ff-scorecard-player-edit legend {
+  padding-inline: 0.35rem;
+  color: var(--primary);
+  font-size: 0.77rem;
+  font-weight: 800;
+}
+
+.ff-scorecard-player-edit > button {
+  justify-self: start;
+}
+
+.ff-scorecard-verified {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  border: 1px solid color-mix(in srgb, #c6a756 52%, var(--border));
+  border-radius: 99px;
+  padding: 0.32rem 0.65rem;
+  background: color-mix(in srgb, #c6a756 14%, var(--card));
+  color: color-mix(in srgb, #a17e2e 76%, var(--foreground));
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.035em;
+}
+
+.ff-scorecard-edit-history {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ff-scorecard-edit-history > li {
+  display: grid;
+  gap: 0.55rem;
+  min-width: 0;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.ff-scorecard-edit-history > li > header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.ff-scorecard-edit-history > li > header strong {
+  color: var(--primary);
+}
+.ff-scorecard-edit-history > li > header span,
+.ff-scorecard-edit-history > li > p {
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+}
+.ff-scorecard-edit-history > li > p {
+  margin: 0;
+}
+
+.ff-scorecard-edit-history details {
+  min-width: 0;
+  font-size: 0.82rem;
+}
+
+.ff-scorecard-edit-history summary {
+  color: var(--foreground);
+  cursor: pointer;
+  font-weight: 650;
+}
+
+.ff-scorecard-edit-history details > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem 1rem;
+  margin-top: 0.7rem;
+  padding: 0.8rem;
+  border-radius: 0.65rem;
+  background: var(--muted);
+}
+
+.ff-scorecard-edit-history details h3,
+.ff-scorecard-edit-history details p {
+  margin: 0;
+}
+.ff-scorecard-edit-history details h3 {
+  font-size: 0.73rem;
+}
+.ff-scorecard-edit-history details p {
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.ff-scorecard-review-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 0.35rem;
+}
+
+.ff-scorecard-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+@media (max-width: 620px) {
+  .ff-scorecard-editor-header,
+  .ff-scorecard-editor-panel-heading {
+    flex-direction: column;
+  }
+  .ff-scorecard-destination-grid,
+  .ff-scorecard-form-grid,
+  .ff-scorecard-edit-history details > div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ff-scorecard-form-grid > .ff-scorecard-full-field {
+    grid-column: auto;
+  }
+  .ff-scorecard-player-edit-heading {
+    align-items: flex-start;
+  }
+}

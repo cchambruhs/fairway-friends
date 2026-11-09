@@ -1,0 +1,1909 @@
+/* @polsia:user-owned — compact rounds entry and history styling in the shared Fairway Friends theme. */
+.ff-round-history-workspace {
+  display: grid;
+  min-width: 0;
+  gap: 1rem;
+}
+
+.ff-cardcast-panel {
+  display: grid;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  gap: 1.1rem;
+  padding: clamp(1rem, 3.2vw, 1.7rem);
+  border: 1px solid color-mix(in srgb, var(--primary) 34%, var(--border));
+  border-radius: calc(var(--radius) + 0.45rem);
+  background:
+    radial-gradient(
+      ellipse at 92% 0%,
+      color-mix(in srgb, var(--primary) 12%, transparent),
+      transparent 34rem
+    ), var(--card);
+  box-shadow: var(--shadow-md);
+}
+
+.ff-cardcast-heading {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.ff-cardcast-heading > div {
+  min-width: 0;
+}
+
+.ff-cardcast-icon {
+  width: 3rem;
+  height: 3rem;
+  border-color: color-mix(in srgb, var(--primary) 32%, var(--border));
+  background: color-mix(in srgb, var(--primary) 11%, var(--card));
+}
+
+.ff-cardcast-icon svg {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.ff-cardcast-kicker {
+  margin: 0 0 0.22rem;
+  color: var(--primary);
+  font-size: 0.67rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+}
+
+.ff-cardcast-heading h1,
+.ff-cardcast-heading h2 {
+  margin: 0;
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1.65rem, 4vw, 2.35rem);
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  line-height: 1.12;
+}
+
+.ff-cardcast-intro {
+  max-width: 45rem;
+  margin: 0.45rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.89rem;
+  line-height: 1.55;
+}
+
+.ff-cardcast-source-status {
+  display: grid;
+  grid-template-columns: 1.2rem minmax(0, 1fr);
+  gap: 0.7rem;
+  border: 1px solid color-mix(in srgb, #d8b66c 33%, var(--border));
+  border-radius: 0.8rem;
+  padding: 0.8rem 0.9rem;
+  background: color-mix(in srgb, #d8b66c 8%, var(--background));
+  color: var(--foreground);
+  font-size: 0.81rem;
+  line-height: 1.55;
+}
+
+.ff-cardcast-source-status > svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.1rem;
+  color: #805c16;
+}
+
+.ff-cardcast-source-status > span {
+  display: block;
+}
+
+.dark .ff-cardcast-source-status > svg {
+  color: #d8b66c;
+}
+
+.ff-cardcast-source-status .ff-cardcast-status-title {
+  display: block;
+  margin-bottom: 0.12rem;
+  font-weight: 700;
+}
+
+.ff-cardcast-form {
+  display: grid;
+  min-width: 0;
+  gap: 0.85rem;
+}
+
+.ff-cardcast-field {
+  display: grid;
+  min-width: 0;
+  gap: 0.45rem;
+}
+
+.ff-cardcast-field label {
+  color: var(--foreground);
+  font-size: 0.84rem;
+  font-weight: 650;
+}
+
+.ff-cardcast-field input {
+  width: 100%;
+  min-height: 3rem;
+  border-color: color-mix(in srgb, var(--primary) 28%, var(--input));
+  background: var(--background);
+}
+
+.ff-cardcast-field input:focus-visible {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 20%, transparent);
+}
+
+.ff-cardcast-field input[aria-invalid="true"] {
+  border-color: var(--destructive);
+}
+
+.ff-cardcast-help,
+.ff-cardcast-field-error {
+  margin: 0;
+  font-size: 0.77rem;
+  line-height: 1.45;
+}
+
+.ff-cardcast-help {
+  color: var(--muted-foreground);
+}
+
+.ff-cardcast-field-error {
+  color: var(--destructive);
+}
+
+.ff-cardcast-submit-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.ff-cardcast-submit {
+  min-height: 2.9rem;
+  padding-inline: 1.1rem;
+  font-weight: 700;
+}
+
+.ff-cardcast-submit-row > p {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.ff-cardcast-result {
+  margin: 0;
+  border-color: color-mix(in srgb, #d8b66c 40%, var(--border));
+  background: color-mix(in srgb, #d8b66c 7%, var(--card));
+}
+
+.ff-cardcast-result-error {
+  border-color: color-mix(in srgb, var(--destructive) 42%, var(--border));
+  background: color-mix(in srgb, var(--destructive) 5%, var(--card));
+}
+
+.ff-cardcast-alternatives {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.ff-cardcast-alternatives a {
+  color: var(--primary);
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.ff-cardcast-alternatives a:focus-visible {
+  border-radius: 0.2rem;
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+.ff-cardcast-alternative-separator {
+  margin-inline: 0.35rem;
+}
+
+.ff-cardcast-result code,
+.ff-cardcast-result p,
+.ff-cardcast-import-success,
+.ff-cardcast-export-heading,
+.ff-cardcast-export-help,
+.ff-cardcast-import-error {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.ff-cardcast-export-import {
+  display: grid;
+  min-width: 0;
+  max-width: 100%;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--primary) 4%, var(--background));
+}
+
+.ff-scorecard-json {
+  display: grid;
+  min-width: 0;
+  gap: 0.8rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--primary) 4%, var(--background));
+}
+
+.ff-scorecard-json-label,
+.ff-scorecard-json-fields label,
+.ff-scorecard-json-player-fields label {
+  display: grid;
+  min-width: 0;
+  gap: 0.35rem;
+  color: var(--foreground);
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.ff-scorecard-json textarea {
+  width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.ff-scorecard-json-actions,
+.ff-scorecard-json-save,
+.ff-scorecard-json-player-heading,
+.ff-scorecard-json-match {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.ff-scorecard-json-preview {
+  display: grid;
+  min-width: 0;
+  gap: 1rem;
+  padding-top: 0.4rem;
+}
+
+.ff-scorecard-json-fields,
+.ff-scorecard-json-player-fields {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.ff-scorecard-json-wide {
+  grid-column: 1 / -1;
+}
+
+.ff-scorecard-json-player-heading h5 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.ff-scorecard-json-player-heading p,
+.ff-scorecard-json-save p,
+.ff-scorecard-json-match span {
+  margin: 0.25rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+.ff-scorecard-json-players {
+  display: grid;
+  min-width: 0;
+  gap: 0.65rem;
+}
+
+.ff-scorecard-json-player {
+  display: grid;
+  min-width: 0;
+  gap: 0.6rem;
+  padding: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 0.7rem;
+  background: var(--card);
+}
+
+.ff-scorecard-json-player legend {
+  max-width: 100%;
+  padding-inline: 0.25rem;
+  overflow-wrap: anywhere;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.ff-scorecard-json-player > small {
+  overflow-wrap: anywhere;
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+}
+
+.ff-scorecard-json-match {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.ff-scorecard-json-match > label,
+.ff-udisc-player-match {
+  display: inline-flex;
+  min-height: 2.5rem;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--foreground);
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.ff-scorecard-json-match input[type="checkbox"],
+.ff-udisc-player-match input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--primary);
+}
+
+.ff-scorecard-json-match > span {
+  flex: 1 1 12rem;
+  margin: 0;
+}
+
+.ff-scorecard-json-warning,
+.ff-scorecard-json-issues {
+  margin: 0;
+  border: 1px solid color-mix(in srgb, var(--destructive) 40%, var(--border));
+  border-radius: 0.65rem;
+  padding: 0.65rem 0.75rem;
+  background: color-mix(in srgb, var(--destructive) 5%, var(--card));
+  color: var(--foreground);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.ff-scorecard-json-issues ul {
+  margin: 0.35rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.ff-scorecard-json-save {
+  align-items: flex-start;
+}
+
+.ff-scorecard-json-save p {
+  max-width: 30rem;
+}
+
+.ff-udisc-player-match {
+  min-height: 2.35rem;
+}
+
+.ff-cardcast-export-heading {
+  display: grid;
+  grid-template-columns: 1.25rem minmax(0, 1fr);
+  align-items: start;
+  gap: 0.7rem;
+}
+
+.ff-cardcast-export-heading > svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.16rem;
+  color: var(--primary);
+}
+
+.ff-cardcast-export-heading h3 {
+  margin: 0;
+  font-size: 0.96rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.ff-cardcast-export-heading p,
+.ff-cardcast-export-help,
+.ff-cardcast-import-success p {
+  margin: 0.32rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.79rem;
+  line-height: 1.5;
+}
+
+.ff-cardcast-source-field {
+  display: grid;
+  min-width: 0;
+  gap: 0.35rem;
+}
+
+.ff-cardcast-source-field > label {
+  color: var(--foreground);
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.ff-cardcast-source-field > input {
+  width: 100%;
+  min-width: 0;
+}
+
+.ff-cardcast-file-label {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.ff-cardcast-file-label:has(input:disabled) {
+  cursor: progress;
+}
+
+.ff-cardcast-file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.ff-cardcast-file-action {
+  display: inline-flex;
+  min-height: 2.75rem;
+  max-width: 100%;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 0.15rem);
+  padding: 0.55rem 0.9rem;
+  background: var(--background);
+  color: var(--foreground);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.ff-cardcast-file-action svg {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+  color: var(--primary);
+}
+
+.ff-cardcast-import-error {
+  margin: 0;
+  color: var(--destructive);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.ff-cardcast-import-success {
+  display: grid;
+  gap: 0.45rem;
+  border-left: 3px solid var(--primary);
+  padding: 0.2rem 0 0.2rem 0.75rem;
+}
+
+.ff-cardcast-import-success p {
+  margin: 0;
+  color: var(--foreground);
+}
+
+.ff-cardcast-import-success a {
+  width: fit-content;
+  max-width: 100%;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.ff-udisc-preview,
+.ff-udisc-round-list,
+.ff-udisc-round-card,
+.ff-udisc-player-list {
+  display: grid;
+  min-width: 0;
+  gap: 0.8rem;
+}
+
+.ff-udisc-preview {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+.ff-udisc-preview-heading,
+.ff-udisc-confirm-row,
+.ff-udisc-round-card-heading {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.ff-udisc-preview-heading > div,
+.ff-udisc-round-card-heading h5 {
+  min-width: 0;
+}
+
+.ff-udisc-preview-heading h4,
+.ff-udisc-round-card-heading h5 {
+  margin: 0.18rem 0 0;
+  color: var(--foreground);
+  font-size: 0.96rem;
+  font-weight: 700;
+}
+
+.ff-udisc-preview-heading p,
+.ff-udisc-round-card-heading span,
+.ff-udisc-source-link,
+.ff-udisc-preview-issues,
+.ff-udisc-missing-fields,
+.ff-udisc-player-card small,
+.ff-udisc-confirm-row p {
+  margin: 0.28rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.76rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.ff-udisc-preview-heading > button {
+  flex: 0 0 auto;
+}
+
+.ff-udisc-preview-issues {
+  border-left: 3px solid var(--destructive);
+  padding: 0.3rem 0 0.3rem 1rem;
+  color: var(--destructive);
+}
+
+.ff-udisc-round-card {
+  gap: 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.9rem;
+  background: var(--background);
+}
+
+.ff-udisc-round-card-heading {
+  align-items: flex-start;
+}
+
+.ff-udisc-round-card-heading span {
+  flex: 0 1 auto;
+  margin: 0;
+  text-align: right;
+}
+
+.ff-udisc-source-link {
+  overflow-wrap: anywhere;
+}
+
+.ff-udisc-source-link code {
+  font-size: 0.75rem;
+}
+
+.ff-udisc-round-fields {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.ff-udisc-round-fields label,
+.ff-udisc-metadata label {
+  display: grid;
+  min-width: 0;
+  gap: 0.3rem;
+  color: var(--muted-foreground);
+  font-size: 0.74rem;
+  font-weight: 650;
+}
+
+.ff-udisc-round-fields input,
+.ff-udisc-metadata input {
+  width: 100%;
+  min-width: 0;
+  color: var(--foreground);
+  font-size: 0.82rem;
+}
+
+.ff-udisc-round-fields-wide {
+  grid-column: 1 / -1;
+}
+
+.ff-udisc-metadata,
+.ff-udisc-player-card {
+  display: grid;
+  min-width: 0;
+  gap: 0.65rem;
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 0.65rem;
+  padding: 0.8rem;
+}
+
+.ff-udisc-metadata legend,
+.ff-udisc-player-card legend {
+  max-width: 100%;
+  padding: 0 0.25rem;
+  color: var(--foreground);
+  font-size: 0.8rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.ff-udisc-metadata {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ff-udisc-player-card small {
+  margin: 0;
+}
+
+.ff-udisc-missing-fields {
+  color: var(--muted-foreground);
+}
+
+.ff-udisc-confirm-row {
+  align-items: flex-start;
+}
+
+.ff-udisc-confirm-row p {
+  max-width: 35rem;
+  margin: 0.3rem 0 0;
+}
+
+.ff-round-panel {
+  display: grid;
+  min-width: 0;
+  gap: 1rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+  box-shadow: var(--shadow-xs);
+}
+
+.ff-round-section-heading,
+.ff-round-history-heading,
+.ff-round-history-main,
+.ff-round-form-footer {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ff-round-section-heading {
+  justify-content: flex-start;
+}
+
+.ff-round-section-icon {
+  display: grid;
+  width: 2.65rem;
+  height: 2.65rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+.ff-round-section-icon svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.ff-round-section-heading h2,
+.ff-round-history-card h3 {
+  margin: 0.2rem 0 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+
+.ff-round-panel-intro {
+  max-width: 56rem;
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.87rem;
+  line-height: 1.6;
+}
+
+.ff-round-form,
+.ff-round-form-grid {
+  display: grid;
+  min-width: 0;
+  gap: 1rem;
+}
+
+.ff-round-form-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ff-round-field {
+  display: grid;
+  min-width: 0;
+  gap: 0.45rem;
+}
+
+.ff-round-field label {
+  color: var(--foreground);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.ff-round-field label span {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.ff-round-field [aria-invalid="true"] {
+  border-color: var(--destructive);
+}
+
+.ff-round-field p {
+  margin: 0;
+  color: var(--destructive);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.ff-round-form-footer {
+  align-items: flex-end;
+  padding-top: 0.25rem;
+}
+
+.ff-round-form-footer p {
+  max-width: 34rem;
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.ff-round-panel > .space-y-6 {
+  min-width: 0;
+}
+
+.ff-round-history-count {
+  flex: 0 0 auto;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--background);
+  color: var(--muted-foreground);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.ff-round-loading {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.87rem;
+}
+
+.ff-round-empty {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 1rem;
+  border: 1px dashed var(--border);
+  border-radius: 0.85rem;
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+.ff-round-empty > svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  color: var(--primary);
+}
+
+.ff-round-empty p {
+  max-width: 34rem;
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.ff-round-empty .ff-round-empty-title {
+  color: var(--foreground);
+  font-weight: 650;
+}
+
+.ff-round-history-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ff-round-history-card {
+  display: grid;
+  min-width: 0;
+  gap: 0.8rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  background: var(--background);
+}
+
+.ff-round-history-main {
+  align-items: flex-start;
+}
+
+.ff-round-date,
+.ff-round-layout {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.ff-round-history-card h3 {
+  overflow-wrap: anywhere;
+}
+
+.ff-round-layout {
+  margin-top: 0.2rem;
+}
+
+.ff-round-score {
+  display: grid;
+  flex: 0 0 auto;
+  justify-items: end;
+  gap: 0.1rem;
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+}
+
+.ff-round-score-number {
+  color: var(--foreground);
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.ff-round-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ff-round-badges > * {
+  padding: 0.28rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  font-size: 0.7rem;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.ff-csv-preview-table {
+  display: none;
+  min-width: 0;
+}
+
+.ff-csv-preview-cards {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.ff-csv-preview-card {
+  display: grid;
+  min-width: 0;
+  gap: 0.6rem;
+  padding: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  background: var(--background);
+}
+
+.ff-csv-preview-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  color: var(--foreground);
+  font-size: 0.78rem;
+}
+
+.ff-csv-preview-card-heading > * {
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 650;
+  text-transform: capitalize;
+}
+
+.ff-csv-preview-card-heading > span[data-status="error"] {
+  color: var(--destructive);
+}
+
+.ff-csv-preview-fields {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.ff-csv-preview-field {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(5.5rem, 0.65fr) minmax(0, 1fr);
+  gap: 0.5rem;
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+.ff-csv-preview-field dt {
+  color: var(--muted-foreground);
+}
+
+.ff-csv-preview-field dd {
+  min-width: 0;
+  margin: 0;
+  color: var(--foreground);
+  overflow-wrap: anywhere;
+}
+
+.ff-round-review {
+  display: grid;
+  min-width: 0;
+  gap: 1rem;
+  scroll-margin-top: 6rem;
+  padding: clamp(0.9rem, 2.5vw, 1.25rem);
+  border: 1px solid color-mix(in srgb, var(--primary) 32%, var(--border));
+  border-radius: 0.9rem;
+  background: color-mix(in srgb, var(--primary) 4%, var(--background));
+}
+
+.ff-round-review-heading,
+.ff-round-players-heading,
+.ff-round-player-actions {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.ff-round-review-heading h3,
+.ff-round-players-heading h3 {
+  margin: 0.2rem 0 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.ff-round-review-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin: 0;
+}
+
+.ff-round-review-details > div {
+  min-width: 0;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.7rem;
+  background: var(--card);
+}
+
+.ff-round-review-details dt,
+.ff-round-review-players li > span:nth-child(2),
+.ff-round-review-players small {
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+}
+
+.ff-round-review-details dd {
+  min-width: 0;
+  margin: 0.2rem 0 0;
+  color: var(--foreground);
+  font-size: 0.84rem;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.ff-round-review > p,
+.ff-round-unverified-note,
+.ff-round-players-heading p,
+.ff-round-source-review {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.ff-round-source-review code,
+.ff-round-source-link a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.ff-round-review-players,
+.ff-round-saved-players {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ff-round-review-players li,
+.ff-round-saved-players li {
+  display: grid;
+  min-width: 0;
+  gap: 0.16rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.7rem;
+  background: var(--card);
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+
+.ff-round-review-players small,
+.ff-round-saved-players small {
+  overflow-wrap: anywhere;
+}
+
+.ff-round-players-heading {
+  align-items: flex-end;
+  padding-top: 0.35rem;
+}
+
+.ff-round-players-heading p {
+  margin-top: 0.25rem;
+}
+
+.ff-round-player-list {
+  display: grid;
+  min-width: 0;
+  gap: 0.7rem;
+}
+
+.ff-round-player-editor {
+  display: grid;
+  min-width: 0;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  background: var(--background);
+}
+
+.ff-round-player-editor legend {
+  padding-inline: 0.25rem;
+  color: var(--muted-foreground);
+  font-size: 0.73rem;
+  font-weight: 650;
+}
+
+.ff-round-field-wide {
+  grid-column: 1 / -1;
+}
+
+.ff-round-player-actions {
+  flex-wrap: wrap;
+}
+
+.ff-round-match-self {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--foreground);
+  font-size: 0.79rem;
+  font-weight: 600;
+}
+
+.ff-round-match-self input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--primary);
+}
+
+.ff-round-saved-pars,
+.ff-round-source-link {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.76rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.ff-round-source-link a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.ff-round-csv-format {
+  display: grid;
+  gap: 0.5rem;
+  color: var(--muted-foreground);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.ff-round-csv-format summary {
+  width: fit-content;
+  color: var(--foreground);
+  cursor: pointer;
+  font-weight: 650;
+}
+
+.ff-round-csv-format p {
+  margin: 0;
+}
+
+.ff-round-csv-format pre {
+  max-width: 100%;
+  margin: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.65rem;
+  background: var(--background);
+  color: var(--foreground);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.ff-profile-round-history {
+  display: grid;
+  max-width: 58rem;
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+  box-shadow: var(--shadow-xs);
+}
+
+.ff-profile-round-history > p {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.ff-profile-round-history-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+}
+
+.ff-profile-round-history-heading h2 {
+  margin: 0.2rem 0 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.ff-profile-round-history-list {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ff-profile-round-history-list > li {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.45rem 0.8rem;
+  padding: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  background: var(--background);
+}
+
+.ff-profile-round-history-list p,
+.ff-profile-round-history-list h3 {
+  margin: 0;
+}
+
+.ff-profile-round-history-list p,
+.ff-profile-round-history-list span,
+.ff-profile-round-history-status,
+.ff-profile-round-history-list a {
+  color: var(--muted-foreground);
+  font-size: 0.76rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.ff-profile-round-history-list h3 {
+  margin-top: 0.15rem;
+  color: var(--foreground);
+  font-size: 0.9rem;
+}
+
+.ff-profile-round-history-list > li > div:first-child > span {
+  display: block;
+  margin-top: 0.1rem;
+}
+
+.ff-profile-round-history-score {
+  display: grid;
+  justify-items: end;
+  align-content: start;
+}
+
+.ff-profile-round-history-score strong {
+  color: var(--foreground);
+  font-size: 1.2rem;
+}
+
+.ff-profile-round-history-status,
+.ff-profile-round-history-list > li > a {
+  align-self: center;
+}
+
+.ff-profile-round-history-list > li > a {
+  justify-self: end;
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+@media (min-width: 640px) {
+  .ff-csv-preview-table {
+    display: block;
+  }
+
+  .ff-csv-preview-cards {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .ff-round-form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ff-round-form-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ff-round-form-footer > button {
+    width: 100%;
+  }
+
+  .ff-round-review-heading,
+  .ff-round-players-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ff-round-review-heading > button,
+  .ff-round-players-heading > button {
+    width: 100%;
+  }
+
+  .ff-round-review-details {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ff-profile-round-history-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ff-profile-round-history-heading > a {
+    width: 100%;
+  }
+
+  .ff-round-history-heading {
+    align-items: flex-start;
+  }
+
+  .ff-cardcast-heading {
+    gap: 0.7rem;
+  }
+
+  .ff-cardcast-icon {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+
+  .ff-cardcast-submit-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ff-cardcast-submit {
+    width: 100%;
+  }
+
+  .ff-cardcast-alternatives {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .ff-cardcast-alternative-separator {
+    display: none;
+  }
+
+  .ff-cardcast-export-import {
+    padding: 0.8rem;
+  }
+
+  .ff-cardcast-file-label,
+  .ff-cardcast-file-action {
+    width: 100%;
+  }
+
+  .ff-cardcast-file-action {
+    justify-content: center;
+  }
+
+  .ff-udisc-preview-heading,
+  .ff-udisc-confirm-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ff-udisc-preview-heading > button,
+  .ff-udisc-confirm-row > button {
+    width: 100%;
+  }
+
+  .ff-udisc-round-fields,
+  .ff-udisc-metadata {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ff-udisc-round-fields-wide {
+    grid-column: auto;
+  }
+
+  .ff-udisc-round-card-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ff-udisc-round-card-heading span {
+    text-align: left;
+  }
+
+  .ff-scorecard-json-fields,
+  .ff-scorecard-json-player-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ff-scorecard-json-wide {
+    grid-column: auto;
+  }
+
+  .ff-scorecard-json-player-heading,
+  .ff-scorecard-json-save {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ff-scorecard-json-player-heading > button,
+  .ff-scorecard-json-save > button {
+    width: 100%;
+  }
+
+  .ff-scorecard-json-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ff-scorecard-json-actions > button {
+    width: 100%;
+  }
+
+  .ff-scorecard-json-match > span {
+    flex-basis: 100%;
+  }
+}
+
+/* Compact primary CardCast action; advanced importers stay collapsed until requested. */
+.ff-cardcast-panel {
+  gap: 0.8rem;
+  padding: clamp(0.85rem, 2vw, 1.15rem);
+}
+
+.ff-cardcast-heading {
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.ff-cardcast-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 auto;
+}
+
+.ff-cardcast-icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.ff-cardcast-heading h1,
+.ff-cardcast-heading h2 {
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  letter-spacing: -0.04em;
+}
+
+.ff-cardcast-intro {
+  margin-top: 0.25rem;
+  font-size: 0.82rem;
+}
+
+.ff-cardcast-form {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: stretch;
+  gap: 0.65rem;
+}
+
+.ff-cardcast-field {
+  gap: 0.35rem;
+}
+
+.ff-cardcast-field label {
+  font-size: 0.77rem;
+}
+
+.ff-cardcast-field input,
+.ff-cardcast-field select {
+  min-height: 2.8rem;
+  font-size: 16px;
+}
+
+.ff-cardcast-field select {
+  width: 100%;
+  min-height: 4.5rem;
+  border: 1px solid var(--input);
+  border-radius: calc(var(--radius) + 0.1rem);
+  padding: 0.45rem 0.6rem;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.ff-cardcast-field select:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.ff-cardcast-submit {
+  min-height: 2.75rem;
+  white-space: nowrap;
+}
+
+.ff-cardcast-hint {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+}
+
+.ff-cardcast-live-status {
+  min-width: 0;
+  margin: 0;
+  border: 1px solid color-mix(in srgb, var(--primary) 28%, var(--border));
+  border-radius: 0.7rem;
+  padding: 0.65rem 0.75rem;
+  background: color-mix(in srgb, var(--primary) 6%, var(--card));
+  color: var(--foreground);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.ff-cardcast-live-status-invalid,
+.ff-cardcast-live-status-failed {
+  border-color: color-mix(in srgb, var(--destructive) 42%, var(--border));
+  background: color-mix(in srgb, var(--destructive) 6%, var(--card));
+}
+
+.ff-cardcast-live-status-duplicate {
+  border-color: color-mix(in srgb, #d8b66c 48%, var(--border));
+  background: color-mix(in srgb, #d8b66c 8%, var(--card));
+}
+
+.ff-cardcast-duplicate-link {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0;
+  border: 1px solid color-mix(in srgb, #d8b66c 48%, var(--border));
+  border-radius: 0.7rem;
+  padding: 0.7rem 0.8rem;
+  background: color-mix(in srgb, #d8b66c 8%, var(--card));
+  font-size: 0.82rem;
+}
+
+.ff-cardcast-duplicate-link a {
+  color: var(--primary);
+  font-weight: 750;
+  text-underline-offset: 0.18em;
+}
+
+.ff-cardcast-duplicate-link span {
+  color: var(--muted-foreground);
+}
+
+.ff-cardcast-advanced {
+  min-width: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 0.6rem;
+}
+
+.ff-cardcast-advanced > summary {
+  display: flex;
+  width: fit-content;
+  min-height: 2.25rem;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+  list-style: none;
+}
+
+.ff-cardcast-advanced > summary::-webkit-details-marker {
+  display: none;
+}
+
+.ff-cardcast-advanced > summary:focus-visible {
+  border-radius: 0.2rem;
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+.ff-cardcast-advanced > summary svg {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 160ms ease;
+}
+
+.ff-cardcast-advanced[open] > summary svg {
+  transform: rotate(180deg);
+}
+
+.ff-cardcast-advanced-content {
+  display: grid;
+  min-width: 0;
+  gap: 0.8rem;
+  padding-top: 0.5rem;
+}
+
+.ff-imported-scorecards {
+  display: grid;
+  min-width: 0;
+  gap: 0.85rem;
+}
+
+.ff-imported-scorecards-heading,
+.ff-imported-scorecard-heading {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.ff-imported-scorecards-heading h2 {
+  margin: 0.2rem 0 0;
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+  letter-spacing: -0.04em;
+}
+
+.ff-imported-scorecards-heading > a,
+.ff-imported-scorecard-source {
+  flex: 0 0 auto;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-underline-offset: 0.18em;
+}
+
+.ff-imported-scorecards-empty {
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  padding: 0.9rem;
+  background: var(--card);
+  color: var(--muted-foreground);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.ff-imported-scorecards-list {
+  display: grid;
+  min-width: 0;
+  gap: 0.8rem;
+}
+
+.ff-imported-scorecard {
+  display: grid;
+  min-width: 0;
+  gap: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 22%, var(--border));
+  border-radius: 0.9rem;
+  padding: clamp(0.8rem, 2vw, 1rem);
+  background: color-mix(in srgb, var(--card) 97%, var(--background));
+  box-shadow: var(--shadow-xs);
+}
+
+.ff-scorecard-actions {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.ff-imported-scorecard-heading > div {
+  min-width: 0;
+}
+
+.ff-imported-scorecard-kicker {
+  margin: 0 0 0.18rem;
+  color: var(--primary);
+  font-size: 0.63rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+
+.ff-imported-scorecard-heading h3 {
+  margin: 0;
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.04rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.ff-imported-scorecard-heading h3 a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--primary) 55%, transparent);
+  text-underline-offset: 0.17em;
+}
+
+.ff-imported-scorecard-meta {
+  margin: 0.3rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.ff-imported-scorecard-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  border: 1px solid var(--border);
+  border-radius: 0.65rem;
+  background: var(--background);
+  scrollbar-color: color-mix(in srgb, var(--primary) 40%, var(--border)) transparent;
+}
+
+.ff-imported-scorecard-table-scroll:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.ff-imported-scorecard-table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.ff-imported-scorecard-table th,
+.ff-imported-scorecard-table td {
+  min-width: 2rem;
+  border-bottom: 1px solid var(--border);
+  padding: 0.46rem 0.4rem;
+  text-align: center;
+}
+
+.ff-imported-scorecard-table th:first-child {
+  min-width: 10rem;
+  max-width: 13rem;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+
+.ff-imported-scorecard-table thead th {
+  background: color-mix(in srgb, var(--primary) 8%, var(--card));
+  color: var(--foreground);
+  font-weight: 750;
+}
+
+.ff-imported-scorecard-table .ff-imported-scorecard-par th,
+.ff-imported-scorecard-table .ff-imported-scorecard-par td {
+  background: color-mix(in srgb, var(--primary) 4%, var(--background));
+  color: var(--muted-foreground);
+  font-weight: 650;
+}
+
+.ff-imported-scorecard-table tbody th {
+  color: var(--foreground);
+  font-weight: 650;
+}
+
+.ff-scorecard-player-label {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.ff-dnf-badge {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  border: 1px solid color-mix(in srgb, #d8b66c 44%, var(--border));
+  border-radius: 999px;
+  padding: 0.18rem 0.5rem;
+  background: color-mix(in srgb, #d8b66c 10%, var(--card));
+  color: var(--foreground);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.35;
+  white-space: normal;
+}
+
+.ff-scorecard-mobile-players {
+  display: none;
+}
+
+.ff-imported-scorecard-table tbody tr:last-child th,
+.ff-imported-scorecard-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.ff-imported-scorecard-scroll-hint {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .ff-cardcast-panel {
+    gap: 0.68rem;
+  }
+
+  .ff-cardcast-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ff-cardcast-submit {
+    width: 100%;
+  }
+
+  .ff-imported-scorecard-heading {
+    align-items: flex-start;
+  }
+
+  .ff-imported-scorecard-source {
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .ff-imported-scorecard-meta {
+    max-width: 100%;
+  }
+
+  .ff-imported-scorecard-scroll-hint {
+    display: none;
+  }
+
+  .ff-imported-scorecard-table-scroll {
+    display: none;
+  }
+
+  .ff-scorecard-mobile-players {
+    display: grid;
+    min-width: 0;
+    gap: 0.65rem;
+  }
+
+  .ff-scorecard-mobile-player {
+    min-width: 0;
+    border: 1px solid var(--border);
+    border-radius: 0.7rem;
+    padding: 0.7rem;
+    background: var(--background);
+  }
+
+  .ff-scorecard-mobile-player > header {
+    display: grid;
+    min-width: 0;
+    justify-items: start;
+    gap: 0.4rem;
+    margin-bottom: 0.65rem;
+    overflow-wrap: anywhere;
+    font-size: 0.83rem;
+    font-weight: 700;
+  }
+
+  .ff-scorecard-mobile-hole-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.35rem;
+    margin: 0;
+  }
+
+  .ff-scorecard-mobile-hole-grid > div {
+    min-width: 0;
+    border-radius: 0.45rem;
+    padding: 0.4rem;
+    background: color-mix(in srgb, var(--primary) 5%, var(--card));
+    text-align: center;
+  }
+
+  .ff-scorecard-mobile-hole-grid dt {
+    color: var(--muted-foreground);
+    font-size: 0.6rem;
+  }
+
+  .ff-scorecard-mobile-hole-grid dd {
+    margin: 0.12rem 0 0;
+    font-size: 0.83rem;
+    font-variant-numeric: tabular-nums;
+    font-weight: 750;
+  }
+
+  .ff-scorecard-mobile-hole-par {
+    display: block;
+    margin-top: 0.12rem;
+    color: var(--muted-foreground);
+    font-size: 0.56rem;
+    line-height: 1.25;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ff-cardcast-advanced > summary svg {
+    transition: none;
+  }
+}
+
+.ff-cardcast-file-input:focus-visible + .ff-cardcast-file-action {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}

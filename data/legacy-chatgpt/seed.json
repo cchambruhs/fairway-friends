@@ -1,0 +1,1622 @@
+{
+  "rounds": [
+    {
+      "id": "scorecard_mns8y9vb4afhk4v7lafcmk8n",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/scorecard_mns8y9vb4afhk4v7lafcmk8n",
+      "course": "Angel Mounds Disc Golf Course",
+      "layout": "Blue Tees",
+      "layoutKey": "/courses/angel-mounds-disc-golf-course-dJv8/layouts/58398/caddie-book",
+      "date": "2026-10-20T16:06",
+      "pars": [3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+      "players": [
+        {
+          "username": "devin47",
+          "name": "Devin",
+          "scores": [3, 2, 2, 2, 2, 2, 2, 5, 3, 2, 3, 2, 3, 2, 2, 2, 3, 3],
+          "total": 45,
+          "relative": -10,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 2, 2, 2, 3, 3, 4, 2, 2, 3, 2, 4, 3, 2, 2, 2, 3, 2],
+          "total": 46,
+          "relative": -9,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "mdub1807",
+          "name": "Mdub1807",
+          "scores": [3, 3, 2, 2, 3, 4, 3, 2, 2, 3, 3, 4, 3, 3, 2, 3, 3, 2],
+          "total": 50,
+          "relative": -5,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "rashad032",
+          "name": "Will",
+          "scores": [3, 3, 2, 3, 3, 4, 2, 3, 3, 2, 3, 3, 2, 3, 3, 3, 3, 3],
+          "total": 51,
+          "relative": -4,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "mk3492",
+          "name": "TG",
+          "scores": [3, 2, 3, 3, 4, 3, 3, 3, 4, 3, 3, 2, 3, 3, 4, 3, 2, 2],
+          "total": 53,
+          "relative": -2,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-27T20:38:44.665Z",
+      "par": 55
+    },
+    {
+      "id": "scorecard_l8pvo6k06g6ldgj5ht4g2q4f",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/scorecard_l8pvo6k06g6ldgj5ht4g2q4f",
+      "course": "Mesker Woods",
+      "layout": "18 Hole Hybrid (EVO Pool B 2024)",
+      "layoutKey": "/courses/mesker-woods-iXWC/layouts/116107/caddie-book",
+      "date": "2026-09-28T16:35",
+      "pars": [3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 4],
+      "players": [
+        {
+          "username": "devin47",
+          "name": "Devin",
+          "scores": [3, 2, 3, 3, 2, 3, 3, 2, 3, 3, 3, 3, 4, 5, 4, 3, 3, 3],
+          "total": 55,
+          "relative": -4,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "tparkerson",
+          "name": "Travis P",
+          "scores": [4, 3, 3, 3, 2, 3, 5, 2, 2, 3, 4, 3, 3, 4, 4, 3, 2, 4],
+          "total": 57,
+          "relative": -2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "connorc3",
+          "name": "Connor",
+          "scores": [4, 2, 3, 2, 3, 3, 4, 3, 3, 3, 3, 4, 5, 4, 4, 2, 2, 4],
+          "total": 58,
+          "relative": -1,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "udiscba",
+          "name": "Byron",
+          "scores": [3, 2, 4, 2, 2, 3, 4, 2, 5, 2, 3, 3, 4, 5, 5, 3, 3, 4],
+          "total": 59,
+          "relative": 0,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 4, 3, 3, 3, 3, 3, 4, 5, 3, 3, 5, 3, 4, 4, 3, 3, 4],
+          "total": 63,
+          "relative": 4,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "zwayne93",
+          "name": "Z-Dub",
+          "scores": [4, 2, 4, 4, 3, 4, 4, 3, 3, 4, 4, 3, 6, 6, 4, 3, 2, 3],
+          "total": 66,
+          "relative": 7,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "mdub1807",
+          "name": "Mdub1807",
+          "scores": [5, 3, 6, 3, 3, 3, 3, 3, 5, 4, 4, 4, 4, 3, 3, 3, 3, 5],
+          "total": 67,
+          "relative": 8,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "mk3492",
+          "name": "TG",
+          "scores": [4, 4, 3, 3, 4, 3, 4, 5, 6, 4, 4, 4, null, null, null, null, null, null],
+          "total": 48,
+          "relative": 10,
+          "complete": false,
+          "holesPlayed": 12
+        }
+      ],
+      "importedAt": "2026-10-27T20:38:44.693Z",
+      "par": 59
+    },
+    {
+      "id": "scorecard_sdz99bchjvldhen1re62in2o",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/scorecard_sdz99bchjvldhen1re62in2o",
+      "course": "Woodmere",
+      "layout": "Main",
+      "layoutKey": "/courses/woodmere-ET2C/layouts/15053/caddie-book",
+      "date": "2026-08-08T07:01",
+      "pars": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+      "players": [
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 3, 3, 4, 4, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3],
+          "total": 57,
+          "relative": 3,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "connorc3",
+          "name": "Connor",
+          "scores": [3, 3, 3, 4, 4, 3, 3, 3, 3, 3, 2, 5, 3, 4, 3, 3, 3, 2],
+          "total": 57,
+          "relative": 3,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "udiscba",
+          "name": "Byron",
+          "scores": [3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 2, 5, 5, 4, 3, 3, 3, 3],
+          "total": 59,
+          "relative": 5,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "zwayne93",
+          "name": "Z-Dub",
+          "scores": [3, 2, 3, 3, 6, 4, 3, 3, 3, 3, 3, 4, 4, 5, 2, 5, 3, 2],
+          "total": 61,
+          "relative": 7,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-27T20:38:44.736Z",
+      "par": 54
+    },
+    {
+      "id": "N78XJtdFmZ",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/N78XJtdFmZ",
+      "course": "Red Tail Ridge",
+      "location": "Fort Branch, Indiana",
+      "layout": "Blue",
+      "layoutKey": "/courses/red-tail-ridge-9PTX/layouts/21955/caddie-book",
+      "date": "2026-03-22T12:08",
+      "pars": [3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 4, 4, 3, 3, 3, 3, 3, 3],
+      "distancesFt": [
+        327, 293, 142, 175, 180, 164, 206, 305, 533, 322, 508, 429, 317, 228, 225, 320, 320, 313
+      ],
+      "players": [
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 3, 3, 3, 3, 2, 4, 3, 4, 3, 5, 4, 4, 3, 3, 3, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 59,
+          "relative": 2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "mdub1807",
+          "name": "Mdub1807",
+          "scores": [2, 3, 3, 3, 3, 3, 3, 4, 4, 3, 5, 3, 4, 4, 3, 3, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 59,
+          "relative": 2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "connorc3",
+          "name": "Connor",
+          "scores": [4, 4, 4, 3, 4, 3, 3, 3, 3, 3, 4, 5, 3, 2, 2, 3, 4, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 60,
+          "relative": 3,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "zwayne93",
+          "name": "Z-Dub",
+          "scores": [3, 3, 3, 2, 3, 3, 3, 3, 5, 3, 4, 4, 4, 5, 3, 3, 4, 4],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 62,
+          "relative": 5,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "mk3492",
+          "name": "TG",
+          "scores": [4, 4, 3, 2, 4, 3, 4, 3, 4, 3, 6, 4, 3, 4, 3, 3, 4, 4],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 65,
+          "relative": 8,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "rashad032",
+          "name": "Will",
+          "scores": [3, 5, 4, 3, 2, 3, 4, 4, 5, 3, 5, 5, 3, 4, 4, 5, 3, 4],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 69,
+          "relative": 12,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "udiscba",
+          "name": "Byron",
+          "scores": [4, 4, 3, 3, 3, 3, 4, 3, 6, 4, 4, 5, 4, 3, 3, 5, 5, 4],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 70,
+          "relative": 13,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:16:33.934Z",
+      "par": 57
+    },
+    {
+      "id": "Q3PDBwEOAv",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/Q3PDBwEOAv",
+      "course": "Mesker Park",
+      "location": "Evansville, Indiana",
+      "layout": "Main",
+      "layoutKey": "/courses/mesker-park-R6Ic/layouts/13794/caddie-book",
+      "date": "2026-03-21T07:30",
+      "pars": [4, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3],
+      "distancesFt": [
+        353, 225, 311, 283, 416, 370, 234, 316, 209, 428, 229, 318, 399, 279, 288, 382, 256, 375
+      ],
+      "players": [
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 4, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 4, 3, 4, 4, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 61,
+          "relative": 4,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "connorc3",
+          "name": "Connor",
+          "scores": [4, 4, 4, 3, 4, 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 5, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 66,
+          "relative": 9,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "udiscba",
+          "name": "Byron",
+          "scores": [4, 4, 4, 4, 4, 6, 3, 3, 2, 4, 2, 3, 4, 4, 4, 5, 3, 4],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 67,
+          "relative": 10,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:16:34.262Z",
+      "par": 57
+    },
+    {
+      "id": "1dXXNZvwDG",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/1dXXNZvwDG",
+      "course": "Woodmere",
+      "location": "Evansville, Indiana",
+      "layout": "Main",
+      "layoutKey": "/courses/woodmere-ET2C/layouts/15053/caddie-book",
+      "date": "2026-03-20T16:58",
+      "pars": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+      "distancesFt": [
+        269, 185, 399, 352, 344, 312, 467, 269, 243, 385, 220, 374, 330, 345, 213, 315, 363, 217
+      ],
+      "players": [
+        {
+          "username": "connorc3",
+          "name": "Connor",
+          "scores": [3, 2, 3, 3, 4, 2, 3, 2, 4, 4, 2, 3, 3, 5, 3, 3, 4, 2],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 55,
+          "relative": 1,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 3, 3, 4, 4, 2, 4, 4, 4, 3, 4, 3, 4, 3, 3, 3, 3, 2],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 59,
+          "relative": 5,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "udiscba",
+          "name": "Byron",
+          "scores": [4, 2, 4, 5, 4, 3, 4, 3, 2, 4, 3, 4, 5, 4, 3, 3, 4, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 64,
+          "relative": 10,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:16:34.230Z",
+      "par": 54
+    },
+    {
+      "id": "sJff6JbFv4",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/sJff6JbFv4",
+      "course": "Bayard Park",
+      "location": "Evansville, Indiana",
+      "layout": "Bayard Full 18",
+      "layoutKey": "/courses/bayard-park-rzWK/layouts/120237/caddie-book",
+      "date": "2026-03-15T10:16",
+      "pars": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3],
+      "distancesFt": [
+        293, 277, 246, 367, 254, 202, 190, 200, 260, 338, 312, 264, 433, 373, 227, 274, 237, 363
+      ],
+      "players": [
+        {
+          "username": "jstahl",
+          "name": "Jake",
+          "scores": [2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 54,
+          "relative": -1,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [4, 4, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 5, 4, 3, 3, 4, 3],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 59,
+          "relative": 4,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "guest:sJff6JbFv4:65c89b476ec81d4b",
+          "name": "Byron",
+          "scores": [3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 3, 3, 2, 4],
+          "isTeam": false,
+          "isGuest": true,
+          "roundRating": null,
+          "total": 59,
+          "relative": 4,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "ca288199",
+          "name": "Chris Austin",
+          "scores": [3, 3, 4, 5, 3, 3, 3, 3, 4, 3, 4, 3, 3, 4, 3, 3, 2, 3],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 59,
+          "relative": 4,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:20:10.727Z",
+      "par": 55
+    },
+    {
+      "id": "S0BXZFdciy",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/S0BXZFdciy",
+      "course": "Woodmere",
+      "location": "Evansville, Indiana",
+      "layout": "Main",
+      "layoutKey": "/courses/woodmere-ET2C/layouts/15053/caddie-book",
+      "date": "2026-03-14T14:03",
+      "pars": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+      "distancesFt": [
+        269, 185, 399, 352, 344, 312, 467, 269, 243, 385, 220, 374, 330, 345, 213, 315, 363, 217
+      ],
+      "players": [
+        {
+          "username": "jstahl",
+          "name": "Jake",
+          "scores": [2, 3, 3, 4, 3, 5, 4, 3, 3, 3, 3, 4, 3, 3, 2, 5, 3, 3],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 59,
+          "relative": 5,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "swansonjared",
+          "name": "Swanny",
+          "scores": [3, 4, 3, 3, 4, 4, 3, 3, 3, 4, 3, 3, 4, 3, 3, 3, 3, 3],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 59,
+          "relative": 5,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "connorc3",
+          "name": "Connor",
+          "scores": [3, 2, 3, 3, 4, 4, 5, 3, 3, 3, 4, 4, 3, 3, 3, 4, 3, 3],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 60,
+          "relative": 6,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "ca288199",
+          "name": "Chris Austin",
+          "scores": [3, 3, 3, 3, 3, 3, 3, 4, 2, 3, 5, 4, 4, 3, 3, 6, 4, 3],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 62,
+          "relative": 8,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 3, 4, 3, 5, 3, 4, 4, 3, 4, 3, 3, 4, 3, 4, 4, 3, 3],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 63,
+          "relative": 9,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "guest:S0BXZFdciy:65c89b476ec81d4b",
+          "name": "Byron",
+          "scores": [4, 3, 3, 4, 4, 4, 4, 5, 3, 3, 2, 5, 3, 4, 3, 4, 4, 2],
+          "isTeam": false,
+          "isGuest": true,
+          "roundRating": null,
+          "total": 64,
+          "relative": 10,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:20:10.747Z",
+      "par": 54
+    },
+    {
+      "id": "PClIVoPLCg",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/PClIVoPLCg",
+      "course": "Angel Mounds Disc Golf Course",
+      "location": "Evansville, Indiana",
+      "layout": "Blue Tees",
+      "layoutKey": "/courses/angel-mounds-disc-golf-course-dJv8/layouts/58398/caddie-book",
+      "date": "2026-03-08T13:54",
+      "pars": [3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+      "distancesFt": [
+        213, 204, 101, 145, 182, 314, 117, 156, 151, 153, 128, 257, 170, 265, 258, 192, 327, 153
+      ],
+      "players": [
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 3, 3, 2, 3, 5, 3, 3, 3, 3, 2, 2, 3, 3, 2, 3, 3, 2],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 51,
+          "relative": -4,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "connorc3",
+          "name": "Connor",
+          "scores": [3, 3, 3, 2, 3, 6, 2, 3, 4, 3, 3, 2, 3, 2, 4, 3, 3, 2],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 54,
+          "relative": -1,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "guest:PClIVoPLCg:4c7a89d5041a2bdd",
+          "name": "RonSundayCrew",
+          "scores": [2, 2, 3, 3, 4, 5, 2, 3, 3, 3, 3, 3, 2, 3, 4, 3, 4, 3],
+          "isTeam": false,
+          "isGuest": true,
+          "roundRating": null,
+          "total": 55,
+          "relative": 0,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "rashad032",
+          "name": "Will",
+          "scores": [3, 3, 2, 2, 3, 5, 3, 5, 3, 3, 3, 4, 3, 2, 2, 2, 5, 2],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 55,
+          "relative": 0,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "udiscba",
+          "name": "Byron",
+          "scores": [3, 2, 2, 2, 3, 4, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 6, 3],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 58,
+          "relative": 3,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "guest:PClIVoPLCg:a22582536fc1194a",
+          "name": "Riley",
+          "scores": [4, 3, 3, 3, 3, 7, 4, 6, 3, 3, 6, 4, 4, 4, 3, 3, 7, 4],
+          "isTeam": false,
+          "isGuest": true,
+          "roundRating": null,
+          "total": 74,
+          "relative": 19,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:20:10.815Z",
+      "par": 55
+    },
+    {
+      "id": "9M5HLHTDAA",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/9M5HLHTDAA",
+      "course": "Haubstadt Johnson Township DGC",
+      "location": "Haubstadt, Indiana",
+      "layout": "Main",
+      "layoutKey": "/courses/haubstadt-johnson-township-dgc-bX1v/layouts/41254/caddie-book",
+      "date": "2026-02-28T13:39",
+      "pars": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+      "distancesFt": [
+        303, 245, 212, 283, 220, 117, 185, 262, 318, 263, 339, 402, 323, 222, 252, 248, 146, 266
+      ],
+      "players": [
+        {
+          "username": "mdub1807",
+          "name": "Mdub1807",
+          "scores": [3, 3, 2, 3, 2, 4, 3, 3, 3, 2, 4, 4, 4, 3, 4, 2, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 55,
+          "relative": 1,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [5, 4, 2, 4, 2, 3, 3, 3, 4, 2, 3, 3, 3, 3, 3, 2, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 55,
+          "relative": 1,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "connorc3",
+          "name": "Connor",
+          "scores": [5, 2, 3, 4, 2, 3, 2, 3, 4, 2, 5, 4, 3, 3, 3, 4, 2, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 57,
+          "relative": 3,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "rashad032",
+          "name": "Will",
+          "scores": [4, 3, 3, 5, 6, 2, 2, 3, 3, 3, 4, 3, 4, 3, 4, 4, 2, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 61,
+          "relative": 7,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:16:34.902Z",
+      "par": 54
+    },
+    {
+      "id": "KVHPowvrnl",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/KVHPowvrnl",
+      "course": "Haubstadt Johnson Township DGC",
+      "location": "Haubstadt, Indiana",
+      "layout": "Main",
+      "layoutKey": "/courses/haubstadt-johnson-township-dgc-bX1v/layouts/41254/caddie-book",
+      "date": "2026-02-28T12:04",
+      "pars": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+      "distancesFt": [
+        303, 245, 212, 283, 220, 117, 185, 262, 318, 263, 339, 402, 323, 222, 252, 248, 146, 266
+      ],
+      "players": [
+        {
+          "username": "connorc3",
+          "name": "Connor",
+          "scores": [3, 3, 2, 4, 2, 3, 3, 2, 4, 2, 3, 4, 3, 2, 3, 4, 2, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 52,
+          "relative": -2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "rashad032",
+          "name": "Will",
+          "scores": [3, 4, 2, 3, 3, 3, 3, 3, 4, 4, 3, 4, 3, 3, 3, 3, 2, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 56,
+          "relative": 2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "mdub1807",
+          "name": "Mdub1807",
+          "scores": [4, 4, 2, 4, 3, 3, 3, 3, 3, 2, 4, 3, 3, 3, 3, 3, 4, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 57,
+          "relative": 3,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 3, 4, 5, 2, 2, 3, 3, 4, 3, 3, 4, 3, 3, 4, 3, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 58,
+          "relative": 4,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:16:35.377Z",
+      "par": 54
+    },
+    {
+      "id": "ivX0YLg661",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/ivX0YLg661",
+      "course": "Bayard Park",
+      "location": "Evansville, Indiana",
+      "layout": "Bayard Full 18",
+      "layoutKey": "/courses/bayard-park-rzWK/layouts/120237/caddie-book",
+      "date": "2026-02-21T11:06",
+      "pars": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3],
+      "distancesFt": [
+        293, 277, 246, 367, 254, 202, 190, 200, 260, 338, 312, 264, 433, 373, 227, 274, 237, 363
+      ],
+      "players": [
+        {
+          "username": "swansonjared",
+          "name": "Swanny",
+          "scores": [2, 3, 4, 3, 2, 2, 2, 3, 3, 3, 3, 3, 4, 3, 3, 2, 2, 4],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 51,
+          "relative": -4,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 52,
+          "relative": -3,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "mdub1807",
+          "name": "Mdub1807",
+          "scores": [3, 2, 3, 3, 3, 2, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 4],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 57,
+          "relative": 2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "udiscba",
+          "name": "Byron",
+          "scores": [4, 4, 3, 4, 3, 3, 3, 3, 4, 4, 3, 5, 4, 5, 3, 3, 3, 4],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 65,
+          "relative": 10,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:16:35.570Z",
+      "par": 55
+    },
+    {
+      "id": "qiouaLQZU0",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/qiouaLQZU0",
+      "course": "Woodmere",
+      "location": "Evansville, Indiana",
+      "layout": "Main",
+      "layoutKey": "/courses/woodmere-ET2C/layouts/15053/caddie-book",
+      "date": "2026-02-18T16:08",
+      "pars": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+      "distancesFt": [
+        269, 185, 399, 352, 344, 312, 467, 269, 243, 385, 220, 374, 330, 345, 213, 315, 363, 217
+      ],
+      "players": [
+        {
+          "username": "devin47",
+          "name": "Devin",
+          "scores": [3, 3, 2, 4, 5, 2, 3, 2, 2, 3, 2, 5, 2, 4, 3, 4, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 55,
+          "relative": 1,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "connorc3",
+          "name": "Connor",
+          "scores": [4, 3, 4, 4, 4, 2, 4, 3, 2, 3, 2, 3, 3, 4, 3, 3, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 57,
+          "relative": 3,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 3, 3, 3, 4, 3, 3, 3, 3, 4, 2, 3, 4, 3, 3, 4, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 57,
+          "relative": 3,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "mdub1807",
+          "name": "Mdub1807",
+          "scores": [3, 3, 3, 3, 4, 3, 4, 3, 3, 3, 3, 3, 3, 4, 3, 5, 3, 2],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 58,
+          "relative": 4,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "udiscba",
+          "name": "Byron",
+          "scores": [5, 3, 3, 3, 4, 5, 4, 3, 3, 3, 5, 4, 4, 3, 3, 3, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 64,
+          "relative": 10,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:16:35.191Z",
+      "par": 54
+    },
+    {
+      "id": "7YaimwErdx",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/7YaimwErdx",
+      "course": "Angel Mounds Disc Golf Course",
+      "location": "Evansville, Indiana",
+      "layout": "Blue Tees",
+      "layoutKey": "/courses/angel-mounds-disc-golf-course-dJv8/layouts/58398/caddie-book",
+      "date": "2026-02-17T15:06",
+      "pars": [3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+      "distancesFt": [
+        213, 204, 101, 145, 182, 314, 117, 156, 151, 153, 128, 257, 170, 265, 258, 192, 327, 153
+      ],
+      "players": [
+        {
+          "username": "connorc3",
+          "name": "Connor",
+          "scores": [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 2, 2, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 49,
+          "relative": -6,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "mdub1807",
+          "name": "Mdub1807",
+          "scores": [3, 3, 2, 3, 4, 4, 2, 4, 3, 3, 3, 4, 3, 2, 2, 2, 3, 2],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 52,
+          "relative": -3,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 4, 2, 3, 3, 4, 3, 4, 3, 3, 2, 3, 3, 3, 3, 2, 3, 2],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 53,
+          "relative": -2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "rashad032",
+          "name": "Will",
+          "scores": [3, 3, 2, 2, 4, 5, 3, 3, 3, 4, 3, 4, 2, 2, 5, 3, 3, 2],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 56,
+          "relative": 1,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:16:35.394Z",
+      "par": 55
+    },
+    {
+      "id": "2PeRSLO82j",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/2PeRSLO82j",
+      "course": "Woodmere",
+      "location": "Evansville, Indiana",
+      "layout": "Main",
+      "layoutKey": "/courses/woodmere-ET2C/layouts/15053/caddie-book",
+      "date": "2026-01-22T15:25",
+      "pars": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+      "distancesFt": [
+        269, 185, 399, 352, 344, 312, 467, 269, 243, 385, 220, 374, 330, 345, 213, 315, 363, 217
+      ],
+      "players": [
+        {
+          "username": "connorc3",
+          "name": "Connor",
+          "scores": [3, 2, 4, 4, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 2, 3, 3, 2],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 56,
+          "relative": 2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "jstahl",
+          "name": "Jake",
+          "scores": [5, 3, 3, 4, 4, 3, 3, 3, 2, 4, 2, 3, 3, 3, 2, 3, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 56,
+          "relative": 2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 3, 3, 4, 4, 3, 3, 3, 3, 4, 2, 4, 3, 4, 4, 3, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 59,
+          "relative": 5,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "ca288199",
+          "name": "Chris Austin",
+          "scores": [3, 3, 3, 4, 4, 5, 4, 3, 2, 4, 2, 3, 4, 4, 3, 4, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 61,
+          "relative": 7,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "mdub1807",
+          "name": "Mdub1807",
+          "scores": [4, 3, 4, 3, 7, 3, 3, 3, 3, 3, 2, 5, 3, 5, 3, 3, 4, 2],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 63,
+          "relative": 9,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:16:35.838Z",
+      "par": 54
+    },
+    {
+      "id": "PdXsLQF642",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/PdXsLQF642",
+      "course": "Angel Mounds Disc Golf Course",
+      "location": "Evansville, Indiana",
+      "layout": "Blue Tees",
+      "layoutKey": "/courses/angel-mounds-disc-golf-course-dJv8/layouts/58398/caddie-book",
+      "date": "2026-01-18T07:57",
+      "pars": [3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+      "distancesFt": [
+        213, 204, 101, 145, 182, 314, 117, 156, 151, 153, 128, 257, 170, 265, 258, 192, 327, 153
+      ],
+      "players": [
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 3, 2, 2, 2, 4, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 2],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 50,
+          "relative": -5,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "rashad032",
+          "name": "Will",
+          "scores": [3, 3, 2, 3, 3, 5, 3, 3, 3, 4, 2, 3, 2, 3, 3, 3, 3, 2],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 53,
+          "relative": -2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "connorc3",
+          "name": "Connor",
+          "scores": [3, 4, 2, 3, 3, 6, 2, 3, 4, 5, 4, 3, 3, 2, 3, 3, 3, 2],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 58,
+          "relative": 3,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:16:36.446Z",
+      "par": 55
+    },
+    {
+      "id": "tcXVsw4ZHd",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/tcXVsw4ZHd",
+      "course": "Angel Mounds Disc Golf Course",
+      "location": "Evansville, Indiana",
+      "layout": "Blue Tees",
+      "layoutKey": "/courses/angel-mounds-disc-golf-course-dJv8/layouts/58398/caddie-book",
+      "date": "2026-01-17T10:03",
+      "pars": [3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+      "distancesFt": [
+        213, 204, 101, 145, 182, 314, 117, 156, 151, 153, 128, 257, 170, 265, 258, 192, 327, 153
+      ],
+      "players": [
+        {
+          "username": "mdub1807",
+          "name": "Mdub1807",
+          "scores": [3, 3, 2, 3, 3, 4, 3, 4, 3, 3, 2, 3, 3, 3, 3, 2, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 53,
+          "relative": -2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "rashad032",
+          "name": "Will",
+          "scores": [3, 2, 2, 3, 3, 4, 4, 3, 3, 4, 3, 3, 3, 4, 3, 2, 3, 2],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 54,
+          "relative": -1,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 2, 3, 3, 4, 5, 2, 3, 3, 3, 3, 4, 2, 3, 3, 3, 3, 2],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 54,
+          "relative": -1,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "relleke",
+          "name": "Ben",
+          "scores": [3, 2, 2, 2, 3, 5, 3, 4, 4, 3, 3, 2, 2, 3, 4, 3, 2, 4],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 54,
+          "relative": -1,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:16:35.852Z",
+      "par": 55
+    },
+    {
+      "id": "fKfWbMPcgd",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/fKfWbMPcgd",
+      "course": "Angel Mounds Disc Golf Course",
+      "location": "Evansville, Indiana",
+      "layout": "Blue Tees",
+      "layoutKey": "/courses/angel-mounds-disc-golf-course-dJv8/layouts/58398/caddie-book",
+      "date": "2026-01-11T10:23",
+      "pars": [3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+      "distancesFt": [
+        213, 204, 101, 145, 182, 314, 117, 156, 151, 153, 128, 257, 170, 265, 258, 192, 327, 153
+      ],
+      "players": [
+        {
+          "username": "rashad032",
+          "name": "Will",
+          "scores": [3, 3, 2, 3, 4, 4, 2, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 54,
+          "relative": -1,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 3, 2, 3, 3, 5, 2, 3, 3, 4, 3, 2, 3, 2, 4, 3, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 54,
+          "relative": -1,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "connorc3",
+          "name": "Connor",
+          "scores": [3, 3, 2, 2, 4, 5, 3, 2, 3, 3, 3, 3, 3, 3, 4, 4, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 56,
+          "relative": 1,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:16:35.863Z",
+      "par": 55
+    },
+    {
+      "id": "fHJEUAp1Fw",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/fHJEUAp1Fw",
+      "course": "Mesker Park",
+      "location": "Evansville, Indiana",
+      "layout": "Short Tees",
+      "layoutKey": "/courses/mesker-park-R6Ic/layouts/29407/caddie-book",
+      "date": "2026-01-04T10:02",
+      "pars": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+      "distancesFt": [
+        262, 225, 311, 283, 278, 183, 234, 151, 209, 310, 229, 318, 216, 159, 288, 382, 256, 375
+      ],
+      "players": [
+        {
+          "username": "connorc3",
+          "name": "Connor",
+          "scores": [3, 2, 2, 4, 3, 3, 3, 3, 2, 3, 2, 4, 4, 2, 4, 4, 3, 4],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 55,
+          "relative": 1,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 3, 3, 4, 3, 3, 3, 4, 2, 5, 2, 3, 3, 3, 3, 5, 3, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 58,
+          "relative": 4,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "doodoobrown",
+          "name": "Cory",
+          "scores": [4, 4, 3, 4, 2, 3, 2, 3, 4, 4, 3, 4, 3, 2, 3, 4, 3, 4],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 59,
+          "relative": 5,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "rashad032",
+          "name": "Will",
+          "scores": [4, 3, 5, 4, 3, 3, 3, 2, 2, 3, 3, 4, 3, 3, 3, 4, 4, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 59,
+          "relative": 5,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:16:36.646Z",
+      "par": 54
+    },
+    {
+      "id": "bLXdTRsHbW",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/bLXdTRsHbW",
+      "course": "Woodmere",
+      "location": "Evansville, Indiana",
+      "layout": "Main",
+      "layoutKey": "/courses/woodmere-ET2C/layouts/15053/caddie-book",
+      "date": "2026-02-25T15:59",
+      "pars": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+      "distancesFt": [
+        269, 185, 399, 352, 344, 312, 467, 269, 243, 385, 220, 374, 330, 345, 213, 315, 363, 217
+      ],
+      "players": [
+        {
+          "username": "devin47",
+          "name": "Devin",
+          "scores": [2, 3, 2, 4, 5, 2, 3, 2, 2, 3, 2, 3, 3, 4, 2, 3, 4, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 52,
+          "relative": -2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "mdub1807",
+          "name": "Mdub1807",
+          "scores": [3, 3, 3, 3, 4, 3, 4, 3, 3, 3, 3, 3, 4, 3, 2, 3, 4, 2],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 56,
+          "relative": 2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "relleke",
+          "name": "Ben",
+          "scores": [4, 3, 3, 4, 3, 4, 3, 3, 2, 3, 4, 3, 3, 3, 3, 3, 3, 2],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 56,
+          "relative": 2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 2, 3, 4, 4, 3, 5, 4, 3, 3, 3, 4, 3, 3, 2, 3, 3, 2],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 57,
+          "relative": 3,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "udiscba",
+          "name": "Byron",
+          "scores": [3, 3, 3, 3, 4, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 4, 4, 3],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 61,
+          "relative": 7,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:16:36.712Z",
+      "par": 54
+    },
+    {
+      "id": "3y5pQmskIL",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/3y5pQmskIL",
+      "course": "Eagle Valley at USI",
+      "location": "Evansville, Indiana",
+      "layout": "Main",
+      "layoutKey": "/courses/eagle-valley-at-usi-nV0Z/layouts/13793/caddie-book",
+      "date": "2026-02-22T13:08",
+      "pars": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 4],
+      "distancesFt": [
+        241, 194, 197, 221, 250, 319, 233, 222, 106, 194, 273, 227, 214, 228, 199, 500, 260, 461
+      ],
+      "players": [
+        {
+          "username": "relleke",
+          "name": "Ben",
+          "scores": [3, 3, 2, 3, 3, 3, 3, 3, 2, 3, 2, 3, 3, 2, 2, 3, 3, 4],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 50,
+          "relative": -6,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "connorc3",
+          "name": "Connor",
+          "scores": [2, 3, 3, 3, 3, 3, 3, 2, 2, 4, 3, 3, 2, 3, 3, 5, 3, 4],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 54,
+          "relative": -2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [2, 2, 2, 3, 3, 4, 3, 2, 2, 4, 3, 3, 3, 3, 4, 5, 3, 4],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 55,
+          "relative": -1,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "mdub1807",
+          "name": "Mdub1807",
+          "scores": [3, 2, 3, 4, 4, 4, 3, 3, 2, 3, 2, 3, 3, 3, 3, 4, 3, 4],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 56,
+          "relative": 0,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "rashad032",
+          "name": "Will",
+          "scores": [3, 4, 2, 4, 3, 2, 3, 3, 2, 3, 3, 4, 3, 3, 3, 7, 4, 5],
+          "isTeam": false,
+          "roundRating": null,
+          "total": 61,
+          "relative": 5,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:16:36.727Z",
+      "par": 56
+    },
+    {
+      "id": "lolgXo6On7",
+      "source": "udisc",
+      "url": "https://udisc.com/scorecards/lolgXo6On7",
+      "course": "Bayard Park",
+      "location": "Evansville, Indiana",
+      "layout": "Bayard Full 18",
+      "layoutKey": "/courses/bayard-park-rzWK/layouts/120237/caddie-book",
+      "date": "2026-03-12T16:15",
+      "pars": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3],
+      "distancesFt": [
+        293, 277, 246, 367, 254, 202, 190, 200, 260, 338, 312, 264, 433, 373, 227, 274, 237, 363
+      ],
+      "players": [
+        {
+          "username": "swansonjared",
+          "name": "Swanny",
+          "scores": [3, 2, 2, 4, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 2, 3, 2, 3],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 50,
+          "relative": -5,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "timhuffman",
+          "name": "HuffDaddy",
+          "scores": [3, 3, 3, 3, 3, 3, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 52,
+          "relative": -3,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "devin47",
+          "name": "Devin",
+          "scores": [3, 2, 2, 3, 3, 3, 2, 3, 3, 3, 3, 2, 3, 3, 4, 4, 3, 3],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 52,
+          "relative": -3,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "lilmalcthekid",
+          "name": "Malcolm D",
+          "scores": [3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 4, 3, 3],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 53,
+          "relative": -2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "mdub1807",
+          "name": "Mdub1807",
+          "scores": [3, 3, 2, 3, 4, 3, 3, 2, 4, 3, 3, 3, 4, 4, 3, 3, 2, 4],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 56,
+          "relative": 1,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "guest:lolgXo6On7:65c89b476ec81d4b",
+          "name": "Byron",
+          "scores": [2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 4, 4, 3, 3, 3, 3],
+          "isTeam": false,
+          "isGuest": true,
+          "roundRating": null,
+          "total": 56,
+          "relative": 1,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "doodoobrown",
+          "name": "Cory",
+          "scores": [3, 2, 3, 3, 3, 3, 3, 3, 2, 3, 4, 3, 4, 4, 3, 3, 3, 4],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 56,
+          "relative": 1,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "juliegibson",
+          "name": "Julie Gibson",
+          "scores": [3, 4, 2, 4, 3, 2, 3, 3, 3, 3, 4, 3, 4, 4, 2, 3, 3, 4],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 57,
+          "relative": 2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "iriemon1212",
+          "name": "Schon",
+          "scores": [3, 3, 3, 4, 3, 2, 3, 2, 3, 3, 3, 3, 4, 5, 3, 3, 3, 4],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 57,
+          "relative": 2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "cchambruhs",
+          "name": "Dad",
+          "scores": [3, 4, 4, 3, 3, 3, 3, 4, 3, 3, 3, 2, 4, 3, 3, 3, 3, 3],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 57,
+          "relative": 2,
+          "complete": true,
+          "holesPlayed": 18
+        },
+        {
+          "username": "mk3492",
+          "name": "TG",
+          "scores": [3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 5, 4, 4, 4, 5, 2, 3, 4],
+          "isTeam": false,
+          "isGuest": false,
+          "roundRating": null,
+          "total": 62,
+          "relative": 7,
+          "complete": true,
+          "holesPlayed": 18
+        }
+      ],
+      "importedAt": "2026-10-28T12:20:56.410Z",
+      "par": 55
+    }
+  ],
+  "players": [
+    {
+      "username": "devin47",
+      "name": "Devin",
+      "pdgaNumber": "158866",
+      "fullName": "Devin Russell-Sanchez",
+      "verified": true,
+      "identitySource": "https://udisc.com/events/tuesday-dubs-Sbu8g9/participants",
+      "rating": 932,
+      "ratingDate": "2026-08-11",
+      "careerEvents": 48,
+      "careerWins": 5,
+      "statsChecked": "2026-10-27"
+    },
+    {
+      "username": "cchambruhs",
+      "name": "Dad",
+      "pdgaNumber": null,
+      "fullName": "Caleb Chambers",
+      "candidateNumber": "312086",
+      "candidateName": "Caleb Chambers",
+      "candidateSource": "https://www.pdga.com/tour/event/100547"
+    },
+    {
+      "username": "mdub1807",
+      "name": "Mdub1807",
+      "pdgaNumber": null
+    },
+    {
+      "username": "rashad032",
+      "name": "Will",
+      "pdgaNumber": null
+    },
+    {
+      "username": "mk3492",
+      "name": "TG",
+      "pdgaNumber": null
+    },
+    {
+      "username": "tparkerson",
+      "name": "Travis P",
+      "pdgaNumber": null
+    },
+    {
+      "username": "connorc3",
+      "name": "Connor",
+      "pdgaNumber": null
+    },
+    {
+      "username": "udiscba",
+      "name": "Byron",
+      "pdgaNumber": null
+    },
+    {
+      "username": "zwayne93",
+      "name": "Z-Dub",
+      "pdgaNumber": null,
+      "fullName": "Zachary Wilderman",
+      "candidateNumber": "145505",
+      "candidateName": "Zachary Wilderman",
+      "candidateSource": "https://www.pdga.com/player/145505/details"
+    }
+  ],
+  "version": "2026-10-28-provided-cards"
+}

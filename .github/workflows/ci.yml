@@ -6,25 +6,47 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: fairway_friends
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/fairway_friends
+      BETTER_AUTH_SECRET: ci-only-not-a-real-secret-0123456789
+      BETTER_AUTH_URL: http://localhost:3000
+      NEXT_PUBLIC_APP_URL: http://localhost:3000
+      POLSIA_EMAIL_PROXY_URL: https://example.invalid/email-proxy
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '24'
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 11.25.0
-          run_install: false
-      - name: Install web dependencies
-        working-directory: apps/web
-        run: pnpm install --frozen-lockfile
-      - name: Standalone regression tests
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Install
+        run: npm ci --no-audit --no-fund
+      - name: Validate database schema
+        run: npx prisma validate
+      - name: Apply schema to the CI database
+        run: npx prisma db push --skip-generate
+      - name: Lint
+        run: npm run lint
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Unit tests
         run: npm test
-      - name: Web regression tests
-        run: npm run test:web
       - name: Production build
         run: npm run build

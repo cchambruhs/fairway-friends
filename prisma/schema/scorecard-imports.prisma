@@ -1,0 +1,90 @@
+// @polsia:user-owned — public UDisc imports and username-only player records.
+model ImportedScorecard {
+  id          String                    @id @default(cuid())
+  scorecardId String                    @unique
+  sourceUrl   String                    @unique
+  fingerprint String                    @unique
+  courseName  String?
+  courseUrl   String?
+  layoutName  String?
+  playedOn    DateTime?                 @db.Date
+  location    String?
+  holeCount   Int?
+  totalPar    Int?
+  pars        Json?
+  importedByUserId String?
+  clubhouseId String?
+  leagueId String?
+  courseLayoutId String?
+  finalizedAt DateTime?
+  revision    Int                       @default(0)
+  deletedAt   DateTime?
+  deletedByUserId String?
+  players     ImportedScorecardPlayer[]
+  clubhouseLinks ImportedScorecardClubhouse[]
+  clubhouse Clubhouse? @relation(fields: [clubhouseId], references: [id], onDelete: SetNull)
+  league      League? @relation(fields: [leagueId], references: [id], onDelete: SetNull)
+  courseLayout CourseLayout? @relation(fields: [courseLayoutId], references: [id], onDelete: SetNull)
+  assignmentHistory ScorecardAssignmentAudit[]
+  editRequests ScorecardEditRequest[]
+  createdAt   DateTime                  @default(now())
+
+  @@index([playedOn, createdAt])
+  @@index([clubhouseId, playedOn])
+  @@index([leagueId, playedOn])
+  @@index([courseLayoutId])
+  @@index([deletedAt])
+  @@index([importedByUserId])
+  @@map("imported_scorecard")
+}
+
+model UDiscPlayer {
+  id         String                    @id @default(cuid())
+  username   String                    @unique
+  normalizedUsername String?
+  scorecards ImportedScorecardPlayer[]
+  createdAt  DateTime                  @default(now())
+
+  @@index([normalizedUsername])
+  @@map("udisc_player")
+}
+
+model ImportedScorecardPlayer {
+  id            String           @id @default(cuid())
+  scorecardId   String
+  sourceOrder   Int
+  holesPlayed   Int              @default(0)
+  didNotFinish  Boolean          @default(false)
+  udiscPlayerId String?
+  normalizedUsername String?
+  identityId    String?
+  displayName   String?
+  username      String?
+  holeScores    Json
+  totalScore    Int
+  toPar         Int?
+  position      String?
+  scorecard     ImportedScorecard @relation(fields: [scorecardId], references: [id], onDelete: Cascade)
+  player        UDiscPlayer?      @relation(fields: [udiscPlayerId], references: [id], onDelete: Restrict)
+  identity      UDiscIdentity?    @relation(fields: [identityId], references: [id], onDelete: SetNull)
+
+  @@unique([scorecardId, username])
+  @@unique([scorecardId, sourceOrder])
+  @@index([scorecardId])
+  @@index([udiscPlayerId])
+  @@index([identityId])
+  @@index([normalizedUsername])
+  @@map("imported_scorecard_player")
+}
+
+model ImportedScorecardClubhouse {
+  scorecardId  String
+  clubhouseId  String
+  createdAt    DateTime          @default(now())
+  scorecard    ImportedScorecard @relation(fields: [scorecardId], references: [id], onDelete: Cascade)
+  clubhouse    Clubhouse         @relation(fields: [clubhouseId], references: [id], onDelete: Cascade)
+
+  @@id([scorecardId, clubhouseId])
+  @@index([clubhouseId, createdAt])
+  @@map("imported_scorecard_clubhouse")
+}

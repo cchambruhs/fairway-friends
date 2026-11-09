@@ -1,60 +1,63 @@
 # Fairway Friends
 
-Disc golf scorecards, player statistics, leagues and Clubhouses. Start here if you are Caleb, a developer, or an AI coding assistant.
+Disc golf scorecards, player stats, Clubhouses, league play and (soon) free fantasy leagues for friends. Production domain: **fairwayleagueplay.com**.
 
-## What is in this repository?
+This repository is the single source of truth. It merges the two earlier builds:
 
-| Location | Purpose |
-| --- | --- |
-| `apps/web/` | Full editable ChatGPT-hosted application, recovered from saved version 8 on November 6, 2026 |
-| `apps/web/app/` | React screens and server API routes |
-| `apps/web/lib/` | App importer, persistence, scoring, profiles, leagues and Clubhouses |
-| `apps/web/db/`, `apps/web/drizzle/` | App schema and migrations |
-| `importers/`, `lib/`, `tests/` | Earlier standalone modules, preserved and tested; not wired into the web app |
-| `docs/HANDOFF.md` | Architecture, importer trace, verified status and remaining work |
-| `AGENTS.md` | Instructions for coding assistants |
+- **Polsia build** — the base: Next.js 16, Postgres via Prisma, Better Auth logins, the CardCast importer with duplicate protection, score corrections, leagues.
+- **ChatGPT build** (legacy site) — its Clubhouse features, dashboards and look are being rebuilt on this base. Its original code is preserved on the [`legacy-chatgpt-build`](../../tree/legacy-chatgpt-build) branch; its 22 seed scorecards and real CardCast test pages are kept in `data/legacy-chatgpt/` and `tests/fixtures/`.
 
-This combines the existing repository with the actual app source; it is not a reconstruction. Separate changes made inside Polsia, production database contents, uploaded photos and secrets are not included. The source contains historical seed data and test fixtures; they are not a live database backup.
+The product spec is the PRD v4 (Nov 3, 2026), with owner decisions recorded in [`CLAUDE.md`](CLAUDE.md). The merge plan and phase roadmap live in the "Fairway Friends Merge Plan" doc.
 
-## Run the website locally
+## Run it locally
 
-Install Git, Node.js 22.13 or newer (Node 24 recommended), and pnpm 11.25.0. Then:
+Requirements: Node 24 (see `.nvmrc`), npm, and a Postgres database (local install or a free hosted one such as Neon).
 
 ```sh
 git clone https://github.com/cchambruhs/fairway-friends.git
-cd fairway-friends/apps/web
-pnpm install --frozen-lockfile
-pnpm dev
+cd fairway-friends
+npm ci
+cp .env.example .env.local     # then fill in DATABASE_URL and BETTER_AUTH_SECRET
+npx prisma db push             # create tables in your database
+npm run dev                    # http://localhost:3000
 ```
 
-Open the local address printed by the server (normally http://localhost:5173). Windows users can run these commands in PowerShell. Do not use the Linux-only `install:ci` helper on Windows.
-
-The local server uses Cloudflare emulation. See [the app setup guide](apps/web/README.md) for database initialization and local sign-in. A successful build alone does not configure a production database or authentication provider.
-
-## Check changes
-
-From the repository root, after installing web dependencies:
+## Checks
 
 ```sh
-npm test
-npm run test:web
-npm run build
+npm run lint        # Biome
+npm run typecheck   # TypeScript
+npm test            # Vitest unit tests
+npm run build       # production build
 ```
 
-The root modules require no dependency installation. The web app has its own pinned lockfile; do not install it as an npm workspace or replace that lockfile.
+GitHub Actions runs all four, against a throwaway Postgres, on every pull request.
 
-Verified November 6, 2026: **54 standalone tests + 83 web tests passed; production build passed** on Node 24/Linux. GitHub Actions repeats these checks on pushes and pull requests. No production deployment or live UDisc fetch was performed in this repository update.
+## Where things are
 
-## Share with a developer or AI assistant
+| Path | What |
+| --- | --- |
+| `src/app/` | Pages and `/api` route handlers |
+| `src/lib/business/` | Domain logic: importer, scoring, stats, leagues |
+| `src/components/custom/` | Fairway Friends screens |
+| `prisma/schema/` | Database schema, one file per area (`fantasy.prisma` is new) |
+| `data/legacy-chatgpt/` | Seed cards exported from the ChatGPT build, for migration |
+| `tests/unit/`, `tests/e2e/` | Vitest and Playwright tests |
+| `docs/legacy/` | Earlier handoff notes and specs, kept for reference |
+| `.polsia/`, `polsia.toml` | Polsia hosting contract (see below) |
 
-Share https://github.com/cchambruhs/fairway-friends and ask them to read this README, `AGENTS.md` and `docs/HANDOFF.md`. Download everything with **Code → Download ZIP**, or clone it. Public read access does not grant permission to push changes; collaborators can use pull requests or an invitation from the owner. An AI service may still require its GitHub connection to be enabled.
+## Hosting
 
-GitHub stores the source. Updating this repository does **not** automatically update Polsia or either live website; that requires a configured deployment integration.
+Currently deployed on Polsia (`polsia.toml` controls build and start). The app is plain Next.js + Prisma + Postgres, so it can also run on Vercel or any Node host; the Polsia-specific pieces (email proxy, file uploads, owner bootstrap) will sit behind small adapters before any move. Updating this repository does **not** deploy anything by itself.
 
-## Deployment and ownership
+Polsia marks some files as framework-owned (see `.polsia/ownership.json`). Avoid editing those unless the change is deliberate and noted in the pull request.
 
-The app uses Vinext/Vite, React, Cloudflare Workers, D1, R2 and ChatGPT Sites authentication. It is not a drop-in generic Next.js deployment. Read `docs/HANDOFF.md` before moving hosts, especially the trusted authentication boundary.
+## Rules that never change
 
-The original standalone deployment notes are historical and describe a different schema. Do not apply `db/schema.sql` to the web app database; use `apps/web/drizzle/`.
+- Never invent scores, players, ratings or distances. Reject incomplete cards instead.
+- UDisc pages are fetched server-side from the exact approved host only.
+- Imports are all-or-nothing and duplicate-safe.
+- Real-money features (entry fees, payouts, betting, wallets) stay disabled.
+- No secrets in the repo. Use `.env.local` locally and the host's settings in production.
 
-Project code is UNLICENSED unless otherwise stated. Public visibility is not an open-source license. Preserve the included third-party notices.
+Licensing: project code is UNLICENSED (all rights reserved) unless noted. The Polsia template portions are MIT-licensed by Polsia, Inc. (see `LICENSE-POLSIA-TEMPLATE`).

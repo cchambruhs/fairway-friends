@@ -1,0 +1,142 @@
+// @polsia:user-owned — real leagues, score edit approvals, and scorecard removal audit.
+
+enum LeagueRole {
+  LEADER
+  SCOREKEEPER
+  PLAYER
+}
+
+enum ScorecardEditStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum LeagueVisibility {
+  PUBLIC
+  PRIVATE
+}
+
+enum LeagueScoringFormat {
+  FIXED
+  FIELD_SIZE
+}
+
+model League {
+  id          String             @id @default(cuid())
+  name        String
+  joinCode    String             @unique
+  createdByUserId String
+  finalizedAt DateTime?
+  visibility LeagueVisibility @default(PRIVATE)
+  schedule String @default("Schedule to be set by the League Leader")
+  seasonStart DateTime? @db.Date
+  seasonEnd DateTime? @db.Date
+  participantCapacity Int @default(16)
+  scoringFormat LeagueScoringFormat @default(FIXED)
+  fixedPoints Json?
+  plainRules String @default("")
+  logoKey String?
+  logoUrl String?
+  activatedAt DateTime?
+  activationTier String?
+  memberships LeagueMembership[]
+  scorecards  ImportedScorecard[]
+  savedRounds SavedRound[]
+  courses LeagueCourse[]
+  invitations LeagueInvitation[]
+  activationAttempts LeagueActivationAttempt[]
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+
+  @@index([name])
+  @@index([createdByUserId])
+  @@map("league")
+}
+
+model LeagueCourse {
+  id String @id @default(cuid())
+  leagueId String
+  courseId String
+  layoutId String
+  league League @relation(fields: [leagueId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([leagueId, layoutId])
+  @@index([leagueId])
+  @@index([courseId, layoutId])
+  @@map("league_course")
+}
+
+model LeagueInvitation {
+  id String @id @default(cuid())
+  leagueId String
+  token String @unique
+  role LeagueRole @default(PLAYER)
+  createdByUserId String
+  revokedAt DateTime?
+  createdAt DateTime @default(now())
+  league League @relation(fields: [leagueId], references: [id], onDelete: Cascade)
+
+  @@index([leagueId, revokedAt, createdAt])
+  @@map("league_invitation")
+}
+
+model LeagueActivationAttempt {
+  id String @id @default(cuid())
+  leagueId String
+  userId String
+  stripeSessionId String @unique
+  checkoutUrl String
+  amountUsd Int
+  tier String
+  completedAt DateTime?
+  createdAt DateTime @default(now())
+  league League @relation(fields: [leagueId], references: [id], onDelete: Cascade)
+
+  @@index([leagueId, completedAt, createdAt])
+  @@map("league_activation_attempt")
+}
+
+model LeagueMembership {
+  id        String     @id @default(cuid())
+  leagueId  String
+  userId    String
+  role      LeagueRole @default(PLAYER)
+  joinedAt  DateTime   @default(now())
+  league    League     @relation(fields: [leagueId], references: [id], onDelete: Cascade)
+
+  @@unique([leagueId, userId])
+  @@index([userId])
+  @@index([leagueId, role])
+  @@map("league_membership")
+}
+
+model ScorecardEditRequest {
+  id                         String               @id @default(cuid())
+  scorecardId                String
+  proposedByUserId           String
+  status                     ScorecardEditStatus  @default(PENDING)
+  baseRevision               Int
+  requiredLeagueId           String?
+  assignmentOnly            Boolean              @default(false)
+  proposedClubhouseId        String?
+  proposedLeagueId           String?
+  beforeSnapshot             Json
+  proposedSnapshot           Json
+  submitterApprovedByUserId  String?
+  submitterApprovedAt        DateTime?
+  leagueApprovedByUserId     String?
+  leagueApprovedAt           DateTime?
+  rejectedByUserId            String?
+  rejectedAt                  DateTime?
+  rejectionReason             String?
+  createdAt                   DateTime             @default(now())
+  appliedAt                   DateTime?
+  scorecard                   ImportedScorecard    @relation(fields: [scorecardId], references: [id], onDelete: Cascade)
+
+  @@index([scorecardId, createdAt])
+  @@index([status, createdAt])
+  @@index([proposedByUserId, createdAt])
+  @@map("scorecard_edit_request")
+}
