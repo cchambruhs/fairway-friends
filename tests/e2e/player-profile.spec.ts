@@ -112,7 +112,7 @@ test('a player can save and revisit a private profile, photo, and ranked disc ba
 
   await page.goto('/dashboard');
   await expect(page.getByRole('heading', { name: 'Add a scorecard' })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Submit Scorecard' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Import scorecard' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Recently imported' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'View all rounds' })).toBeVisible();
   await openWorkspacePage(page, 'Player profile');

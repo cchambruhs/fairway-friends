@@ -113,18 +113,18 @@ test('signed-in players keep CardCast controls accessible and scorecard reads pr
     await createPlayerSession(page.context(), origin, 'scorecard-controls');
     await page.goto(new URL('/dashboard', origin).toString());
     await expect(page.getByRole('heading', { name: 'Add a scorecard' })).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Submit Scorecard' })).toBeVisible();
-    const details = page.locator('.ff-cardcast-advanced');
+    await expect(page.getByRole('button', { name: 'Import scorecard' })).toBeVisible();
+    const details = page.locator('.ff-cardcast-alternatives');
     await expect(details).toHaveJSProperty('open', false);
     await details.locator('summary').click();
-    await expect(page.getByRole('heading', { name: 'Structured JSON' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Structured JSON' })).toHaveCount(0);
     await expect(page.getByRole('heading', { name: 'Import UDisc scorecard CSVs' })).toBeVisible();
     await details.locator('summary').click();
     const urlInput = page.getByLabel('UDisc / CardCast URL');
     for (const width of [320, 390]) {
       await page.setViewportSize({ width, height: 844 });
       const inputBox = await urlInput.boundingBox();
-      const submitBox = await page.getByRole('button', { name: 'Submit Scorecard' }).boundingBox();
+      const submitBox = await page.getByRole('button', { name: 'Import scorecard' }).boundingBox();
       expect(inputBox).not.toBeNull();
       expect(submitBox).not.toBeNull();
       if (inputBox && submitBox) {
@@ -138,7 +138,7 @@ test('signed-in players keep CardCast controls accessible and scorecard reads pr
       );
     }
     await urlInput.fill('https://example.test/scorecards/not-udisc');
-    await page.getByRole('button', { name: 'Submit Scorecard' }).click();
+    await page.getByRole('button', { name: 'Import scorecard' }).click();
     await expect(page.locator('.ff-cardcast-live-status-invalid')).toBeVisible();
     const anonymousRead = await anonymousContext.request.get(
       new URL('/api/udisc-scorecards', origin).toString(),
@@ -282,7 +282,7 @@ test('imports live N78XJtdFmZ source through the app server and reads it back fr
   await expect(page.getByRole('heading', { name: 'Add a scorecard' })).toBeVisible();
   const urlInput = page.getByLabel('UDisc / CardCast URL');
   await urlInput.fill(liveScorecardUrl);
-  await page.getByRole('button', { name: 'Submit Scorecard' }).click();
+  await page.getByRole('button', { name: 'Import scorecard' }).click();
   await expect(page.locator('.ff-cardcast-live-status-success')).toContainText(
     'Saved and verified from database readback: Red Tail Ridge · Mar 22, 2026 · 7 players.',
     { timeout: 30_000 },
@@ -356,7 +356,7 @@ test('imports live N78XJtdFmZ source through the app server and reads it back fr
 
   await page.goto(new URL('/dashboard', origin).toString());
   await page.getByLabel('UDisc / CardCast URL').fill(liveScorecardUrl);
-  await page.getByRole('button', { name: 'Submit Scorecard' }).click();
+  await page.getByRole('button', { name: 'Import scorecard' }).click();
   await expect(page.locator('.ff-cardcast-live-status-duplicate')).toHaveText(duplicateMessage);
   expect(await prisma.importedScorecard.count({ where: { scorecardId: liveScorecardId } })).toBe(1);
 });

@@ -1,6 +1,7 @@
 // @polsia:user-owned — public player directory contains display names and verified round counts only.
 import 'server-only';
 import { NextResponse } from 'next/server';
+import { loadHiddenOwnerIds } from '@/lib/business/public-name-privacy.server';
 import { PublicPlayerDirectorySchema } from '@/lib/contracts/player-identity';
 import { prisma } from '@/lib/db';
 
@@ -40,10 +41,12 @@ export async function GET(): Promise<Response> {
     select: { id: true },
   });
   const existingUsers = new Set(users.map((user) => user.id));
+  // Players who hid their public name are left out of the public directory.
+  const hiddenUsers = await loadHiddenOwnerIds(prisma, userIds);
   return NextResponse.json(
     PublicPlayerDirectorySchema.parse({
       items: profiles
-        .filter((profile) => existingUsers.has(profile.userId))
+        .filter((profile) => existingUsers.has(profile.userId) && !hiddenUsers.has(profile.userId))
         .map((profile) => {
           const identity = identitiesByUser.get(profile.userId);
           return {

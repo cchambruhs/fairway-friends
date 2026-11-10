@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
+import { AccountPublicNamePrivacy } from '@/components/custom/account-public-name-privacy';
 import { AccountThemePreference } from '@/components/custom/account-theme-preference';
 import { Button } from '@/components/ui/button';
 import { authClient, signOut, useIsAdmin, useSession } from '@/lib/auth-client';
@@ -79,6 +80,7 @@ export function AccountExperience({ ownerMode = false }: { ownerMode?: boolean }
           </div>
         </dl>
         <AccountThemePreference />
+        <AccountPublicNamePrivacy />
         {ownerMode ? (
           <section className="ff-profile-security" aria-labelledby="owner-security-title">
             <div>

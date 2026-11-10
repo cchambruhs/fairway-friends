@@ -3,6 +3,9 @@ model PlayerPreference {
   id        String   @id @default(cuid())
   userId    String   @unique
   theme     String   @default("system")
+  /// Owner decision 2026-11-09: when true, public pages show this player as "Player N" on
+  /// each card (their place on that card) and never show their name or UDisc username.
+  hidePublicName Boolean @default(false)
   updatedAt DateTime @updatedAt
 
   @@map("player_preference")

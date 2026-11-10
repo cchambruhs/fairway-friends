@@ -58,3 +58,4 @@ lerna-debug.log*
 scratch/
 .turbo/
 Thumbs.db
+/migration-reports/

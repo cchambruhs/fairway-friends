@@ -11,6 +11,8 @@ type IdentityLookupClient = Pick<
   'uDiscPlayer' | 'importedScorecardPlayer'
 >;
 
+export const SELF_CLAIM_NOTE = 'Self-claimed: player was unclaimed (no admin review required).';
+
 export class PlayerIdentityConflict extends Error {
   constructor(message: string) {
     super(message);
@@ -97,18 +99,20 @@ export async function registerPlayerIdentity(
       },
     };
   }
-  if (prior?.pendingClaimUserId === user.id) {
-    return {
-      identity: {
-        id: prior.id,
-        username: choice.username,
-        status: 'pending' as const,
-        claimStatus: 'pending' as const,
-      },
-    };
+  if (prior?.ownerUserId) {
+    throw new PlayerIdentityConflict('This UDisc username is already claimed by another player.');
   }
-  if (prior?.ownerUserId || prior?.pendingClaimUserId) {
-    throw new PlayerIdentityConflict('This UDisc username is already claimed or awaiting review.');
+  if (prior?.pendingClaimUserId && prior.pendingClaimUserId !== user.id) {
+    throw new PlayerIdentityConflict('Another player has already claimed this UDisc username.');
+  }
+  const alreadyOwned = await transaction.uDiscIdentity.findUnique({
+    where: { ownerUserId: user.id },
+    select: { normalizedUsername: true },
+  });
+  if (alreadyOwned) {
+    throw new PlayerIdentityConflict(
+      `Your account is already linked to @${alreadyOwned.normalizedUsername}.`,
+    );
   }
   if (choice.mode === 'claim' && !matches.exists) {
     throw new PlayerIdentityConflict('No saved UDisc player matches that exact username.');
@@ -124,7 +128,7 @@ export async function registerPlayerIdentity(
       data: {
         normalizedUsername,
         udiscPlayerId,
-        ...(choice.mode === 'claim' ? { pendingClaimUserId: user.id } : { ownerUserId: user.id }),
+        ownerUserId: user.id,
       },
       select: { id: true },
     });
@@ -134,11 +138,12 @@ export async function registerPlayerIdentity(
       where: {
         id: prior.id,
         ownerUserId: null,
-        pendingClaimUserId: null,
+        OR: [{ pendingClaimUserId: null }, { pendingClaimUserId: user.id }],
       },
       data: {
         ...(udiscPlayerId ? { udiscPlayerId } : {}),
-        ...(choice.mode === 'claim' ? { pendingClaimUserId: user.id } : { ownerUserId: user.id }),
+        ownerUserId: user.id,
+        pendingClaimUserId: null,
       },
     });
     if (reserved.count !== 1) {
@@ -155,22 +160,33 @@ export async function registerPlayerIdentity(
   });
 
   if (choice.mode === 'claim') {
-    await transaction.playerClaim.create({
-      data: { identityId, claimantUserId: user.id },
+    // Owner decision 2026-11-09: an unclaimed player can be claimed instantly, with no admin
+    // review. The claim is still recorded (auto-approved) so an admin can audit or reverse it.
+    const now = new Date();
+    const pending = await transaction.playerClaim.updateMany({
+      where: { identityId, claimantUserId: user.id, status: 'PENDING' },
+      data: { status: 'APPROVED', reviewedAt: now, reviewNote: SELF_CLAIM_NOTE },
     });
+    if (pending.count === 0) {
+      await transaction.playerClaim.create({
+        data: {
+          identityId,
+          claimantUserId: user.id,
+          status: 'APPROVED',
+          reviewedAt: now,
+          reviewNote: SELF_CLAIM_NOTE,
+        },
+      });
+    }
   }
-  // A pending claim must not associate saved scorecards with the claimant's account.
-  // The admin approval transaction performs the historical link after ownership is granted.
-  if (choice.mode === 'create') {
-    await linkIdentityHistory(transaction, identityId, normalizedUsername);
-  }
+  await linkIdentityHistory(transaction, identityId, normalizedUsername);
 
   return {
     identity: {
       id: identityId,
       username: choice.username,
-      status: choice.mode === 'claim' ? ('pending' as const) : ('verified' as const),
-      claimStatus: choice.mode === 'claim' ? ('pending' as const) : ('none' as const),
+      status: 'verified' as const,
+      claimStatus: choice.mode === 'claim' ? ('approved' as const) : ('none' as const),
     },
   };
 }

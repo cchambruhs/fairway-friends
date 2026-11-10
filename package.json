@@ -21,7 +21,8 @@
     "db:migrate:dev": "prisma migrate dev",
     "db:migrate:deploy": "prisma migrate deploy",
     "db:studio": "prisma studio",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "migrate:legacy": "node --conditions=react-server --import tsx scripts/migrate-legacy-scorecards.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "5.4.0",
@@ -71,7 +72,9 @@
     "@vitejs/plugin-react": "4.4.0",
     "jsdom": "26.0.0",
     "prisma": "6.19.3",
+    "server-only": "0.0.1",
     "tailwindcss": "4.3.0",
+    "tsx": "4.19.2",
     "typescript": "5.5.4",
     "vitest": "3.2.6"
   },
