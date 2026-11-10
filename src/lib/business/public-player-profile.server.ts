@@ -4,10 +4,16 @@ import 'server-only';
 import { importedScorecardItem } from '@/lib/business/imported-scorecard';
 import { normalizeUDiscUsername } from '@/lib/business/normalize-udisc-username';
 import { buildPublicPlayerProfile } from '@/lib/business/player-statistics';
+import { hiddenPlayerLabel } from '@/lib/business/public-name-privacy';
+import { loadHiddenOwnerIds } from '@/lib/business/public-name-privacy.server';
 import { mergeSavedRoundStatistics } from '@/lib/business/saved-round-statistics';
 import { prisma } from '@/lib/db';
 
-async function savedCards(leagueIds: readonly string[] = []) {
+/**
+ * Public card list for profile pages. Players who hid their public name are shown as
+ * "Player N" with no username, except to themselves (viewerUserId).
+ */
+async function savedCards(leagueIds: readonly string[] = [], viewerUserId?: string) {
   const rows = await prisma.importedScorecard.findMany({
     where: {
       finalizedAt: { not: null },
@@ -22,7 +28,46 @@ async function savedCards(leagueIds: readonly string[] = []) {
     },
     orderBy: [{ playedOn: 'asc' }, { createdAt: 'asc' }],
   });
-  return rows.map((row) => importedScorecardItem(row));
+  const identityIds = [
+    ...new Set(
+      rows.flatMap((row) =>
+        row.players.flatMap((player) => (player.identityId ? [player.identityId] : [])),
+      ),
+    ),
+  ];
+  const owners = identityIds.length
+    ? await prisma.uDiscIdentity.findMany({
+        where: { id: { in: identityIds }, ownerUserId: { not: null } },
+        select: { id: true, ownerUserId: true },
+      })
+    : [];
+  const ownerByIdentity = new Map(owners.map((identity) => [identity.id, identity.ownerUserId]));
+  const hidden = await loadHiddenOwnerIds(prisma, ownerByIdentity.values());
+  if (viewerUserId) hidden.delete(viewerUserId);
+  const hiddenEntryIds = new Set(
+    rows.flatMap((row) =>
+      row.players.flatMap((player) => {
+        const owner = player.identityId ? ownerByIdentity.get(player.identityId) : null;
+        return owner && hidden.has(owner) ? [player.id] : [];
+      }),
+    ),
+  );
+  return rows.map((row) => {
+    const item = importedScorecardItem(row);
+    if (!hiddenEntryIds.size) return item;
+    return {
+      ...item,
+      players: item.players.map((player, index) =>
+        hiddenEntryIds.has(player.id)
+          ? { ...player, displayName: hiddenPlayerLabel(index + 1), username: null }
+          : player,
+      ),
+    };
+  });
+}
+
+async function publicNameHidden(userId: string): Promise<boolean> {
+  return (await loadHiddenOwnerIds(prisma, [userId])).has(userId);
 }
 
 async function identifiedUsernames(cards: Awaited<ReturnType<typeof savedCards>>) {
@@ -82,6 +127,8 @@ export async function publicProfileForUsername(username: string) {
 }
 
 export async function publicProfileForUser(userId: string, viewerUserId?: string) {
+  // A player who hid their public name has no public profile; they still see their own.
+  if (viewerUserId !== userId && (await publicNameHidden(userId))) return null;
   const viewerMemberships = viewerUserId
     ? await prisma.leagueMembership.findMany({
         where: { userId: viewerUserId },
@@ -154,7 +201,7 @@ export async function publicProfileForUser(userId: string, viewerUserId?: string
     });
     return mergeSavedRoundStatistics(profile, userId, savedRoundStats);
   }
-  const cards = await savedCards(leagueIds);
+  const cards = await savedCards(leagueIds, viewerUserId);
   const knownUsernames = await identifiedUsernames(cards);
   const profile = buildPublicPlayerProfile({
     displayName: savedProfile?.displayName ?? user.name,

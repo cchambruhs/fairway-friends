@@ -2,6 +2,8 @@
 import 'server-only';
 import { NextResponse } from 'next/server';
 import { aggregateGlobalStats, type GlobalStatsCardRecord } from '@/lib/business/global-stats';
+import { maskHiddenPublicNames } from '@/lib/business/public-name-privacy';
+import { loadHiddenOwnerIds } from '@/lib/business/public-name-privacy.server';
 import { GlobalStatMetricSchema, GlobalStatsResponseSchema } from '@/lib/contracts/global-stats';
 import { prisma } from '@/lib/db';
 
@@ -52,6 +54,7 @@ export async function GET(request: Request): Promise<Response> {
       })
     : [];
   const owners = new Map(identities.map((identity) => [identity.id, identity.ownerUserId]));
+  const hiddenOwnerIds = await loadHiddenOwnerIds(prisma, owners.values());
   const sourceCards: GlobalStatsCardRecord[] = rows.map((row) => ({
     id: row.id,
     scorecardId: row.scorecardId,
@@ -69,20 +72,23 @@ export async function GET(request: Request): Promise<Response> {
     leagueName: row.league?.name ?? null,
     hasVerifiedChanges: row.editRequests.length > 0,
     courseHoles: row.courseLayout?.holes ?? [],
-    players: row.players.map((player) => ({
-      id: player.id,
-      identityId: player.identityId,
-      identityOwnerUserId: player.identityId ? (owners.get(player.identityId) ?? null) : null,
-      normalizedUsername: player.normalizedUsername,
-      displayName: player.displayName,
-      username: player.username,
-      holeScores: player.holeScores,
-      holesPlayed: player.holesPlayed,
-      didNotFinish: player.didNotFinish,
-      totalScore: player.totalScore,
-      toPar: player.toPar,
-      position: player.position,
-    })),
+    players: maskHiddenPublicNames(
+      row.players.map((player) => ({
+        id: player.id,
+        identityId: player.identityId,
+        identityOwnerUserId: player.identityId ? (owners.get(player.identityId) ?? null) : null,
+        normalizedUsername: player.normalizedUsername,
+        displayName: player.displayName,
+        username: player.username,
+        holeScores: player.holeScores,
+        holesPlayed: player.holesPlayed,
+        didNotFinish: player.didNotFinish,
+        totalScore: player.totalScore,
+        toPar: player.toPar,
+        position: player.position,
+      })),
+      hiddenOwnerIds,
+    ),
   }));
 
   return NextResponse.json(

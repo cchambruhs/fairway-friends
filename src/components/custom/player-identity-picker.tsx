@@ -60,8 +60,8 @@ export function PlayerIdentityPicker({
     <fieldset className="ff-identity-choice">
       <legend>Choose your player profile</legend>
       <p>
-        Search your exact UDisc username. Claims for saved players stay pending until an app admin
-        reviews them.
+        Search your exact UDisc username. If nobody has claimed that player yet, it becomes yours
+        right away, along with every saved scorecard it appears on.
       </p>
       <Label htmlFor="udisc-username-choice">UDisc username</Label>
       <div className="ff-identity-search-row">

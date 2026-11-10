@@ -7,6 +7,7 @@ Read `README.md` first. `AGENTS.md` is Polsia's template contract (ownership zon
 - **Public Complete History:** every scorecard from every Clubhouse appears in the public history. Names show by default; a player can turn on "hide my name on public cards", and is then shown as "Player N" (their place on that card), with their UDisc username hidden too. Chat, DMs, photos, phone numbers and emails are never public.
 - **Migration:** all cards from the ChatGPT site (~40) and the Polsia database end up in this database. Match by UDisc scorecard id and score fingerprint, never by display name. Every run produces a report.
 - **Import UI:** CardCast link is the main path; CSV sits behind an "or paste a CSV" option. Remove the JSON paste importer.
+- **Claiming players:** an unclaimed UDisc player is claimed instantly, with no admin review. Each account owns at most one player, and every claim is logged as an auto-approved PlayerClaim so it can be audited or reversed.
 - **Fantasy:** free, friends-only. No money fields, ever, without a new approved spec.
 - **Payments:** stay disabled (Stripe module installed but off).
 - **Hosting:** Polsia for now; keep everything portable to Vercel.

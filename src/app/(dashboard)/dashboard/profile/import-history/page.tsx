@@ -1,12 +1,10 @@
-// @polsia:user-owned — signed-in UDisc export and structured scorecard import workspace.
+// @polsia:user-owned — signed-in historical UDisc CSV import workspace (JSON entry removed per PRD v4 §3).
 import type { Metadata } from 'next';
-import { StructuredScorecardJsonImport } from '@/components/custom/structured-scorecard-json-import';
 import { UDiscExportImport } from '@/components/custom/udisc-export-import';
 
 export const metadata: Metadata = {
   title: 'Import history',
-  description:
-    'Import historical UDisc CSV exports and structured scorecards into Fairway Friends.',
+  description: 'Import historical UDisc CSV exports into Fairway Friends.',
 };
 
 export default function ImportHistoryPage() {
@@ -15,12 +13,11 @@ export default function ImportHistoryPage() {
       <header className="ff-player-profile-heading">
         <p className="ff-player-profile-kicker">PROFILE · IMPORT HISTORY</p>
         <h1>Import history</h1>
-        <p>Review and add historical UDisc exports and structured scorecard records.</p>
+        <p>Review and add historical UDisc CSV exports.</p>
       </header>
       <section id="csv-import" aria-label="UDisc CSV import">
         <UDiscExportImport initialSourceUrl="" />
       </section>
-      <StructuredScorecardJsonImport />
     </div>
   );
 }

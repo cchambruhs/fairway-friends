@@ -42,6 +42,11 @@ jobs:
         run: npx prisma validate
       - name: Apply schema to the CI database
         run: npx prisma db push --skip-generate
+      - name: Rehearse legacy scorecard migration (commit, then repeat-safe re-run)
+        run: |
+          npm run migrate:legacy -- --source data/legacy-chatgpt/seed.json --commit
+          npm run migrate:legacy -- --source data/legacy-chatgpt/seed.json --commit | tee rerun.log
+          grep -q '"created": 0' rerun.log
       - name: Lint
         run: npm run lint
       - name: Typecheck

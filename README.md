@@ -33,6 +33,10 @@ npm run build       # production build
 
 GitHub Actions runs all four, against a throwaway Postgres, on every pull request.
 
+## Moving scorecards in
+
+All 42 known scorecards (41 from the legacy ChatGPT site, plus Polsia's) are loaded with `npm run migrate:legacy`. See [docs/MIGRATION.md](docs/MIGRATION.md) for the steps and the rehearsal results.
+
 ## Where things are
 
 | Path | What |

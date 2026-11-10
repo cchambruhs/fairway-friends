@@ -2,6 +2,7 @@
 
 import { importedScorecardFingerprint } from '@/lib/business/imported-scorecard';
 import { normalizeUDiscUsername } from '@/lib/business/normalize-udisc-username';
+import { HIDDEN_PLAYER_CONTRIBUTOR_LABEL } from '@/lib/business/public-name-privacy';
 import type { GlobalStatMetric, GlobalStatsResponse } from '@/lib/contracts/global-stats';
 import { ImportedScorecardDraftSchema } from '@/lib/contracts/imported-scorecard';
 
@@ -25,6 +26,8 @@ export type GlobalStatsPlayerRecord = {
   totalScore: number;
   toPar: number | null;
   position: string | null;
+  /** Already masked by maskHiddenPublicNames: label is "Player N", no username or profile. */
+  hidden?: boolean;
 };
 
 export type GlobalStatsCardRecord = {
@@ -316,7 +319,7 @@ export function aggregateGlobalStats(
   for (const { row, play } of matchingPlays) {
     const entry = playerTotals.get(play.playerKey) ?? {
       key: play.playerKey,
-      label: play.label,
+      label: play.player.hidden ? HIDDEN_PLAYER_CONTRIBUTOR_LABEL : play.label,
       username: play.player.username,
       profileHref: play.profileHref,
       cards: new Set<string>(),

@@ -1,9 +1,10 @@
-// @polsia:user-owned — compact signed-in UDisc importer with optional JSON and CSV tools.
+// @polsia:user-owned — compact signed-in UDisc importer; CSV is an optional fallback (PRD v4 §3).
 'use client';
 
 import { Link2, LoaderCircle } from 'lucide-react';
 import Link from 'next/link';
 import { type FormEvent, useCallback, useEffect, useState } from 'react';
+import { UDiscExportImport } from '@/components/custom/udisc-export-import';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { apiFetch } from '@/lib/api-client';
@@ -201,7 +202,7 @@ export function CardCastImportForm({
             value={clubhouseIds.length ? clubhouseIds : ['personal']}
             size={Math.min(4, Math.max(2, clubhouses.length + 1))}
           >
-            <option value="personal">Personal only</option>
+            <option value="personal">No Clubhouse</option>
             {clubhouses.map((clubhouse) => (
               <option key={clubhouse.id} value={clubhouse.id}>
                 {clubhouse.name}
@@ -228,7 +229,9 @@ export function CardCastImportForm({
             </div>
           ) : null}
           {!destinationsLoading && !destinationsError && clubhouses.length === 0 ? (
-            <p className="ff-cardcast-hint">No memberships yet. This round will stay personal.</p>
+            <p className="ff-cardcast-hint">
+              No Clubhouse memberships yet. The round still goes into the public Complete History.
+            </p>
           ) : null}
         </div>
         <Button
@@ -266,9 +269,12 @@ export function CardCastImportForm({
         </p>
       ) : null}
 
-      <p className="ff-cardcast-alternatives">
-        <Link href="/dashboard/profile/import-history#csv-import">or paste a CSV instead</Link>
-      </p>
+      <details className="ff-cardcast-alternatives">
+        <summary>or paste a CSV instead</summary>
+        <div className="mt-3">
+          <UDiscExportImport initialSourceUrl="" />
+        </div>
+      </details>
     </section>
   );
 }

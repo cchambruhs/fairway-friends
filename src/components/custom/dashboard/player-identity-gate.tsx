@@ -92,8 +92,8 @@ export function PlayerIdentityGate({
         <p className="ff-player-profile-kicker">PLAYER SETUP</p>
         <h1 className="text-2xl font-semibold">Choose your player profile, {displayName}</h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          This choice is required before the workspace opens. Existing UDisc records need an app
-          admin’s approval before they are linked to your account.
+          This choice is required before the workspace opens. Claiming an unclaimed UDisc player
+          links all of its saved scorecards to your account immediately.
         </p>
         <div className="mt-6">
           <PlayerIdentityPicker value={choice} onChange={setChoice} />
@@ -135,8 +135,8 @@ export function PlayerIdentityGate({
     </div>
   ) : state?.identity?.status === 'pending' ? (
     <output className="ff-player-identity-notice" aria-live="polite">
-      Your UDisc claim is pending admin review. Existing player history remains unlinked to your
-      account until it is approved.
+      Your UDisc claim was made before instant claiming and is still pending. It is approved
+      automatically when the scorecard migration runs.
     </output>
   ) : null;
 
